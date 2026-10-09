@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>to do app</title>
+    </head>
+    <body>
+        <h2>Todolist</h2>
+        <ul id="Todolist"></ul>
+
+<input type="text" id="addtask">
+<button id="submit">Add</button>
+<h4>completed</h4>
+<ul id="completedlist"></ul>
+   
+        
+    </body>
+    <script>
+            let submit=document.getElementById("submit")
+            let addtask=document.getElementById("addtask");
+            let Todolist=document.getElementById("Todolist");
+            let list=new Array();
+            submit.addEventListener('click',(event)=>{
+                if(addtask.value!=''){
+                list.push(addtask.value);
+                // Todolist.innerHTML+=`<li id="${list.length-1}"><button onclick="del(${list.length - 1})">${addtask.value}</button></li>`
+                Todolist.innerHTML+=`<li id="${list.length-1}"><button onclick="del(${list.length-1})">${addtask.value}</button></li>`
+                addtask.value=''
+                }
+                else{
+                    console.log("it is empty")
+                }
+                console.log(list.length-1);
+            })
+
+           function  del(id){
+                let completedlist=document.getElementById('completedlist');
+                completedlist.innerHTML+=`<li>${list[id]}</li>`
+                document.getElementById(id).style.display="none"
+
+            }
+            
+    </script>
+</html>

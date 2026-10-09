@@ -1,0 +1,28 @@
+.form-container {
+    width: 500px;
+    margin: 200px 400px;
+}
+
+/* .form-row {
+    margin-bottom: 15px;
+}
+
+.form-row label {
+    display: inline-block;
+    width: 120px;
+    white-space: initial;
+}
+
+.form-row input[type="text"],
+.form-row input[type="number"] {
+    width: 250px;
+    padding: 8px;
+}
+
+.form-row input[type="radio"] {
+    margin-left: 5px;
+}
+
+.form-row span {
+    margin-right: 15px;
+} */

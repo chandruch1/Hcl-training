@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+}
+
+.ssri {
+    display: flex;
+    column-gap: 30px;
+}
+
+.chandru {
+    row-gap: 100px;
+}

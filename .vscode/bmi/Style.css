@@ -1,0 +1,22 @@
+h1 {
+    color: green;
+}
+
+.form {
+    width: 350px;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    margin: 50px auto;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.form label {
+    margin-right: 10px;
+}

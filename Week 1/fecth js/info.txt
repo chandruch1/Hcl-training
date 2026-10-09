@@ -1,0 +1,5 @@
+Hello Chandru!
+Welcome to JavaScript.
+JavaScript is easy to learn.
+Fetch is used to get data.
+Keep practicing every day!
