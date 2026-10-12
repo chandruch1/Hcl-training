@@ -1,0 +1,240 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "OnlineExamApi",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/questions": {
+      "post": {
+        "tags": [
+          "Questions"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateQuestionDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateQuestionDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateQuestionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Questions"
+        ],
+        "parameters": [
+          {
+            "name": "subject",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/questions/{id}": {
+      "get": {
+        "tags": [
+          "Questions"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Questions"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateQuestionDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateQuestionDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateQuestionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Questions"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateQuestionDto": {
+        "required": [
+          "correctOption",
+          "optionA",
+          "optionB",
+          "optionC",
+          "optionD",
+          "subject",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "subject": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "optionA": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "optionB": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "optionC": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "optionD": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "correctOption": {
+            "minLength": 1,
+            "pattern": "^[A-Da-d]$",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateQuestionDto": {
+        "required": [
+          "correctOption",
+          "optionA",
+          "optionB",
+          "optionC",
+          "optionD",
+          "subject",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "subject": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "optionA": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "optionB": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "optionC": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "optionD": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "correctOption": {
+            "minLength": 1,
+            "pattern": "^[A-Da-d]$",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Questions"
+    }
+  ]
+}
