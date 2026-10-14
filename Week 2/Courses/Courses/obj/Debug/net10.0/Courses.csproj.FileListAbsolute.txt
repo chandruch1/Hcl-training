@@ -1,0 +1,16 @@
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\bin\Debug\net10.0\Courses.exe
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\bin\Debug\net10.0\Courses.deps.json
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\bin\Debug\net10.0\Courses.runtimeconfig.json
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\bin\Debug\net10.0\Courses.dll
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\bin\Debug\net10.0\Courses.pdb
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\obj\Debug\net10.0\Courses.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\obj\Debug\net10.0\Courses.AssemblyInfoInputs.cache
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\obj\Debug\net10.0\Courses.AssemblyInfo.cs
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\obj\Debug\net10.0\Courses.csproj.CoreCompileInputs.cache
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\obj\Debug\net10.0\Courses.sourcelink.json
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\obj\Debug\net10.0\Courses.dll
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\obj\Debug\net10.0\refint\Courses.dll
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\obj\Debug\net10.0\Courses.pdb
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\obj\Debug\net10.0\Courses.genruntimeconfig.cache
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\obj\Debug\net10.0\ref\Courses.dll
+C:\Users\CHANDRU\OneDrive\Desktop\hcl\Week 2\Courses\Courses\obj\Debug\net10.0\Courses.csproj.Up2Date

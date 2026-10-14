@@ -17,7 +17,7 @@ abstract class Orders
 
         if (OrderId <= 0)
         {
-            throw new ArgumentOutOfRangeException("order id must be positive");
+            throw new ArgumentOutOfRangeException( nameof(OrderId), OrderId, "Order ID must be positive");
         }
         if (string.IsNullOrWhiteSpace(CustomerName))
         {

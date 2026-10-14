@@ -1,0 +1,165 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\courses\\courses\\services\\learnerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|solutionrelative:courses\\services\\learnerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\courses\\courses\\models\\enrollmentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|solutionrelative:courses\\models\\enrollmentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\courses\\courses\\services\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|solutionrelative:courses\\services\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\courses\\courses\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|solutionrelative:courses\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\courses\\courses\\services\\courseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|solutionrelative:courses\\services\\courseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\courses\\courses\\models\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|solutionrelative:courses\\models\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\courses\\courses\\models\\learner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|solutionrelative:courses\\models\\learner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\courses\\courses\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D5F5B76-03DB-D49E-456B-9867A02FC413}|Courses\\Courses.csproj|solutionrelative:courses\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 167,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EnrollmentService.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Services\\EnrollmentService.cs",
+              "RelativeDocumentMoniker": "Courses\\Services\\EnrollmentService.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Services\\EnrollmentService.cs",
+              "RelativeToolTip": "Courses\\Services\\EnrollmentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T06:16:20.606Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Learner.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Models\\Learner.cs",
+              "RelativeDocumentMoniker": "Courses\\Models\\Learner.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Models\\Learner.cs",
+              "RelativeToolTip": "Courses\\Models\\Learner.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA2wC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T15:15:41.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CourseService.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Services\\CourseService.cs",
+              "RelativeDocumentMoniker": "Courses\\Services\\CourseService.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Services\\CourseService.cs",
+              "RelativeToolTip": "Courses\\Services\\CourseService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T14:41:00.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EnrollmentStatus.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Models\\EnrollmentStatus.cs",
+              "RelativeDocumentMoniker": "Courses\\Models\\EnrollmentStatus.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Models\\EnrollmentStatus.cs",
+              "RelativeToolTip": "Courses\\Models\\EnrollmentStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T14:36:20.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Enrollment.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Models\\Enrollment.cs",
+              "RelativeDocumentMoniker": "Courses\\Models\\Enrollment.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Models\\Enrollment.cs",
+              "RelativeToolTip": "Courses\\Models\\Enrollment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T06:09:33.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LearnerService.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Services\\LearnerService.cs",
+              "RelativeDocumentMoniker": "Courses\\Services\\LearnerService.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Services\\LearnerService.cs",
+              "RelativeToolTip": "Courses\\Services\\LearnerService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T14:21:31.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Course.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Models\\Course.cs",
+              "RelativeDocumentMoniker": "Courses\\Models\\Course.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Models\\Course.cs",
+              "RelativeToolTip": "Courses\\Models\\Course.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA2wDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T14:04:13.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Program.cs",
+              "RelativeDocumentMoniker": "Courses\\Program.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Courses\\Courses\\Program.cs",
+              "RelativeToolTip": "Courses\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T05:46:40.454Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

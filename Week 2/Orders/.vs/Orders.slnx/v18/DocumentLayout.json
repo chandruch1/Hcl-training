@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Orders\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DE243C3A-6510-8065-79C6-6359AB8131D1}|Orders\\Orders.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\orders\\orders\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE243C3A-6510-8065-79C6-6359AB8131D1}|Orders\\Orders.csproj|solutionrelative:orders\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DE243C3A-6510-8065-79C6-6359AB8131D1}|Orders\\Orders.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\orders\\orders\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE243C3A-6510-8065-79C6-6359AB8131D1}|Orders\\Orders.csproj|solutionrelative:orders\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,8 +18,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 167,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Orders\\Orders\\Product.cs",
+              "RelativeDocumentMoniker": "Orders\\Product.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Orders\\Orders\\Product.cs",
+              "RelativeToolTip": "Orders\\Product.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T03:21:13.606Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -25,21 +43,25 @@
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Orders\\Orders\\Program.cs",
               "RelativeDocumentMoniker": "Orders\\Program.cs",
               "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Orders\\Orders\\Program.cs",
               "RelativeToolTip": "Orders\\Program.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAqwGIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAowB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-13T14:07:53.538Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             }
           ]
         }
