@@ -13,6 +13,8 @@ namespace Courses.Models
         public decimal DiscountFee { get; set; }
         public decimal FinalFee { get; set; }
         public EnrollmentStatus Status { get; set; }
+        public PaymentStatus PaymentStatus { get; set; }
+    = PaymentStatus.Pending;
 
         public Enrollment(
             int enrollmentId,

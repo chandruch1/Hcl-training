@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Courses.Models;
+using Courses.Exceptions;
 
 namespace Courses.Services
 {
@@ -27,28 +28,31 @@ namespace Courses.Services
                 ?? throw new ArgumentNullException(nameof(enrollmentService));
         }
 
-        // Register a learner and create an enrollment
+
+
         public void Register(Learner newLearner)
         {
             if (newLearner == null)
-            {
                 throw new ArgumentNullException(nameof(newLearner));
-            }
 
-            // Check duplicate learner ID
-            if (learners.Any(l => l.LearnerId == newLearner.LearnerId))
-            {
-                throw new ArgumentException(
-                    "Learner is already registered.");
-            }
+            // Find whether the learner is already registered
+            Learner existingLearner =
+                learners.FirstOrDefault(l => l.LearnerId == newLearner.LearnerId);
 
-            // Find the selected course
-            Course course = courseService.FindByCode(
-                newLearner.CourseCode);
+            // Find the requested course
+            Course course = courseService.FindByCode(newLearner.CourseCode);
 
             if (course == null)
             {
                 Console.WriteLine("Course is not available.");
+                return;
+            }
+
+            // Prevent duplicate enrollment in the same course
+            if (existingLearner != null &&
+                enrollmentService.HasEnrollment(newLearner.LearnerId, course.CourseCode))
+            {
+                Console.WriteLine("Learner is already enrolled in this course.");
                 return;
             }
 
@@ -59,11 +63,10 @@ namespace Courses.Services
                 return;
             }
 
-            // Calculate enrollment fee
             decimal discount = 0m;
             decimal finalFee = course.Fee - discount;
 
-            // Create enrollment
+            // Create an enrollment record
             Enrollment enrollment = new Enrollment(
                 nextEnrollmentId,
                 newLearner.LearnerId,
@@ -75,18 +78,19 @@ namespace Courses.Services
                 EnrollmentStatus.Active
             );
 
-            // Store enrollment first
             enrollmentService.AddEnrollment(enrollment);
+            enrollmentService.AddLearnerCourses(course.CourseCode, newLearner.LearnerId);
 
-            // Save learner and update course only after successful addition
-            learners.Add(newLearner);
+            // Add the learner only if they are new
+            if (existingLearner == null)
+                learners.Add(newLearner);
+
             course.EnrolledCount++;
             nextEnrollmentId++;
 
             Console.WriteLine(
-                $"Learner {newLearner.LearnerId} registered successfully.");
+                $"Learner {newLearner.LearnerId} enrolled in {course.CourseCode} successfully.");
         }
-
         // Display all learners
         public void ViewAllLearner()
         {
@@ -117,7 +121,7 @@ namespace Courses.Services
 
             if (learner == null)
             {
-                Console.WriteLine("Learner not found.");
+                throw new IdnotFoundException("Id is Not Available");
                 return;
             }
 

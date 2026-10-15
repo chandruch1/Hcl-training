@@ -1,20 +1,30 @@
-﻿
-using System;
-using Courses.Models;
+﻿using Courses.Models;
+using Courses.Payments;
 using Courses.Services;
+using System;
 
 class Program
 {
     static void Main(string[] args)
     {
-        // Create service objects once
         CourseService courseService = new CourseService();
         EnrollmentService enrollmentService = new EnrollmentService();
 
-        // Inject the existing service objects
         LearnerService learnerService = new LearnerService(
             courseService,
             enrollmentService);
+
+        // Create payment processors using interface references
+        IPaymentProcessor onlineProcessor =
+            new OnlinePaymentProcessor(false); 
+
+        IPaymentProcessor classroomProcessor =
+            new ClassroomPaymentProcessor(true); // Simulate success
+
+        PaymentService paymentService = new PaymentService(
+            courseService,
+            onlineProcessor,
+            classroomProcessor);
 
         try
         {
@@ -67,21 +77,67 @@ class Program
                 new Learner(105, "Rahul", "rahul@college.edu",
                     9876543214L, "101"));
 
+            // Same learner, second course
+            learnerService.Register(
+                new Learner(105, "Rahul", "rahul@college.edu",
+                    9876543214L, "103"));
+
             // Display learners
             Console.WriteLine("\n========== ALL LEARNERS ==========");
             learnerService.ViewAllLearner();
 
-            // Display enrollments from the same service instance
+            // Display enrollments
             Console.WriteLine("\n========== ALL ENROLLMENTS ==========");
             enrollmentService.ViewEnrollment();
 
             // Search for a course
             Console.WriteLine("\n========== SEARCH COURSE ==========");
             courseService.SearchByCode("101");
+
+            // Display learner-course mapping
+            Console.WriteLine("\n========== LEARNER COURSES ==========");
+            enrollmentService.DisplayLearnerList();
+
+            // Search learner
+            Console.WriteLine("\n========== SEARCH LEARNER ==========");
+            learnerService.SearchById(105);
+
+            // Payment processing
+            Console.WriteLine("\n========== PAYMENT PROCESSING ==========");
+
+            Enrollment? enrollment =
+                enrollmentService.FindEnrollmentById(1);
+
+            Enrollment? enrollment1 = enrollmentService.FindEnrollmentById(2);
+
+            if (enrollment != null)
+            {
+                // First attempt: online payment fails
+                paymentService.MakePayment(
+                    enrollment,
+                    PaymentMode.OnlinePayment);
+
+                // Second attempt: classroom payment succeeds
+                paymentService.MakePayment(
+                    enrollment1,
+                    PaymentMode.ClassRoomPayment);
+            }
+            else
+            {
+                Console.WriteLine("Enrollment not found.");
+            }
+
+            // Display payment history
+            Console.WriteLine("\n========== PAYMENT HISTORY ==========");
+            paymentService.ViewPaymentHistory();
         }
         catch (ArgumentException e)
         {
             Console.WriteLine($"Error: {e.Message}");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Unexpected error: {e.Message}");
         }
     }
 }
