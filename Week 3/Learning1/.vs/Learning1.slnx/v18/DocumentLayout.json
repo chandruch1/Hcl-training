@@ -1,0 +1,552 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\sevices\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\sevices\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\middleware\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\middleware\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\sevices\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\sevices\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\dto\\createemployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\dto\\createemployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\dto\\updateemployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\dto\\updateemployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\myproject\\filehandling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\myproject\\filehandling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\student.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\student.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\myproject\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\myproject\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\myproject\\myproject.csproj||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\myproject\\myproject.csproj||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Migrations\\20261019053849_AddDepartmentRelationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Learning1\\Migrations\\20261019053849_AddDepartmentRelationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\models\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\models\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\migrations\\20261018094253_initailcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\migrations\\20261018094253_initailcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Migrations\\20261018093913_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Learning1\\Migrations\\20261018093913_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\learning1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\learning1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\sevices\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\sevices\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\sevices\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\sevices\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\studentapi.csproj||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\studentapi.csproj||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\models\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\models\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\learning1\\learning1\\migrations\\20261019054643_adddepartmentrelationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32179522-CBBD-1DC0-3467-F199739BA41D}|Learning1\\Learning1.csproj|solutionrelative:learning1\\migrations\\20261019054643_adddepartmentrelationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 21,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ExceptionHandlingMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "RelativeDocumentMoniker": "Learning1\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "RelativeToolTip": "Learning1\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAkwDIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T11:02:30.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UpdateEmployeeDto.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\DTO\\UpdateEmployeeDto.cs",
+              "RelativeDocumentMoniker": "Learning1\\DTO\\UpdateEmployeeDto.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\DTO\\UpdateEmployeeDto.cs",
+              "RelativeToolTip": "Learning1\\DTO\\UpdateEmployeeDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T05:14:42.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CreateEmployeeDto.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\DTO\\CreateEmployeeDto.cs",
+              "RelativeDocumentMoniker": "Learning1\\DTO\\CreateEmployeeDto.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\DTO\\CreateEmployeeDto.cs",
+              "RelativeToolTip": "Learning1\\DTO\\CreateEmployeeDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T04:54:07.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "student.txt",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\student.txt",
+              "RelativeDocumentMoniker": "Learning1\\student.txt",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\student.txt",
+              "RelativeToolTip": "Learning1\\student.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-10-19T12:39:05.012Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MyProject.csproj",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\MyProject\\MyProject.csproj",
+              "RelativeDocumentMoniker": "Learning1\\MyProject\\MyProject.csproj",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\MyProject\\MyProject.csproj",
+              "RelativeToolTip": "Learning1\\MyProject\\MyProject.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-19T12:21:03.894Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FileHandling.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\MyProject\\FileHandling.cs",
+              "RelativeDocumentMoniker": "Learning1\\MyProject\\FileHandling.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\MyProject\\FileHandling.cs",
+              "RelativeToolTip": "Learning1\\MyProject\\FileHandling.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T12:20:43.611Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Class.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\MyProject\\Class.cs",
+              "RelativeDocumentMoniker": "Learning1\\MyProject\\Class.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\MyProject\\Class.cs",
+              "RelativeToolTip": "Learning1\\MyProject\\Class.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T12:20:29.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DepartmentController.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Controllers\\DepartmentController.cs",
+              "RelativeDocumentMoniker": "Learning1\\Controllers\\DepartmentController.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Controllers\\DepartmentController.cs",
+              "RelativeToolTip": "Learning1\\Controllers\\DepartmentController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T05:48:59.862Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "20261019054643_AddDepartmentRelationship.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Migrations\\20261019054643_AddDepartmentRelationship.cs",
+              "RelativeDocumentMoniker": "Learning1\\Migrations\\20261019054643_AddDepartmentRelationship.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Migrations\\20261019054643_AddDepartmentRelationship.cs",
+              "RelativeToolTip": "Learning1\\Migrations\\20261019054643_AddDepartmentRelationship.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T05:46:44.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "20261019053849_AddDepartmentRelationship.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Migrations\\20261019053849_AddDepartmentRelationship.cs",
+              "RelativeDocumentMoniker": "Learning1\\Migrations\\20261019053849_AddDepartmentRelationship.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Migrations\\20261019053849_AddDepartmentRelationship.cs",
+              "RelativeToolTip": "Learning1\\Migrations\\20261019053849_AddDepartmentRelationship.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T05:38:49.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Department.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Models\\Department.cs",
+              "RelativeDocumentMoniker": "Learning1\\Models\\Department.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Models\\Department.cs",
+              "RelativeToolTip": "Learning1\\Models\\Department.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T05:29:28.385Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "Learning1\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\appsettings.Development.json",
+              "RelativeToolTip": "Learning1\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-18T15:23:30.972Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "20261018094253_InitailCreate.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Migrations\\20261018094253_InitailCreate.cs",
+              "RelativeDocumentMoniker": "Learning1\\Migrations\\20261018094253_InitailCreate.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Migrations\\20261018094253_InitailCreate.cs",
+              "RelativeToolTip": "Learning1\\Migrations\\20261018094253_InitailCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T09:42:54.101Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "20261018093913_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Migrations\\20261018093913_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Learning1\\Migrations\\20261018093913_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Migrations\\20261018093913_InitialCreate.cs",
+              "RelativeToolTip": "Learning1\\Migrations\\20261018093913_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T09:39:14.534Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Learning1\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Learning1\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T09:18:32.972Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "Learning1\\Models\\Employee.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Models\\Employee.cs",
+              "RelativeToolTip": "Learning1\\Models\\Employee.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAwAsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T09:12:49.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Learning1\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Learning1\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-18T08:21:49.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Program.cs",
+              "RelativeDocumentMoniker": "Learning1\\Program.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Program.cs",
+              "RelativeToolTip": "Learning1\\Program.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAcwEkAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T08:21:23.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "StudentApi.csproj",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\StudentApi.csproj",
+              "RelativeDocumentMoniker": "Learning1\\StudentApi.csproj",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\StudentApi.csproj",
+              "RelativeToolTip": "Learning1\\StudentApi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-18T08:17:00.253Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\appsettings.json",
+              "RelativeDocumentMoniker": "Learning1\\appsettings.json",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\appsettings.json",
+              "RelativeToolTip": "Learning1\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-18T08:16:38.259Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "StudentService.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Sevices\\StudentService.cs",
+              "RelativeDocumentMoniker": "Learning1\\Sevices\\StudentService.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Sevices\\StudentService.cs",
+              "RelativeToolTip": "Learning1\\Sevices\\StudentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T08:15:54.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Sevices\\AuthService.cs",
+              "RelativeDocumentMoniker": "Learning1\\Sevices\\AuthService.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Sevices\\AuthService.cs",
+              "RelativeToolTip": "Learning1\\Sevices\\AuthService.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAUwBAAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T08:14:33.077Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "JwtService.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Sevices\\JwtService.cs",
+              "RelativeDocumentMoniker": "Learning1\\Sevices\\JwtService.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Sevices\\JwtService.cs",
+              "RelativeToolTip": "Learning1\\Sevices\\JwtService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwA8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T08:14:17.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "Learning1\\Models\\Student.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Models\\Student.cs",
+              "RelativeToolTip": "Learning1\\Models\\Student.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T08:13:50.195Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Models\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "Learning1\\Models\\LoginResponse.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Models\\LoginResponse.cs",
+              "RelativeToolTip": "Learning1\\Models\\LoginResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T08:13:37.689Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Models\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "Learning1\\Models\\LoginRequest.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Models\\LoginRequest.cs",
+              "RelativeToolTip": "Learning1\\Models\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T08:13:26.494Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AppSettings.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Models\\AppSettings.cs",
+              "RelativeDocumentMoniker": "Learning1\\Models\\AppSettings.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Models\\AppSettings.cs",
+              "RelativeToolTip": "Learning1\\Models\\AppSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T08:13:07.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Learning1.csproj",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Learning1.csproj",
+              "RelativeDocumentMoniker": "Learning1\\Learning1.csproj",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Learning1.csproj",
+              "RelativeToolTip": "Learning1\\Learning1.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-18T08:12:48.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StudentsController.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Controllers\\StudentsController.cs",
+              "RelativeDocumentMoniker": "Learning1\\Controllers\\StudentsController.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Controllers\\StudentsController.cs",
+              "RelativeToolTip": "Learning1\\Controllers\\StudentsController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwBMAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T08:12:27.968Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Sevices\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "Learning1\\Sevices\\EmployeeService.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Sevices\\EmployeeService.cs",
+              "RelativeToolTip": "Learning1\\Sevices\\EmployeeService.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAowDgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T06:08:07.324Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Learning1\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Learning1\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T08:12:07.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "Learning1\\Controllers\\EmployeesController.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Learning1\\Learning1\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "Learning1\\Controllers\\EmployeesController.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAD4v0sAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T14:46:25.009Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

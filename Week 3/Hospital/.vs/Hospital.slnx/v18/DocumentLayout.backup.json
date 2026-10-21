@@ -1,0 +1,271 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\hospital\\hospital\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|solutionrelative:hospital\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\hospital\\hospital\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|solutionrelative:hospital\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\hospital\\hospital\\utility\\json\\appointmentjsonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|solutionrelative:hospital\\utility\\json\\appointmentjsonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\hospital\\hospital\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|solutionrelative:hospital\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\hospital\\hospital\\utility\\json\\doctorjsonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|solutionrelative:hospital\\utility\\json\\doctorjsonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\hospital\\hospital\\services\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|solutionrelative:hospital\\services\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\hospital\\hospital\\services\\patientservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|solutionrelative:hospital\\services\\patientservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\hospital\\hospital\\utility\\json\\patientjsonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|solutionrelative:hospital\\utility\\json\\patientjsonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\hospital\\hospital\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|solutionrelative:hospital\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\hospital\\hospital\\exceptions\\salaryexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|solutionrelative:hospital\\exceptions\\salaryexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\hospital\\hospital\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|solutionrelative:hospital\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\hospital\\hospital\\exceptions\\nameexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|solutionrelative:hospital\\exceptions\\nameexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\hospital\\hospital\\exceptions\\idexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|solutionrelative:hospital\\exceptions\\idexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|c:\\users\\chandru\\onedrive\\desktop\\hcl\\week 2\\hospital\\hospital\\hospital.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D3396554-759B-E46C-1F09-C37D1E944B23}|Hospital\\Hospital.csproj|solutionrelative:hospital\\hospital.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppointmentService.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Services\\AppointmentService.cs",
+              "RelativeDocumentMoniker": "Hospital\\Services\\AppointmentService.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Services\\AppointmentService.cs*",
+              "RelativeToolTip": "Hospital\\Services\\AppointmentService.cs*",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAiwEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T10:02:30.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Models\\Appointment.cs",
+              "RelativeDocumentMoniker": "Hospital\\Models\\Appointment.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Models\\Appointment.cs",
+              "RelativeToolTip": "Hospital\\Models\\Appointment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T10:01:34.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppointmentJsonService.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Utility\\Json\\AppointmentJsonService.cs",
+              "RelativeDocumentMoniker": "Hospital\\Utility\\Json\\AppointmentJsonService.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Utility\\Json\\AppointmentJsonService.cs",
+              "RelativeToolTip": "Hospital\\Utility\\Json\\AppointmentJsonService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T10:00:25.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SalaryException.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Exceptions\\SalaryException.cs",
+              "RelativeDocumentMoniker": "Hospital\\Exceptions\\SalaryException.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Exceptions\\SalaryException.cs",
+              "RelativeToolTip": "Hospital\\Exceptions\\SalaryException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T09:27:49.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DoctorJsonService.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Utility\\Json\\DoctorJsonService.cs",
+              "RelativeDocumentMoniker": "Hospital\\Utility\\Json\\DoctorJsonService.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Utility\\Json\\DoctorJsonService.cs",
+              "RelativeToolTip": "Hospital\\Utility\\Json\\DoctorJsonService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T09:02:07.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DoctorService.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Services\\DoctorService.cs",
+              "RelativeDocumentMoniker": "Hospital\\Services\\DoctorService.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Services\\DoctorService.cs",
+              "RelativeToolTip": "Hospital\\Services\\DoctorService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAkwBkAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T08:59:17.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Doctor.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Models\\Doctor.cs",
+              "RelativeDocumentMoniker": "Hospital\\Models\\Doctor.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Models\\Doctor.cs",
+              "RelativeToolTip": "Hospital\\Models\\Doctor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T08:57:18.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PatientJsonService.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Utility\\Json\\PatientJsonService.cs",
+              "RelativeDocumentMoniker": "Hospital\\Utility\\Json\\PatientJsonService.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Utility\\Json\\PatientJsonService.cs",
+              "RelativeToolTip": "Hospital\\Utility\\Json\\PatientJsonService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwCgAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T08:18:26.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "NameException.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Exceptions\\NameException.cs",
+              "RelativeDocumentMoniker": "Hospital\\Exceptions\\NameException.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Exceptions\\NameException.cs",
+              "RelativeToolTip": "Hospital\\Exceptions\\NameException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T06:41:40.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IdException.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Exceptions\\IdException.cs",
+              "RelativeDocumentMoniker": "Hospital\\Exceptions\\IdException.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Exceptions\\IdException.cs",
+              "RelativeToolTip": "Hospital\\Exceptions\\IdException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T06:24:41.351Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PatientServices.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Services\\PatientServices.cs",
+              "RelativeDocumentMoniker": "Hospital\\Services\\PatientServices.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Services\\PatientServices.cs",
+              "RelativeToolTip": "Hospital\\Services\\PatientServices.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAADwv1sAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T06:19:24.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Hospital.csproj",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Hospital.csproj",
+              "RelativeDocumentMoniker": "Hospital\\Hospital.csproj",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Hospital.csproj",
+              "RelativeToolTip": "Hospital\\Hospital.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-21T06:19:04.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Patient.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Models\\Patient.cs",
+              "RelativeDocumentMoniker": "Hospital\\Models\\Patient.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Models\\Patient.cs",
+              "RelativeToolTip": "Hospital\\Models\\Patient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T06:14:07.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Program.cs",
+              "RelativeDocumentMoniker": "Hospital\\Program.cs",
+              "ToolTip": "C:\\Users\\CHANDRU\\OneDrive\\Desktop\\hcl\\Week 2\\Hospital\\Hospital\\Program.cs",
+              "RelativeToolTip": "Hospital\\Program.cs",
+              "ViewState": "AgIAABQCAAAAAAAAAAAIwPsBAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T06:12:33.108Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
