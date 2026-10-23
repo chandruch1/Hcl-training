@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Enrollment System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <p class="eyebrow">COURSE ADMINISTRATION</p>
+    <h1>Course Enrollment System</h1>
+    <p>Manage courses, learners, enrollments and simulated payments.</p>
+  </div>
+</header>
+<main class="container">
+  <div id="message" class="message" role="status"></div>
+  <nav class="tabs">
+    <button class="tab active" data-panel="coursesPanel">Courses</button>
+    <button class="tab" data-panel="learnersPanel">Learners</button>
+    <button class="tab" data-panel="enrollmentsPanel">Enrollments</button>
+    <button class="tab" data-panel="paymentsPanel">Payments</button>
+  </nav>
+
+  <section id="coursesPanel" class="panel">
+    <div class="section-heading"><div><h2>Courses</h2><p>Add courses and check available seats.</p></div><button class="secondary" id="refreshCourses">Refresh</button></div>
+    <form id="courseForm" class="form-grid">
+      <label>Course code<input id="courseCode" required maxlength="20" placeholder="CS101"></label>
+      <label>Title<input id="courseTitle" required placeholder="C# Fundamentals"></label>
+      <label>Fee (₹)<input id="courseFee" type="number" min="0" step="0.01" required></label>
+      <label>Duration (days)<input id="courseDuration" type="number" min="1" required></label>
+      <label>Total seats<input id="courseSeats" type="number" min="1" required></label>
+      <div class="form-action"><button type="submit">Add course</button></div>
+    </form>
+    <div class="table-wrap"><table><thead><tr><th>Code</th><th>Title</th><th>Fee</th><th>Duration</th><th>Total seats</th><th>Available</th><th>Action</th></tr></thead><tbody id="coursesTable"></tbody></table></div>
+  </section>
+
+  <section id="learnersPanel" class="panel hidden">
+    <div class="section-heading"><div><h2>Learners</h2><p>Register each learner once, then enroll them in courses.</p></div><button class="secondary" id="refreshLearners">Refresh</button></div>
+    <form id="learnerForm" class="form-grid">
+      <label>Learner ID<input id="learnerId" type="number" min="1" required></label>
+      <label>Name<input id="learnerName" required></label>
+      <label>Email<input id="learnerEmail" type="email" required></label>
+      <label>Contact number<input id="learnerContact" type="number" required></label>
+      <div class="form-action"><button type="submit">Register learner</button></div>
+    </form>
+    <div class="table-wrap"><table><thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Contact</th></tr></thead><tbody id="learnersTable"></tbody></table></div>
+  </section>
+
+  <section id="enrollmentsPanel" class="panel hidden">
+    <div class="section-heading"><div><h2>Enrollments</h2><p>Enroll an existing learner into an available course.</p></div><button class="secondary" id="refreshEnrollments">Refresh</button></div>
+    <form id="enrollmentForm" class="form-grid">
+      <label>Learner ID<input id="enrollLearnerId" type="number" min="1" required></label>
+      <label>Course<select id="enrollCourseCode" required><option value="">Select course</option></select></label>
+      <div class="form-action"><button type="submit">Create enrollment</button></div>
+    </form>
+    <div class="table-wrap"><table><thead><tr><th>Enrollment</th><th>Learner</th><th>Course</th><th>Date</th><th>Fee</th><th>Status</th><th>Payment</th><th>Action</th></tr></thead><tbody id="enrollmentsTable"></tbody></table></div>
+  </section>
+
+  <section id="paymentsPanel" class="panel hidden">
+    <div class="section-heading"><div><h2>Payments</h2><p>Payment modes are simulated for this demo. No real money is charged.</p></div><button class="secondary" id="refreshPayments">Refresh</button></div>
+    <form id="paymentForm" class="form-grid">
+      <label>Enrollment ID<input id="paymentEnrollmentId" type="number" min="1" required></label>
+      <label>Payment mode<select id="paymentMode"><option value="OnlinePayment">Online payment (simulated failure)</option><option value="ClassRoomPayment">Classroom payment (simulated success)</option></select></label>
+      <div class="form-action"><button type="submit">Process payment</button></div>
+    </form>
+    <div class="table-wrap"><table><thead><tr><th>Payment ID</th><th>Enrollment</th><th>Amount</th><th>Mode</th><th>Status</th><th>Date</th></tr></thead><tbody id="paymentsTable"></tbody></table></div>
+  </section>
+  <footer>Demo application · Data is stored in memory and resets when the server restarts.</footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

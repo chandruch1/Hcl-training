@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Online Exam System</h1>
+        <p>Question Management Dashboard</p>
+    </header>
+
+    <main>
+        <!-- Add and Update Question -->
+        <section class="card">
+            <h2 id="formTitle">Add Question</h2>
+
+            <form id="questionForm">
+                <input type="hidden" id="id">
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="Enter subject" required>
+
+                <label for="questionText">Question</label>
+                <textarea id="questionText" placeholder="Enter question" required></textarea>
+
+                <label for="optionA">Option A</label>
+                <input type="text" id="optionA" required>
+
+                <label for="optionB">Option B</label>
+                <input type="text" id="optionB" required>
+
+                <label for="optionC">Option C</label>
+                <input type="text" id="optionC" required>
+
+                <label for="optionD">Option D</label>
+                <input type="text" id="optionD" required>
+
+                <label for="correctAnswer">Correct Answer</label>
+                <select id="correctAnswer" required>
+                    <option value="">Choose answer</option>
+                    <option value="A">Option A</option>
+                    <option value="B">Option B</option>
+                    <option value="C">Option C</option>
+                    <option value="D">Option D</option>
+                </select>
+
+                <button type="submit" id="saveBtn">Add Question</button>
+                <button type="button" id="cancelBtn" hidden>Cancel</button>
+            </form>
+
+            <p id="message" role="status"></p>
+        </section>
+
+        <!-- Search Question by ID -->
+        <section class="card">
+            <h2>Search Question by ID</h2>
+
+            <div class="search-row">
+                <input type="number" id="searchId" min="1" placeholder="Enter question ID">
+
+                <button type="button" id="searchBtn">Search</button>
+                <button type="button" id="showAllBtn">Show All</button>
+            </div>
+
+            <p id="searchMessage" role="status"></p>
+
+            <div class="table-container">
+                <table id="searchTable" hidden>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Subject</th>
+                            <th>Question</th>
+                            <th>Options</th>
+                            <th>Correct Answer</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="searchResult"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- All Questions -->
+        <section class="card" id="allQuestionsSection">
+            <div class="heading">
+                <h2>All Questions</h2>
+                <button type="button" id="refreshBtn">Refresh</button>
+            </div>
+
+            <p id="loading">Loading questions...</p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Subject</th>
+                            <th>Question</th>
+                            <th>Options</th>
+                            <th>Correct Answer</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="questionTable"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

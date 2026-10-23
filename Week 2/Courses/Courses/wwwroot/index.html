@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Enrollment System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Course Enrollment System</h1>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Add Course</h2>
+
+            <form id="courseForm">
+                <input id="courseCode" placeholder="Course code" required>
+                <input id="title" placeholder="Course title" required>
+                <input id="fee" type="number" min="0" step="0.01"
+                       placeholder="Fee" required>
+                <input id="duration" type="number" min="1"
+                       placeholder="Duration in days" required>
+                <input id="seats" type="number" min="1"
+                       placeholder="Total seats" required>
+
+                <button type="submit">Add Course</button>
+            </form>
+
+            <p id="message"></p>
+        </section>
+
+        <section class="card">
+            <h2>Available Courses</h2>
+            <button id="refreshButton" type="button">Refresh</button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Title</th>
+                        <th>Fee</th>
+                        <th>Duration</th>
+                        <th>Available Seats</th>
+                    </tr>
+                </thead>
+                <tbody id="courseTable"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

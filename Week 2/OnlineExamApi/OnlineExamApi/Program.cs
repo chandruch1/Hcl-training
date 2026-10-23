@@ -1,3 +1,4 @@
+
 using Microsoft.EntityFrameworkCore;
 using OnlineExamApi.Data;
 
@@ -15,16 +16,34 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configure CORS for frontend
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
-// Enable Swagger
+// Swagger
 app.UseSwagger();
 app.UseSwaggerUI();
 
+// CORS
+app.UseCors("AllowFrontend");
+
+// HTTPS redirection
 app.UseHttpsRedirection();
 
+// Authorization
 app.UseAuthorization();
 
+// Map API controllers
 app.MapControllers();
 
 app.Run();

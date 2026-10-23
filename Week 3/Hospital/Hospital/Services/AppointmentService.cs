@@ -76,7 +76,7 @@ namespace Hospital.Services
             if (appointments.Any(a =>
                 a.AppointmentId == appointment.AppointmentId))
             {
-                throw new IdException("Appointment ID already exists.");
+                throw new IdException("Appointment ID already ex   ists.");
             }
 
             

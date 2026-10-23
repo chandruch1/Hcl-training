@@ -1,0 +1,415 @@
+/* =========================
+   1. GLOBAL STYLES
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.5;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    border: none;
+    border-radius: 7px;
+    padding: 10px 16px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* =========================
+   2. HEADER
+========================= */
+
+header {
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    color: white;
+    padding: 28px 6%;
+    box-shadow: 0 3px 12px #00000015;
+}
+
+header h1 {
+    margin: 0 0 5px;
+    font-size: 30px;
+}
+
+header p {
+    margin: 0;
+    color: #dbeafe;
+    font-size: 15px;
+}
+
+/* =========================
+   3. MAIN LAYOUT
+========================= */
+
+main {
+    width: 92%;
+    max-width: 1250px;
+    margin: 30px auto;
+}
+
+.card {
+    background: white;
+    padding: 26px;
+    margin-bottom: 26px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px #0f172a0b;
+    border: 1px solid #e2e8f0;
+}
+
+.card h2 {
+    margin: 0 0 20px;
+    color: #1e3a8a;
+    font-size: 22px;
+}
+
+/* =========================
+   4. FORM
+========================= */
+
+#questionForm {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: block;
+    margin: 14px 0 7px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #1e293b;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px #2563eb1c;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+select {
+    cursor: pointer;
+}
+
+/* Form buttons */
+
+#saveBtn {
+    margin-top: 22px;
+    background: #2563eb;
+    align-self: flex-start;
+    min-width: 145px;
+}
+
+#saveBtn:hover {
+    background: #1d4ed8;
+}
+
+#cancelBtn {
+    margin-top: 10px;
+    align-self: flex-start;
+    background: #64748b;
+}
+
+#cancelBtn:hover {
+    background: #475569;
+}
+
+/* Success and error messages */
+
+#message,
+#searchMessage {
+    font-size: 14px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+#message {
+    margin: 15px 0 0;
+}
+
+#searchMessage {
+    margin-top: 14px;
+}
+
+/* =========================
+   5. SEARCH SECTION
+========================= */
+
+.search-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.search-row input {
+    flex: 1;
+    min-width: 0;
+}
+
+#searchBtn {
+    background: #2563eb;
+    flex-shrink: 0;
+}
+
+#searchBtn:hover {
+    background: #1d4ed8;
+}
+
+#showAllBtn {
+    background: #475569;
+    flex-shrink: 0;
+}
+
+#showAllBtn:hover {
+    background: #334155;
+}
+
+#searchTable {
+    margin-top: 18px;
+}
+
+/* =========================
+   6. ALL QUESTIONS HEADER
+========================= */
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.heading h2 {
+    margin: 0;
+}
+
+#refreshBtn {
+    background: #0f766e;
+    flex-shrink: 0;
+}
+
+#refreshBtn:hover {
+    background: #115e59;
+}
+
+#loading {
+    color: #64748b;
+    margin: 18px 0 0;
+}
+
+/* =========================
+   7. TABLE
+========================= */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 18px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    min-width: 750px;
+    border-collapse: collapse;
+    background: white;
+}
+
+thead {
+    background: #eff6ff;
+}
+
+th {
+    color: #1e3a8a;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+th,
+td {
+    padding: 14px 13px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+td {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* =========================
+   8. EDIT AND DELETE BUTTONS
+========================= */
+
+.edit-btn,
+.delete-btn {
+    margin: 2px 4px 4px 0;
+    padding: 8px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.edit-btn {
+    background: #0f766e;
+}
+
+.edit-btn:hover {
+    background: #115e59;
+}
+
+.delete-btn {
+    background: #dc2626;
+}
+
+.delete-btn:hover {
+    background: #b91c1c;
+}
+
+/* =========================
+   9. SEARCH RESULT TABLE
+========================= */
+
+#searchTable th,
+#searchTable td {
+    padding: 12px;
+}
+
+/* =========================
+   10. RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 700px) {
+    header {
+        padding: 22px 5%;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    main {
+        width: 94%;
+        margin: 18px auto;
+    }
+
+    .card {
+        padding: 18px;
+        margin-bottom: 20px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .search-row {
+        flex-wrap: wrap;
+    }
+
+    .search-row input {
+        flex-basis: 100%;
+    }
+
+    .search-row button {
+        flex: 1;
+    }
+
+    .heading {
+        align-items: flex-start;
+    }
+
+    .heading h2 {
+        font-size: 19px;
+    }
+
+    th,
+    td {
+        padding: 11px;
+    }
+}
+
+@media (max-width: 400px) {
+    .card {
+        padding: 14px;
+    }
+
+    .search-row button {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    #saveBtn {
+        width: 100%;
+    }
+}

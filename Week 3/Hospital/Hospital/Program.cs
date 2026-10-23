@@ -23,11 +23,10 @@ namespace Hospital
             AppointmentJsonService appointmentJson =
                 new AppointmentJsonService();
 
-            AppointmentService appointmentService =
-                new AppointmentService(
-                    appointmentJson,
-                    patientService,
-                    doctorService);
+            AppointmentService appointmentService = new AppointmentService(
+                                                            appointmentJson,
+                                                            patientService,
+                                                            doctorService);
 
             while (true)
             {
