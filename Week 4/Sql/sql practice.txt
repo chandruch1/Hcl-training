@@ -1,0 +1,427 @@
+use LearnerManagementAssessment
+go
+select StudentId, name, Age, Email from students;
+
+select StudentId, Age from students where age>=18;
+
+select StudentId,name, Age from students where age<20;
+
+select * from students where age<25 and Age>18;
+
+select * from students where age<20 and IsActive=1;
+
+select studentid, name from Students where DepartmentId in (1,3,6);
+
+select * from Students where DepartmentId is null;
+
+select * from Students;
+
+select name from Students where name like 'A%';
+
+select name from students where name like '%5';
+
+select name from students where name like '%ar%';
+
+select name from Students where name like '_a%';
+
+select name from students where name like '_%';
+
+select name , email from Students where email like '%example.com';
+
+select name from Students where age between 18 and 22 and IsActive=1;
+
+select name from Students where IsActive = 1 and DepartmentId is null;
+
+select name, age from Students order by age desc;
+
+select Top 10 name, age from Students order by age desc ;
+
+select name, DepartmentId from Students order by DepartmentId asc, age desc ;
+
+select distinct age from students ;
+
+select distinct departmentid from students where DepartmentId is not null; 
+
+select name from Students where name like '%[0-9]%';
+
+select name from Students where name like '%[A-M]%';
+
+select name ,  AdmissionDate from Students select YEAR(2025); 
+
+
+select count (name)  as totalcount from Students;
+
+select count (name)  as totalcount from Students where Email is not null;
+
+select min(Age)  as Age from Students;
+
+select max(Age)  as Age from Students
+
+select  CAST(AVG(Age) AS DECIMAL(10,2))  as Age from Students;
+
+select max(fee)  as Maxfee, min(fee) as MinFee from Courses;
+
+select cast(avg(fee) as decimal (10,2)) as fee  from Courses;
+
+select sum(credits) as credit  from Courses;
+
+select count(distinct age) from Students;
+
+select count(distinct departmentid) from Students where DepartmentId is not null;
+
+select * from Enrollments
+
+select count(enrollmentid) from Enrollments;
+
+select count(EnrollmentStatus) from Enrollments where EnrollmentStatus='completed';
+
+select * from Payments;
+
+select sum(Amount) from Payments;
+
+select * from AssessmentResults;
+
+select sum(Amount) from Payments where PaymentStatus='Paid';
+
+select avg(MarksObtained) from AssessmentResults where MarksObtained is not null;
+
+select max(MarksObtained) from AssessmentResults where MarksObtained is not null;
+
+select min(MarksObtained) from AssessmentResults where MarksObtained is not null;
+
+select count(*) from AssessmentResults where MarksObtained is  null;
+
+select count(AssessmentId) from AssessmentResults;
+
+select max(paymentdate) as Date from Payments;
+
+select count(isActive) from Courses where IsActive = 1;
+
+select count(studentid) as each from Students group by Departmentid;
+
+select avg(age) as Age from Students group by Departmentid;
+
+select min(age) as min , max(age) as max from Students group by Departmentid;
+
+select Departmentid from Students group by Departmentid having count(Departmentid)>10;
+
+select count(studentid) from Students where IsActive=1 group by Departmentid ;
+
+select * from Enrollments;
+
+select * from Courses;
+
+select count(EnrollmentStatus) from Enrollments group by EnrollmentStatus;
+
+select CourseId from Enrollments group by CourseId having count(courseId) >10;
+
+select avg(fee) from Courses group by Category ;
+
+select count(CourseId) from Courses group by Category ;
+
+select * from Payments;
+
+select count(paymentid), sum(amount) from Payments group by PaymentStatus;
+
+select count(paymentid), avg(amount) from Payments group by PaymentStatus;
+
+select PaymentStatus from Payments group by PaymentStatus having count(paymentstatus) >=20;
+
+select studentid from Enrollments group by StudentId having count(CourseId) >3;
+
+select studentid from AssessmentResults group by StudentId having count(ResultId) >=2;
+
+select AssessmentId, avg(Marksobtained) from AssessmentResults group by  AssessmentId;
+
+select AssessmentId, avg(Marksobtained) from AssessmentResults group by  AssessmentId having avg(Marksobtained)>60;
+
+select count(ResultId) from AssessmentResults group by SubmissionStatus ;
+
+select sum(fee) from Courses where IsActive=1 group by CourseId;
+
+select * from Courses;
+
+select * from Students;
+
+select Departmentid from Students group by DepartmentId having avg(age) >22;
+
+select count(studentid) from Students where IsActive=1 group by DepartmentId ;
+
+select CourseId from Assessments group by CourseId having count(CourseId)>2;
+
+select * from Payments;
+
+select sum(amount) from Payments group by StudentId ;
+
+select sum(amount) from Payments group by StudentId having sum(amount)>12000;
+
+select studentid , count(marksobtained) from AssessmentResults group by StudentId;
+
+select month(paymentdate) as paymonth , count(*) as total from Payments group by  MONTH(paymentdate) having count(*) >10;
+
+
+select * from Departments;
+select * from Payments;
+select * from Enrollments;
+select * from Students;
+select * from AssessmentResults;
+select * from Assessments;
+select * from Courses;
+
+select name , departmentName from Students s left join 
+Departments d on  s.DepartmentId=d.DepartmentId where s.DepartmentId is not null;
+
+select name , departmentName from Students s left join 
+Departments d on  s.DepartmentId=d.DepartmentId ;
+
+select Departmentname , name from Departments d left join 
+Students s on s.DepartmentId= d.DepartmentId where s.DepartmentId is not null;
+
+select Departmentname  from Departments d left join 
+Students s on s.DepartmentId= d.DepartmentId where s.DepartmentId is  null;
+
+select name , coursename from Enrollments  e left join 
+Students s on e.StudentId=s.StudentId left join Courses c on c.CourseId = e.CourseId;
+
+select c.coursename , count(e.courseid) as Enrollcounts from Courses c left join 
+Enrollments e on c.CourseId = e.CourseId group by c.CourseId, c.CourseName;
+
+
+select c.coursename , count(e.courseid) as Enrollcounts from Courses c left join 
+Enrollments e on c.CourseId = e.CourseId  group by c.CourseId, c.CourseName having count(e.CourseId)=0;
+
+select s.name , a.marksobtained from Students s left join 
+AssessmentResults a on a.StudentId = s.StudentId where a.MarksObtained is not null;
+
+select s.name , a.marksobtained from Students s left join 
+AssessmentResults a on a.StudentId = s.StudentId ;
+
+select a.AssessmentName , c.coursename from Assessments a left join
+Courses c on c.CourseId = a.CourseId;
+
+select  c.coursename , a.AssessmentName  from Assessments a right join
+Courses c on c.CourseId = a.CourseId;
+
+select s.name , p.paymentid , d.departmentname from Payments p left join
+Students s on p.StudentId = s.StudentId left join Departments d
+on d.DepartmentId = s.DepartmentId  where d.DepartmentId is not null;
+
+select distinct s.StudentId ,s.name , p.paymentstatus  from Students s left join 
+Payments p on p.StudentId = s.StudentId where p.PaymentStatus='pending';
+
+select distinct s.StudentId ,s.name , p.paymentstatus  from Students s left join 
+Payments p on p.StudentId = s.StudentId where p.PaymentStatus='failed';
+
+select s.name , d.departmentname , c.coursename from Students s left join 
+Departments d on s.DepartmentId=d.DepartmentId left join Enrollments e on
+e.StudentId = s.StudentId left join Courses c on c.CourseId = e.CourseId where s.DepartmentId is not null;
+
+select d.departmentname , count(s.studentid)  as Total from Departments d left join 
+Students s on s.DepartmentId = d.DepartmentId group by s.DepartmentId,d.DepartmentName ;
+
+select s.Name, d.DepartmentName,ar.AssessmentId,ar.MarksObtained from AssessmentResults ar
+inner join Students s ON ar.StudentId = s.StudentId
+INNER JOIN Departments d ON s.DepartmentId = d.DepartmentId
+WHERE d.DepartmentName = 'Computer Science';
+
+select s.name , p.paymentid , d.departmentname from Students s inner join
+Payments p on p.StudentId = s.StudentId inner join Departments d
+on d.DepartmentId=s.DepartmentId where d.DepartmentName='data science';
+
+select c.coursename , count(a.assessmentid) from Courses c left join 
+Assessments a on a.CourseId = c.CourseId group by c.CourseId,c.CourseName;
+
+select s.name , count (a.assessmentid)  from Students s left join 
+AssessmentResults a on a.StudentId = s.StudentId group by s.Name,s.StudentId;
+
+select s.name, c.coursename from Students s left join  Enrollments e 
+on e.StudentId = s.StudentId left join Courses c on c.CourseId = e.CourseId where c.CourseName='C# Programming';
+
+select distinct s.name from Students s inner join AssessmentResults a on
+s.StudentId = a.StudentId select YEAR(2026);
+
+select s.name, d.departmentname from Departments d right join
+Students s on s.DepartmentId = d.DepartmentId ;
+
+select c.courseid, c.coursename, e.enrollmentid, e.studentid
+from courses c full outer join enrollments e
+on c.courseid = e.courseid;
+
+select studentid, max(paymentdate) as latestpaymentdate
+from payments group by studentid;
+
+
+select * from Students order by StudentId 
+offset 0 rows
+fetch next 10 rows only;
+
+select * from Students order by StudentId 
+offset 10 rows
+fetch next 10 rows only;
+
+select * from Students order by StudentId 
+offset 40 rows
+fetch next 10 rows only;
+
+select * from Courses order by CourseName
+offset 8 rows
+fetch next 4 rows only;
+
+select top 15 * from Payments order by PaymentDate desc ;
+
+select * from Payments order by PaymentDate desc
+offset 20 rows
+fetch next 20 rows only;
+
+select * from AssessmentResults order by resultid
+offset 75 rows
+fetch next 25 rows only;
+
+select * from Enrollments order by EnrolledAt
+offset 12 rows fetch next 12 rows only;
+
+select * from Students where age >=20 order by Age
+offset 0 rows fetch next 12 rows only;
+
+select * from Students where IsActive = 1 order by StudentId
+offset 8 rows fetch next 8 rows only;
+
+select * from Courses where Fee >=4000 order by Fee
+offset 0 rows fetch next 5 rows only;
+
+select * from Assessments order by AssessmentDate 
+offset 6 rows fetch next 6 rows only;
+
+select * from Students order by name 
+offset 20 rows fetch next 10 rows only;
+
+select * from Payments where PaymentStatus = 'pending' order by PaymentId
+offset 0 rows fetch next 10 rows only;
+
+select * from AssessmentResults where SubmissionStatus = 'submitted' order by ResultId
+offset 15 rows fetch next 15 rows only;
+
+select * from Enrollments where CourseId = 3 order by CourseId
+offset 0 rows fetch next 10 rows only;
+
+select * from Students where name like 'a%' order by Name
+offset 7 rows fetch next 7 rows only;
+
+select * from AssessmentResults where MarksObtained >=50 order by MarksObtained
+offset 5 rows fetch next 5 rows only;
+
+select * from Students where DepartmentId is not null order by StudentId
+offset 18 rows fetch next 9 rows only;
+
+select * from Courses where CourseName  like '%Data%' order by CourseId
+offset 3 rows fetch next 3 rows only;
+
+select * from AssessmentResults where MarksObtained >=80 order by StudentId
+offset 0 rows fetch next 20 rows only;
+
+select * from Payments where year(PaymentDate) = 2026 order by PaymentDate 
+offset 0 rows fetch next 10 rows only;
+
+select * from Students where age> (select avg(age) from Students);
+
+select * from Students where age< (select avg(age) from Students);
+
+select * from Courses where Fee > (select avg(fee) from Courses);
+
+select * from Students where DepartmentId in (select DepartmentId from Departments where DepartmentName in ('computer science' ,'data science'));
+
+select * from Students s where exists (select 1 from Enrollments e where e.StudentId =  s.StudentId);
+
+select * from Students s where not exists (select 1 from Enrollments e where e.StudentId =  s.StudentId);
+
+select * from Courses s where  exists (select 1 from Enrollments e where e.CourseId =  s.CourseId);
+
+select * from Students s  where age > (select avg(age) from Students e where e.DepartmentId=s.DepartmentId );
+
+select * from AssessmentResults a where MarksObtained  > ( select avg(MarksObtained) from AssessmentResults e where e.AssessmentId=a.AssessmentId);
+
+select * from Students s where exists (select 1 from Payments p where p.StudentId=s.StudentId and p.Amount>7000);
+
+select *from Assessments a where exists (select 1 from AssessmentResults ar where ar.AssessmentId = a.AssessmentId and ar.SubmissionStatus = 'Pending');
+
+select * from Students s where exists (select 1 from AssessmentResults a where marksobtained >=90);
+
+select * from Students s where exists (select * from Payments p where p.PaymentId != s.StudentId);
+
+select * from Courses c where fee> all( select Fee from Courses where IsActive=0);
+
+select * from Students where age = (select max(age) from Students);
+
+select * from Students where exists (select 1 from Courses where CourseName = 'sql server fundamentals');
+
+select * from Payments where Amount > (select avg(Amount ) from Payments);
+
+select s.StudentId, s.Name, max(p.PaymentDate) as MostRecentPayment
+from Students s
+join Payments p on s.StudentId = p.StudentId
+group by s.StudentId, s.Name
+having max(p.PaymentDate) > '2026-01-01';
+
+select s.StudentId, s.Name
+from Students s
+where (
+    select count(distinct ar.AssessmentId)
+    from AssessmentResults ar
+    where ar.StudentId = s.StudentId
+) = (
+    select count(*)
+    from Assessments
+);
+
+select c.CourseId, c.CourseName, count(a.AssessmentId) as AssessmentCount
+from Courses c
+left join Assessments a on c.CourseId = a.CourseId
+group by c.CourseId, c.CourseName
+having count(a.AssessmentId) > (
+    select cast(count(*) as decimal(10, 2)) / count(distinct CourseId)
+    from Assessments
+);
+
+select s.StudentId, s.Name, avg(ar.MarksObtained) as AverageMark
+from Students s
+join AssessmentResults ar on s.StudentId = ar.StudentId
+where ar.MarksObtained is not null
+group by s.StudentId, s.Name
+having avg(ar.MarksObtained) > (
+    select avg(MarksObtained)
+    from AssessmentResults
+);
+
+select d.DepartmentId, d.DepartmentName
+from Departments d
+where exists (
+    select 1
+    from Students s
+    join Payments p on s.StudentId = p.StudentId
+    where s.DepartmentId = d.DepartmentId
+      and p.PaymentStatus = 'Pending'
+);
+
+select d.DepartmentId, d.DepartmentName
+from Departments d
+where exists (
+    select 1
+    from Students s
+    join Payments p on s.StudentId = p.StudentId
+    where s.DepartmentId = d.DepartmentId
+      and p.PaymentStatus = 'Pending'
+);
+
+select s.StudentId, s.Name
+from Students s
+where (
+    select count(distinct e.CourseId)
+    from Enrollments e
+    join Courses c on e.CourseId = c.CourseId
+    where e.StudentId = s.StudentId
+      and c.Category = 'Programming'
+) = (
+    select count(*)
+    from Courses
+    where Category = 'Programming'
+);
