@@ -117,4 +117,21 @@ public class StudentRepository : IStudentRepository
 
         return command.ExecuteNonQuery() > 0;
     }
+
+    public bool Delete(int id)
+    {
+        const string query =
+            "DELETE FROM Students WHERE StudentId = @StudentId;";
+
+        using SqlConnection connection =
+            new SqlConnection(_connectionstring);
+
+        using SqlCommand command = new SqlCommand(query, connection);
+
+        command.Parameters.Add("@StudentId", SqlDbType.Int).Value = id;
+
+        connection.Open();
+
+        return command.ExecuteNonQuery() > 0;
+    }
 }

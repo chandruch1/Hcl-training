@@ -37,6 +37,12 @@ public class StudentService
 
         return _repository.Update(student);
     }
+    public bool DeleteStudent(int id)
+    {
+        ValidateId(id);
+
+        return _repository.Delete(id);
+    }
 
     private static void ValidateStudent(Student student)
     {

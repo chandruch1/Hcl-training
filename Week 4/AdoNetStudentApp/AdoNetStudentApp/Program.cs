@@ -51,9 +51,9 @@ class Program
                         UpdateStudent(service);
                         break;
 
-                    //case "5":
-                    //    DeleteStudent(service);
-                    //    break;
+                    case "5":
+                        DeleteStudent(service);
+                        break;
 
                     case "6":
                         Console.WriteLine("Goodbye!");
@@ -156,16 +156,16 @@ class Program
             : "Student was not updated.");
     }
 
-    //static void DeleteStudent(StudentService service)
-    //{
-    //    int id = ReadInt("Enter student ID to delete: ");
+    static void DeleteStudent(StudentService service)
+    {
+        int id = ReadInt("Enter student ID to delete: ");
 
-    //    bool success = service.DeleteStudent(id);
+        bool success = service.DeleteStudent(id);
 
-    //    Console.WriteLine(success
-    //        ? "Student deleted successfully!"
-    //        : "Student not found.");
-    //}
+        Console.WriteLine(success
+            ? "Student deleted successfully!"
+            : "Student not found.");
+    }
 
     static Student ReadStudentDetails()
     {

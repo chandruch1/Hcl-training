@@ -10,5 +10,6 @@ public interface IStudentRepository
 
     Student GetById(int id);
     bool Update(Student student);
+    bool Delete(int id);
 }
 
