@@ -57,4 +57,31 @@ public class StudentRepository : IStudentRepository
             Department = reader.GetString(3)
         };
     }
+
+    public Student? GetById(int id)
+    {
+        const string query = """
+            SELECT StudentId, Name, Age, Department
+            FROM Students
+            WHERE StudentId = @StudentId;
+            """;
+
+        using SqlConnection connection =
+            new SqlConnection(_connectionstring);
+
+        using SqlCommand command = new SqlCommand(query, connection);
+
+        command.Parameters.Add("@StudentId", SqlDbType.Int).Value = id;
+
+        connection.Open();
+
+        using SqlDataReader reader = command.ExecuteReader();
+
+        if (reader.Read())
+        {
+            return MapStudent(reader);
+        }
+
+        return null;
+    }
 }

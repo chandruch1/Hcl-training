@@ -43,6 +43,10 @@ class Program
                         ViewStudents(service);
                         break;
 
+                    case "3":
+                        SearchStudent(service);
+                        break;
+
                     case "6":
                         Console.WriteLine("Goodbye!");
                         return;
@@ -105,20 +109,20 @@ class Program
         }
     }
 
-    //static void SearchStudent(StudentService service)
-    //{
-    //    int id = ReadInt("Enter student ID: ");
+    static void SearchStudent(StudentService service)
+    {
+        int id = ReadInt("Enter student ID: ");
 
-    //    Student? student = service.GetStudentById(id);
+        Student? student = service.GetStudentById(id);
 
-    //    if (student == null)
-    //    {
-    //        Console.WriteLine("Student not found.");
-    //        return;
-    //    }
+        if (student == null)
+        {
+            Console.WriteLine("Student not found.");
+            return;
+        }
 
-    //    DisplayStudent(student);
-    //}
+        DisplayStudent(student);
+    }
 
     //static void UpdateStudent(StudentService service)
     //{

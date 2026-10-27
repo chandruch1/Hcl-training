@@ -23,6 +23,13 @@ public class StudentService
         return _repository.GetAll();
     }
 
+    public Student? GetStudentById(int id)
+    {
+        ValidateId(id);
+
+        return _repository.GetById(id);
+    }
+
 
 
     private static void ValidateStudent(Student student)
