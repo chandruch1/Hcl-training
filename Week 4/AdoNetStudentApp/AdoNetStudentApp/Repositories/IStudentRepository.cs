@@ -9,5 +9,6 @@ public interface IStudentRepository
     List<Student> GetAll();
 
     Student GetById(int id);
+    bool Update(Student student);
 }
 

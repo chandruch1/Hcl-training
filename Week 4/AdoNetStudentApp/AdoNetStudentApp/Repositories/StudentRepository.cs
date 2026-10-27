@@ -84,4 +84,37 @@ public class StudentRepository : IStudentRepository
 
         return null;
     }
+    
+
+    public bool Update(Student student)
+    {
+        const string query = """
+            UPDATE Students
+            SET Name = @Name,
+                Age = @Age,
+                Department = @Department
+            WHERE StudentId = @StudentId;
+            """;
+
+        using SqlConnection connection =
+            new SqlConnection(_connectionstring);
+
+        using SqlCommand command = new SqlCommand(query, connection);
+
+        command.Parameters.Add("@StudentId", SqlDbType.Int)
+            .Value = student.StudentId;
+
+        command.Parameters.Add("@Name", SqlDbType.VarChar, 100)
+            .Value = student.Name;
+
+        command.Parameters.Add("@Age", SqlDbType.Int)
+            .Value = student.Age;
+
+        command.Parameters.Add("@Department", SqlDbType.VarChar, 50)
+            .Value = student.Department;
+
+        connection.Open();
+
+        return command.ExecuteNonQuery() > 0;
+    }
 }

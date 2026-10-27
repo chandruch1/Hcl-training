@@ -47,6 +47,14 @@ class Program
                         SearchStudent(service);
                         break;
 
+                    case "4":
+                        UpdateStudent(service);
+                        break;
+
+                    //case "5":
+                    //    DeleteStudent(service);
+                    //    break;
+
                     case "6":
                         Console.WriteLine("Goodbye!");
                         return;
@@ -124,29 +132,29 @@ class Program
         DisplayStudent(student);
     }
 
-    //static void UpdateStudent(StudentService service)
-    //{
-    //    int id = ReadInt("Enter student ID to update: ");
+    static void UpdateStudent(StudentService service)
+    {
+        int id = ReadInt("Enter student ID to update: ");
 
-    //    Student? existing = service.GetStudentById(id);
+        Student? existing = service.GetStudentById(id);
 
-    //    if (existing == null)
-    //    {
-    //        Console.WriteLine("Student not found.");
-    //        return;
-    //    }
+        if (existing == null)
+        {
+            Console.WriteLine("Student not found.");
+            return;
+        }
 
-    //    Console.WriteLine("Enter the updated details:");
+        Console.WriteLine("Enter the updated details:");
 
-    //    Student updated = ReadStudentDetails();
-    //    updated.StudentId = id;
+        Student updated = ReadStudentDetails();
+        updated.StudentId = id;
 
-    //    bool success = service.UpdateStudent(updated);
+        bool success = service.UpdateStudent(updated);
 
-    //    Console.WriteLine(success
-    //        ? "Student updated successfully!"
-    //        : "Student was not updated.");
-    //}
+        Console.WriteLine(success
+            ? "Student updated successfully!"
+            : "Student was not updated.");
+    }
 
     //static void DeleteStudent(StudentService service)
     //{

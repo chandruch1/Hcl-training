@@ -30,7 +30,13 @@ public class StudentService
         return _repository.GetById(id);
     }
 
+    public bool UpdateStudent(Student student)
+    {
+        ValidateId(student.StudentId);
+        ValidateStudent(student);
 
+        return _repository.Update(student);
+    }
 
     private static void ValidateStudent(Student student)
     {
