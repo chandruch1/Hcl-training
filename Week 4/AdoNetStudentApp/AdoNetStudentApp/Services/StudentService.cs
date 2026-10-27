@@ -18,8 +18,13 @@ public class StudentService
 
         return _repository.Add(student);
     }
+    public List<Student> GetAllStudents()
+    {
+        return _repository.GetAll();
+    }
 
-    
+
+
     private static void ValidateStudent(Student student)
     {
         if (string.IsNullOrWhiteSpace(student.Name))

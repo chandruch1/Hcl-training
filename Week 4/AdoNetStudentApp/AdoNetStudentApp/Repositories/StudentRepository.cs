@@ -24,8 +24,37 @@ public class StudentRepository : IStudentRepository
         command.Parameters.Add("@Name", SqlDbType.VarChar, 100).Value = student.Name;
         command.Parameters.Add("@Age", SqlDbType.Int).Value = student.Age;
         command.Parameters.Add("@Department", SqlDbType.VarChar, 50).Value = student.Department;
-        connection.Open(
+        connection.Open();
         return (int)command.ExecuteScalar()!;
 
+    }
+    public List<Student> GetAll()
+    {
+        const string query = """
+            SELECT StudentId, Name, Age, Department
+            FROM Students
+            ORDER BY StudentId;
+            """;
+        List<Student> students = new List<Student>();
+        using SqlConnection connection = new SqlConnection(_connectionstring);
+        using SqlCommand command = new SqlCommand(query, connection);
+        connection.Open();
+        using SqlDataReader reader = command.ExecuteReader();
+
+        while (reader.Read())
+        {
+            students.Add(MapStudent(reader));
+        }
+        return students;
+    }
+    private static Student MapStudent(SqlDataReader reader)
+    {
+        return new Student
+        {
+            StudentId = reader.GetInt32(0),
+            Name = reader.GetString(1),
+            Age = reader.GetInt32(2),
+            Department = reader.GetString(3)
+        };
     }
 }

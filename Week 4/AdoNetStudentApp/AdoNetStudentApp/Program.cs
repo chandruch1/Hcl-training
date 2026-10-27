@@ -39,6 +39,9 @@ class Program
                         AddStudent(service);
                         break;
 
+                    case "2":
+                        ViewStudents(service);
+                        break;
 
                     case "6":
                         Console.WriteLine("Goodbye!");
@@ -75,32 +78,32 @@ class Program
             $"Student added successfully! ID: {id}");
     }
 
-    //static void ViewStudents(StudentService service)
-    //{
-    //    List<Student> students = service.GetAllStudents();
+    static void ViewStudents(StudentService service)
+    {
+        List<Student> students = service.GetAllStudents();
 
-    //    if (students.Count == 0)
-    //    {
-    //        Console.WriteLine("No students found.");
-    //        return;
-    //    }
+        if (students.Count == 0)
+        {
+            Console.WriteLine("No students found.");
+            return;
+        }
 
-    //    Console.WriteLine(
-    //        "\n{0,-10}{1,-25}{2,-10}{3,-20}",
-    //        "ID", "Name", "Age", "Department");
+        Console.WriteLine(
+            "\n{0,-10}{1,-25}{2,-10}{3,-20}",
+            "ID", "Name", "Age", "Department");
 
-    //    Console.WriteLine(new string('-', 65));
+        Console.WriteLine(new string('-', 65));
 
-    //    foreach (Student student in students)
-    //    {
-    //        Console.WriteLine(
-    //            "{0,-10}{1,-25}{2,-10}{3,-20}",
-    //            student.StudentId,
-    //            student.Name,
-    //            student.Age,
-    //            student.Department);
-    //    }
-    //}
+        foreach (Student student in students)
+        {
+            Console.WriteLine(
+                "{0,-10}{1,-25}{2,-10}{3,-20}",
+                student.StudentId,
+                student.Name,
+                student.Age,
+                student.Department);
+        }
+    }
 
     //static void SearchStudent(StudentService service)
     //{

@@ -6,6 +6,6 @@ public interface IStudentRepository
 {
     int Add(Student student);
 
-    
+    List<Student> GetAll();
 }
 
