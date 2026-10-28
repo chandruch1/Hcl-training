@@ -139,3 +139,21 @@ For every feature:
 Verify that all 10 model classes exist and the solution builds successfully. Then commit the feature and update this document with the actual commit hash.
 
 After that, implement **Feature 3 — Database Initialization and Automatic Table Creation using ADO.NET**.
+
+### Feature 4: Passenger Management
+
+**Status:** Completed
+
+- [x] Register passengers
+- [x] Retrieve all passengers
+- [x] Search passengers by ID
+- [x] Search passengers by email
+- [x] Update passenger details
+- [x] Deactivate passengers
+- [x] Retrieve active passengers
+- [x] Validate passenger input
+- [x] Build and test successfully
+
+**Commit message:** `feat: implement passenger management repository`
+
+**Next feature:** Bus Management using C# and ADO.NET.
