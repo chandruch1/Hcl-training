@@ -1,77 +1,141 @@
-# Bus Ticket Booking Console Application — Project Progress
+# Bus Ticket Booking Console Application
 
-## Project Overview
+## 1. Project Overview
 
-A console-based bus ticket booking system built with C#, .NET 10, ADO.NET, and SQL Server Express.
+**Project Name:** Bus Ticket Booking Console Application  
+**IDE:** Visual Studio  
+**Framework:** .NET 10  
+**Language:** C#  
+**Database:** SQL Server Express  
+**Data Access:** ADO.NET  
+**Version Control:** Git  
 
-### Planned Modules
+### Project Objective
 
-- Passenger management
-- Bus management
-- Route management
-- Trip scheduling and trip search
-- Seat setup and availability
-- Booking and ticket display
-- Payment record (simulated for learning)
-- Booking cancellation and seat release
-- Reports and audit logs
+Develop a console-based bus ticket booking application using C#, ADO.NET, and SQL Server. The application will support passenger management, bus and route management, trip scheduling, seat selection, ticket booking, payments, and booking history.
 
-## Technology Stack
+---
 
-- **Language:** C#
-- **Framework:** .NET 10
-- **Database:** SQL Server Express (`.\SQLEXPRESS`)
-- **Data access:** ADO.NET with `Microsoft.Data.SqlClient`
-- **Architecture:** Models, Repositories, Services, Helpers
-- **Version control:** Git
+## 2. Technology Stack
 
-## Development Rules
+- C# and .NET 10
+- SQL Server Express
+- ADO.NET with `Microsoft.Data.SqlClient`
+- Visual Studio
+- Git and GitHub
 
-1. Build one feature at a time.
-2. Run and test the feature before considering it complete.
-3. After each completed feature, create a professional Git commit.
-4. Update this file after each completed feature.
-5. Do not start the next feature until the current feature is confirmed complete.
-6. Never commit passwords, secrets, or real payment information.
+---
 
-## Feature Tracker
+## 3. Development Progress
 
-| # | Feature | Status | Commit |
-|---|---|---|---|
-| 1 | Project setup and database connection | Not started | — |
-| 2 | Database schema and sample data | Not started | — |
-| 3 | Passenger management | Not started | — |
-| 4 | Bus management | Not started | — |
-| 5 | Route management | Not started | — |
-| 6 | Trip scheduling and trip search | Not started | — |
-| 7 | Seat setup and availability | Not started | — |
-| 8 | Booking transaction | Not started | — |
-| 9 | Ticket display and booking history | Not started | — |
-| 10 | Cancellation transaction | Not started | — |
-| 11 | Reports and audit logs | Not started | — |
-| 12 | Final testing and cleanup | Not started | — |
+### Setup and Configuration
 
-## Feature Log
+- [x] Installed the required development environment.
+- [x] Created the project in Visual Studio.
+- [x] Created the `BusTicketDB` database in SQL Server Express.
+- [x] Configured the SQL Server connection string.
+- [x] Tested the database connection successfully.
 
-### Feature 1 — Project Setup and Database Connection
+### Feature 1: Project Setup and Database Connection
 
-**Status:** Not started
+**Status:** Completed
 
-**Goal**
-- Create the .NET console project.
-- Install `Microsoft.Data.SqlClient`.
-- Create the planned folder structure.
-- Configure the local SQL Server Express connection in a helper.
-- Verify that the application can connect to `BusTicketDB`.
+The application connects to SQL Server Express using Windows Authentication.
 
-**Files changed:** To be filled in after implementation.
+Connection string:
 
-**Commands and tests:** To be filled in after implementation.
+```text
+Server=.\SQLEXPRESS;Database=BusTicketDB;Trusted_Connection=True;TrustServerCertificate=True;
+```
 
-**Commit:** To be filled in after the feature is tested.
+**Note:** The database must exist before connecting with this connection string. Automatic database creation will be implemented in a later feature.
 
-**Notes / issues:** None recorded yet.
+### Feature 2: Domain Models
 
-## Next Step
+**Status:** In progress — build and Git commit confirmation pending.
 
-Start Feature 1 only. Confirm the .NET SDK and SQL Server Express setup, create the project, and test the database connection. Once it works, update this document and commit the completed feature before moving on.
+The following model classes are planned for the `Models` folder:
+
+| No. | Model | Purpose |
+|---:|---|---|
+| 1 | `Passenger.cs` | Represents a passenger |
+| 2 | `Bus.cs` | Represents a bus |
+| 3 | `Route.cs` | Represents a travel route |
+| 4 | `Trip.cs` | Represents a scheduled trip |
+| 5 | `Seat.cs` | Represents a seat on a bus |
+| 6 | `Booking.cs` | Represents a passenger booking |
+| 7 | `BookingSeat.cs` | Links bookings to selected seats |
+| 8 | `Payment.cs` | Represents payment information |
+| 9 | `AuditLog.cs` | Records important application actions |
+| 10 | `TripSeat.cs` | Tracks seat status for a specific trip |
+
+**Completion checklist:**
+
+- [ ] Create all 10 model classes.
+- [ ] Build the solution successfully.
+- [ ] Fix any compilation errors.
+- [ ] Commit the completed models feature.
+- [ ] Record the Git commit hash.
+
+---
+
+## 4. Git Commit History
+
+| Feature | Commit Message | Status |
+|---|---|---|
+| Project setup and database connection | `chore: initialize bus ticket booking project` | Commit status not confirmed |
+| Domain models | `feat: add bus booking domain models` | Pending |
+
+Only mark a commit as completed after verifying it in Git.
+
+---
+
+## 5. Upcoming Features
+
+The following is the planned development order.
+
+- [ ] **Feature 3:** Database initialization and automatic table creation using ADO.NET.
+- [ ] **Feature 4:** Passenger management.
+- [ ] **Feature 5:** Bus management.
+- [ ] **Feature 6:** Route management.
+- [ ] **Feature 7:** Trip scheduling and management.
+- [ ] **Feature 8:** Seat availability management.
+- [ ] **Feature 9:** Ticket booking and seat selection.
+- [ ] **Feature 10:** Booking cancellation.
+- [ ] **Feature 11:** Payment simulation.
+- [ ] **Feature 12:** Booking history and reports.
+- [ ] **Feature 13:** Audit logging and final testing.
+
+---
+
+## 6. Development Workflow
+
+For every feature:
+
+1. Understand the requirement.
+2. Implement the feature in Visual Studio.
+3. Build and test the code.
+4. Fix any errors.
+5. Commit the completed feature using a professional Git commit message.
+6. Update this progress document.
+7. Proceed to the next feature only after confirming completion.
+
+---
+
+## 7. Important Technical Notes
+
+- C# model classes define the application's data structures; they do not automatically create SQL Server tables when using ADO.NET.
+- Database tables will be created through SQL commands executed using ADO.NET.
+- Database initialization should create the database and tables when needed without deleting existing data on every application run.
+- Booking operations should validate seat availability and use database transactions to prevent inconsistent bookings.
+- Payment processing in this project will be simulated; no real payment gateway is planned.
+
+---
+
+## 8. Current Next Step
+
+**Complete Feature 2 — Domain Models.**
+
+Verify that all 10 model classes exist and the solution builds successfully. Then commit the feature and update this document with the actual commit hash.
+
+After that, implement **Feature 3 — Database Initialization and Automatic Table Creation using ADO.NET**.

@@ -1,19 +1,16 @@
-﻿using BusTicketConsole.Helpers;
-using Microsoft.Data.SqlClient;
+﻿
+using BusTicketBooking.Repositories;
 
-try
+PassengerRepository repository = new PassengerRepository();
+
+List<BusTicketBooking.Models.Passenger> passengers =
+    repository.GetAll();
+
+foreach (var passenger in passengers)
 {
-    using SqlConnection connection =
-        DatabaseHelper.CreateConnection();
-
-    connection.Open();
-
-    Console.WriteLine("Database connection successful!");
-    Console.WriteLine($"Server: {connection.DataSource}");
-    Console.WriteLine($"Database: {connection.Database}");
-}
-catch (SqlException ex)
-{
-    Console.WriteLine("Database connection failed.");
-    Console.WriteLine(ex.Message);
+    Console.WriteLine(
+        $"{passenger.PassengerId} | " +
+        $"{passenger.FullName} | " +
+        $"{passenger.Email} | " +
+        $"{passenger.Phone ?? "No phone"}");
 }
