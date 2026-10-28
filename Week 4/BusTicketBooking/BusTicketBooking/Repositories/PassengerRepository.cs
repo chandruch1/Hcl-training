@@ -139,5 +139,28 @@ public class PassengerRepository
     }
 
 
+    public bool Deactivate(int passengerId)
+    {
+        const string query = """
+        UPDATE Passengers
+        SET IsActive = 0
+        WHERE PassengerId = @PassengerId
+          AND IsActive = 1;
+        """;
+
+        using SqlConnection connection =
+            new SqlConnection(_connectionString);
+
+        using SqlCommand command = new SqlCommand(query, connection);
+
+        command.Parameters.AddWithValue("@PassengerId", passengerId);
+
+        connection.Open();
+
+        int rowsAffected = command.ExecuteNonQuery();
+
+        return rowsAffected > 0;
+    }
+
 
 }
