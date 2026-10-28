@@ -1,25 +1,21 @@
 ﻿
-using BusTicketBooking.Models;
 using BusTicketBooking.Repositories;
 
 BusRepository repository = new();
 
-Bus bus = new()
-{
-    BusNumber = "TN58AB1234",
-    BusName = "Madurai Express",
-    TotalSeats = 40,
-    BusType = "AC"
-};
+List<BusTicketBooking.Models.Bus> buses = repository.GetAll();
 
-try
+if (buses.Count == 0)
 {
-    int busId = repository.Add(bus);
-
-    Console.WriteLine(
-        $"Bus added successfully. Bus ID: {busId}");
+    Console.WriteLine("No buses found.");
 }
-catch (Microsoft.Data.SqlClient.SqlException ex)
+else
 {
-    Console.WriteLine($"Database error: {ex.Message}");
+    foreach (var bus in buses)
+    {
+        Console.WriteLine(
+            $"{bus.BusId} | {bus.BusNumber} | " +
+            $"{bus.BusName} | {bus.TotalSeats} seats | " +
+            $"{bus.BusType} | Active: {bus.IsActive}");
+    }
 }

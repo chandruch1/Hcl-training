@@ -34,4 +34,42 @@ public class BusRepository
 
         return (int)command.ExecuteScalar()!;
     }
+
+
+    public List<Bus> GetAll()
+    {
+        const string query = """
+        SELECT BusId, BusNumber, BusName,
+               TotalSeats, BusType, IsActive
+        FROM Buses
+        ORDER BY BusId;
+        """;
+
+        List<Bus> buses = new();
+
+        using SqlConnection connection =
+            new SqlConnection(_connectionString);
+
+        using SqlCommand command = new SqlCommand(query, connection);
+
+        connection.Open();
+
+        using SqlDataReader reader = command.ExecuteReader();
+
+        while (reader.Read())
+        {
+            buses.Add(new Bus
+            {
+                BusId = reader.GetInt32(0),
+                BusNumber = reader.GetString(1),
+                BusName = reader.GetString(2),
+                TotalSeats = reader.GetInt32(3),
+                BusType = reader.GetString(4),
+                IsActive = reader.GetBoolean(5)
+            });
+        }
+
+        return buses;
+    }
+
 }
