@@ -109,4 +109,35 @@ public class PassengerRepository
     }
 
 
+    public bool Update(Passenger passenger)
+    {
+        const string query = """
+        UPDATE Passengers
+        SET FullName = @FullName,
+            Email = @Email,
+            Phone = @Phone
+        WHERE PassengerId = @PassengerId;
+        """;
+
+        using SqlConnection connection =
+            new SqlConnection(_connectionString);
+
+        using SqlCommand command = new SqlCommand(query, connection);
+
+        command.Parameters.AddWithValue("@PassengerId", passenger.PassengerId);
+        command.Parameters.AddWithValue("@FullName", passenger.FullName);
+        command.Parameters.AddWithValue("@Email", passenger.Email);
+        command.Parameters.AddWithValue(
+            "@Phone",
+            (object?)passenger.Phone ?? DBNull.Value);
+
+        connection.Open();
+
+        int rowsAffected = command.ExecuteNonQuery();
+
+        return rowsAffected > 0;
+    }
+
+
+
 }

@@ -1,27 +1,39 @@
 ﻿
+using BusTicketBooking.Models;
 using BusTicketBooking.Repositories;
 
 PassengerRepository repository = new PassengerRepository();
 
-Console.Write("Enter passenger ID: ");
+Console.Write("Enter passenger ID to update: ");
 
 if (int.TryParse(Console.ReadLine(), out int passengerId))
 {
-    var passenger = repository.GetById(passengerId);
+    Passenger? passenger = repository.GetById(passengerId);
 
-    if (passenger is not null)
+    if (passenger is null)
     {
-        Console.WriteLine($"ID: {passenger.PassengerId}");
-        Console.WriteLine($"Name: {passenger.FullName}");
-        Console.WriteLine($"Email: {passenger.Email}");
-        Console.WriteLine($"Phone: {passenger.Phone ?? "No phone"}");
+        Console.WriteLine("Passenger not found.");
     }
     else
     {
-        Console.WriteLine("Passenger not found.");
+        Console.Write("Enter new name: ");
+        passenger.FullName = Console.ReadLine() ?? string.Empty;
+
+        Console.Write("Enter new email: ");
+        passenger.Email = Console.ReadLine() ?? string.Empty;
+
+        Console.Write("Enter new phone: ");
+        passenger.Phone = Console.ReadLine();
+
+        bool updated = repository.Update(passenger);
+
+        Console.WriteLine(
+            updated
+                ? "Passenger updated successfully."
+                : "No passenger was updated.");
     }
 }
 else
 {
-    Console.WriteLine("Please enter a valid numeric ID.");
+    Console.WriteLine("Invalid passenger ID.");
 }
