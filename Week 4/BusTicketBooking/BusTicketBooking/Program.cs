@@ -3,18 +3,19 @@ using BusTicketBooking.Repositories;
 
 PassengerRepository repository = new PassengerRepository();
 
-Console.Write("Enter passenger ID to deactivate: ");
+Console.Write("Enter passenger email: ");
+string email = Console.ReadLine() ?? string.Empty;
 
-if (int.TryParse(Console.ReadLine(), out int passengerId))
+var passenger = repository.GetByEmail(email);
+
+if (passenger is not null)
 {
-    bool deactivated = repository.Deactivate(passengerId);
-
-    Console.WriteLine(
-        deactivated
-            ? "Passenger deactivated successfully."
-            : "Passenger not found or already inactive.");
+    Console.WriteLine($"ID: {passenger.PassengerId}");
+    Console.WriteLine($"Name: {passenger.FullName}");
+    Console.WriteLine($"Email: {passenger.Email}");
+    Console.WriteLine($"Active: {passenger.IsActive}");
 }
 else
 {
-    Console.WriteLine("Invalid passenger ID.");
+    Console.WriteLine("Passenger not found.");
 }

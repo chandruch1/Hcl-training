@@ -163,4 +163,41 @@ public class PassengerRepository
     }
 
 
+    public Passenger? GetByEmail(string email)
+    {
+        const string query = """
+        SELECT PassengerId, FullName, Email, Phone,
+               CreatedAt, IsActive
+        FROM Passengers
+        WHERE Email = @Email;
+        """;
+
+        using SqlConnection connection =
+            new SqlConnection(_connectionString);
+
+        using SqlCommand command = new SqlCommand(query, connection);
+
+        command.Parameters.AddWithValue("@Email", email);
+
+        connection.Open();
+
+        using SqlDataReader reader = command.ExecuteReader();
+
+        if (!reader.Read())
+        {
+            return null;
+        }
+
+        return new Passenger
+        {
+            PassengerId = reader.GetInt32(0),
+            FullName = reader.GetString(1),
+            Email = reader.GetString(2),
+            Phone = reader.IsDBNull(3) ? null : reader.GetString(3),
+            CreatedAt = reader.GetDateTime(4),
+            IsActive = reader.GetBoolean(5)
+        };
+    }
+
+
 }
