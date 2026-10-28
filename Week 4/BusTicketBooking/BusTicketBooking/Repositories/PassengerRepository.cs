@@ -200,4 +200,42 @@ public class PassengerRepository
     }
 
 
+    public List<Passenger> GetActivePassengers()
+    {
+        const string query = """
+        SELECT PassengerId, FullName, Email, Phone,
+               CreatedAt, IsActive
+        FROM Passengers
+        WHERE IsActive = 1
+        ORDER BY FullName;
+        """;
+
+        List<Passenger> passengers = new();
+
+        using SqlConnection connection =
+            new SqlConnection(_connectionString);
+
+        using SqlCommand command = new SqlCommand(query, connection);
+
+        connection.Open();
+
+        using SqlDataReader reader = command.ExecuteReader();
+
+        while (reader.Read())
+        {
+            passengers.Add(new Passenger
+            {
+                PassengerId = reader.GetInt32(0),
+                FullName = reader.GetString(1),
+                Email = reader.GetString(2),
+                Phone = reader.IsDBNull(3) ? null : reader.GetString(3),
+                CreatedAt = reader.GetDateTime(4),
+                IsActive = reader.GetBoolean(5)
+            });
+        }
+
+        return passengers;
+    }
+
+
 }

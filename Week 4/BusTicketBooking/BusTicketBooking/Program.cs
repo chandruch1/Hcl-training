@@ -1,21 +1,22 @@
 ﻿
 using BusTicketBooking.Repositories;
 
-PassengerRepository repository = new PassengerRepository();
+PassengerRepository repository = new();
 
-Console.Write("Enter passenger email: ");
-string email = Console.ReadLine() ?? string.Empty;
+List<BusTicketBooking.Models.Passenger> passengers =
+    repository.GetActivePassengers();
 
-var passenger = repository.GetByEmail(email);
-
-if (passenger is not null)
+if (passengers.Count == 0)
 {
-    Console.WriteLine($"ID: {passenger.PassengerId}");
-    Console.WriteLine($"Name: {passenger.FullName}");
-    Console.WriteLine($"Email: {passenger.Email}");
-    Console.WriteLine($"Active: {passenger.IsActive}");
+    Console.WriteLine("No active passengers found.");
 }
 else
 {
-    Console.WriteLine("Passenger not found.");
+    foreach (var passenger in passengers)
+    {
+        Console.WriteLine(
+            $"{passenger.PassengerId} | " +
+            $"{passenger.FullName} | " +
+            $"{passenger.Email}");
+    }
 }
