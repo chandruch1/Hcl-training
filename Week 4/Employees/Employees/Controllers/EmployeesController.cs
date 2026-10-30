@@ -1,7 +1,5 @@
 using Employees.DTO;
 using Employees.Interfaces;
-using Employees.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -34,7 +32,7 @@ namespace Employees.Controllers
             return Ok(employee);
         }
         [HttpPost] 
-        public async Task<ActionResult<Employee>> Create([FromBody] Employee employee)
+        public async Task<ActionResult<EmployeeResponseDto>> Create([FromBody] InsertEmployeeDto employee)
         {
             var createdEmployee = await _services.CreateAsync(employee);
             return CreatedAtAction(
@@ -46,8 +44,8 @@ namespace Employees.Controllers
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateEmployeeDto employee)
         {
             
-            var UpdateEmployee = await _services.UpdateAsync(id, employee);
-            if (!UpdateEmployee)
+            var IsUpdated = await _services.UpdateAsync(id, employee);
+            if (!IsUpdated)
             {
                 return NotFound($"Employee with ID {id} not found.");
             }
@@ -64,10 +62,10 @@ namespace Employees.Controllers
             return NoContent();
         }
         [HttpGet("search")]
-        public async Task<ActionResult<List<Employee>>> Search([FromQuery] string name)
+        public async Task<ActionResult<List<EmployeeResponseDto>>> Search([FromQuery] string name)
         {
-            var EmployeeByName = await _services.SearchByNameAsync(name);
-            return Ok(EmployeeByName);
+            var employees = await _services.SearchByNameAsync(name);
+            return Ok(employees);
 
         }
     }

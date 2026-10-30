@@ -7,9 +7,9 @@ namespace Employees.Interfaces
     {
         Task<List<EmployeeResponseDto>> GetAllAsync();
         Task<EmployeeResponseDto?> GetByIdAsync(int id);
-        Task<Employee> CreateAsync(Employee employee);
+        Task<EmployeeResponseDto> CreateAsync(InsertEmployeeDto dto);
         Task<bool> UpdateAsync(int id, UpdateEmployeeDto employee);
         Task<bool> DeleteAsync(int id);
-        Task<List<Employee>> SearchByNameAsync(string Name);
+        Task<List<EmployeeResponseDto>> SearchByNameAsync(string Name);
     }
 }
