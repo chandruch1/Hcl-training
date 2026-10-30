@@ -1,5 +1,6 @@
 using Employees.Models;
 using Microsoft.EntityFrameworkCore;
+using Employees.Enums;
 
 namespace Employees.Data
 {
@@ -12,6 +13,7 @@ namespace Employees.Data
         public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<EmployeeAuditLog> EmployeeAuditLogs { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -51,6 +53,33 @@ namespace Employees.Data
                 entity.Property(a => a.ChangedAt)
                       .IsRequired();
             });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(u => u.UserId);
+
+                entity.Property(e => e.Email)
+                .IsRequired()
+                .HasMaxLength(50);
+
+                entity.HasIndex(e => e.Email);
+
+                entity.Property(e => e.IsActive)
+                .HasDefaultValue(true);
+
+                entity.Property(e => e.PasswordHash)
+                .IsRequired()
+                .HasConversion<string>()
+                .HasMaxLength(100);
+
+                entity.Property(e => e.Role)
+                .HasConversion<string>()
+                .HasMaxLength(20);
+
+                entity.Property(u => u.CreatedAt)
+                .IsRequired();
+            }
+            );
         }
 
 
