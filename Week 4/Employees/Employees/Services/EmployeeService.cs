@@ -2,6 +2,7 @@ using Employees.Data;
 using Employees.Interfaces;
 using Employees.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 
@@ -138,6 +139,13 @@ namespace Employees.Services
             _logger.LogInformation("Employee Deleted Succesfully");
             return true;
 
+        }
+
+        public async Task<List<Employee>> SearchByNameAsync(string name)
+        {
+            var EmployeeByName = await _context.Employees.Where(e => e.FullName.Contains(name)).
+                AsNoTracking().ToListAsync();
+            return EmployeeByName;
         }
     }
 }

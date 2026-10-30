@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Employees.Interfaces;
 using Employees.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 
 namespace Employees.Controllers
@@ -24,6 +25,7 @@ namespace Employees.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Employee>> GetById([FromRoute] int id)
         {
+
             var employee = await _services.GetByIdAsync(id);
             if(employee == null)
             {
@@ -63,6 +65,13 @@ namespace Employees.Controllers
                 return NotFound($"Employee with ID {id} not found.");
             }
             return NoContent();
+        }
+        [HttpGet("search")]
+        public async Task<ActionResult<List<Employee>>> Search([FromQuery] string name)
+        {
+            var EmployeeByName = await _services.SearchByNameAsync(name);
+            return Ok(EmployeeByName);
+
         }
     }
 }

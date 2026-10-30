@@ -9,5 +9,6 @@ namespace Employees.Interfaces
         Task<Employee> CreateAsync(Employee employee);
         Task<bool> UpdateAsync(int id,Employee employee);
         Task<bool> DeleteAsync(int id);
+        Task<List<Employee>> SearchByNameAsync(string Name);
     }
 }

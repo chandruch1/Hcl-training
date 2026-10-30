@@ -1,4 +1,4 @@
-﻿
+
 using Employees.Models;
 
 namespace Employees.Interfaces
@@ -14,5 +14,6 @@ namespace Employees.Interfaces
         Task<bool> UpdateAsync(int id, Department department);
 
         Task<bool> DeleteAsync(int id);
+        
     }
 }
