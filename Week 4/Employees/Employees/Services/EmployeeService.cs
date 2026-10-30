@@ -3,6 +3,7 @@ using Employees.Interfaces;
 using Employees.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace Employees.Services
 {
@@ -31,21 +32,57 @@ namespace Employees.Services
         }
         public async  Task<Employee> CreateAsync(Employee employee)
         {
+            await using var transaction =await _context.Database.BeginTransactionAsync();
             _logger.LogInformation("Adding Employess Details................");
-            await _context.Employees.AddAsync(employee);
-            _logger.LogInformation("Employee Added Succeesfully");
-            await _context.Employees.AddAsync(employee);
+            _context.Employees.Add(employee);
             await _context.SaveChangesAsync();
+            _logger.LogInformation("Employee Added Succeesfully");
+            var auditLog = new EmployeeAuditLog
+            {
+                EmployeeId = employee.EmployeeId,
+                Action = "CREATE",
+
+                NewValues = JsonSerializer.Serialize(new
+                {
+                    employee.FullName,
+                    employee.Email,
+                    employee.Phone,
+                    employee.Salary,
+                    employee.DepartmentId,
+                    employee.IsActive
+                }),
+
+                ChangedBy = "System",
+                ChangedAt = DateTime.UtcNow
+            };
+            _context.EmployeeAuditLogs.Add(auditLog);
+            await _context.SaveChangesAsync();
+            await transaction.CommitAsync();
+            _logger.LogInformation(
+                "Employee {EmployeeId} created and audit logged.",
+                employee.EmployeeId);
             return employee;
         }
         public async Task<bool> UpdateAsync(int id ,Employee employee)
         {
+            await using var transaction = await _context.Database.BeginTransactionAsync();
             _logger.LogInformation("Updating Employee ............");
             var existingEmployee = await _context.Employees.FirstOrDefaultAsync(e => e.EmployeeId == id);
             if (existingEmployee == null)
             {
                 return false;
             }
+            var oldValues = JsonSerializer.Serialize(new
+            {
+                existingEmployee.FullName,
+                existingEmployee.Email,
+                existingEmployee.Phone,
+                existingEmployee.DateOfJoining,
+                existingEmployee.Salary,
+                existingEmployee.DepartmentId,
+                existingEmployee.IsActive
+            });
+
             existingEmployee.FullName = employee.FullName;
             existingEmployee.Email = employee.Email;
             existingEmployee.Phone = employee.Phone;
@@ -53,14 +90,41 @@ namespace Employees.Services
             existingEmployee.Salary = employee.Salary;
             existingEmployee.DepartmentId = employee.DepartmentId;
             existingEmployee.IsActive = employee.IsActive;
-            _logger.LogInformation($"Employee {employee.EmployeeId} is updated SuccesFully");
+            
+
+            var newValues = JsonSerializer.Serialize(new {
+                existingEmployee.FullName,
+                existingEmployee.Email,
+                existingEmployee.Phone,
+                existingEmployee.DateOfJoining,
+                existingEmployee.Salary,
+                existingEmployee.DepartmentId,
+                existingEmployee.IsActive
+            });
+            var auditLog = new EmployeeAuditLog
+            {
+                EmployeeId = id,
+                Action = "UPDATE",
+                OldValues = oldValues,
+                NewValues = newValues,
+                ChangedBy = "System",
+                ChangedAt = DateTime.UtcNow
+            };
+            _context.EmployeeAuditLogs.Add(auditLog);
             await _context.SaveChangesAsync();
+            await transaction.CommitAsync();
+            _logger.LogInformation($"Employee {employee.EmployeeId} is updated SuccesFully");
+            _logger.LogInformation(
+                "Employee {EmployeeId} updated and audit logged.",
+                id);
+
             return true;
 
         }
 
         public async Task<bool> DeleteAsync(int id)
         {
+            
             _logger.LogInformation("Deleting Employee .............");
             var DeleteEmployee= await _context.Employees.FindAsync(id);
 
