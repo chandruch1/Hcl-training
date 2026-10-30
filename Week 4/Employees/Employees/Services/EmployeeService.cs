@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
+using Employees.DTO;
 
 namespace Employees.Services
 {
@@ -17,19 +18,50 @@ namespace Employees.Services
             _context = context;
             _logger = logger;
         }
-        public async Task<List<Employee>> GetAllAsync()
+        public async Task<List<EmployeeResponseDto>> GetAllAsync()
         {
-            _logger.LogInformation("Get ALL Employee Details............");
-            var employee = await _context.Employees.AsNoTracking().Include(e => e.Department).ToListAsync();
-            _logger.LogInformation($"Total {employee.Count} Is Available ");
-            return employee;
+            _logger.LogInformation("Fetching All EMployess........");
+            var Employees= await _context.Employees
+                .AsNoTracking()
+                .Select(e => new EmployeeResponseDto
+                {
+                    EmployeeId = e.EmployeeId,
+                    FullName = e.FullName,
+                    Email = e.Email,
+                    Phone = e.Phone,
+                    DateOfJoining = e.DateOfJoining,
+                    Salary = e.Salary,
+                    DepartmentId = e.DepartmentId,
+                    DepartmentName = e.Department!.DepartmentName,
+                    Role = e.Role,
+                    IsActive = e.IsActive
+                })
+                .ToListAsync();
+            _logger.LogInformation($"total Employee {Employees.Count} is Available");
+            return Employees;
         }
-        public async Task<Employee?> GetByIdAsync(int id)
+        public async Task<EmployeeResponseDto?> GetByIdAsync(int id)
         {
-            _logger.LogInformation("Fetching Employee ById............");
-            var EmployeeId = await _context.Employees.AsNoTracking().FirstOrDefaultAsync(e => e.EmployeeId == id);
-            _logger.LogInformation($"{EmployeeId?.FullName} Is Fetched Successfully");
-            return EmployeeId;
+            _logger.LogInformation("Fectching Employeed ById................");
+            var Employees= await _context.Employees
+                .AsNoTracking()
+                .Where(e => e.EmployeeId == id)
+                .Select(e => new EmployeeResponseDto
+                {
+                    EmployeeId = e.EmployeeId,
+                    FullName = e.FullName,
+                    Email = e.Email,
+                    Phone = e.Phone,
+                    DateOfJoining = e.DateOfJoining,
+                    Salary = e.Salary,
+                    DepartmentId = e.DepartmentId,
+                    DepartmentName = e.Department!.DepartmentName,
+                    Role = e.Role,
+                    IsActive = e.IsActive
+                })
+                .FirstOrDefaultAsync();
+            _logger.LogInformation($"{Employees?.FullName} Is Fetched Successfully");
+            return Employees;
         }
         public async  Task<Employee> CreateAsync(Employee employee)
         {
@@ -64,15 +96,27 @@ namespace Employees.Services
                 employee.EmployeeId);
             return employee;
         }
-        public async Task<bool> UpdateAsync(int id ,Employee employee)
+        public async Task<bool> UpdateAsync(int id, UpdateEmployeeDto employee)
         {
-            await using var transaction = await _context.Database.BeginTransactionAsync();
-            _logger.LogInformation("Updating Employee ............");
-            var existingEmployee = await _context.Employees.FirstOrDefaultAsync(e => e.EmployeeId == id);
+            var FindId = await _context.Employees.FindAsync(id);
+            if (FindId == null)
+            {
+                _logger.LogInformation("Updation Id is Not Available in Database");
+                return false;
+            }
+            _logger.LogInformation("Updating Employee...");
+
+            var existingEmployee = await _context.Employees
+                .FirstOrDefaultAsync(e => e.EmployeeId == id);
+
             if (existingEmployee == null)
             {
                 return false;
             }
+
+            await using var transaction =
+                await _context.Database.BeginTransactionAsync();
+
             var oldValues = JsonSerializer.Serialize(new
             {
                 existingEmployee.FullName,
@@ -91,9 +135,9 @@ namespace Employees.Services
             existingEmployee.Salary = employee.Salary;
             existingEmployee.DepartmentId = employee.DepartmentId;
             existingEmployee.IsActive = employee.IsActive;
-            
 
-            var newValues = JsonSerializer.Serialize(new {
+            var newValues = JsonSerializer.Serialize(new
+            {
                 existingEmployee.FullName,
                 existingEmployee.Email,
                 existingEmployee.Phone,
@@ -102,6 +146,7 @@ namespace Employees.Services
                 existingEmployee.DepartmentId,
                 existingEmployee.IsActive
             });
+
             var auditLog = new EmployeeAuditLog
             {
                 EmployeeId = id,
@@ -111,16 +156,18 @@ namespace Employees.Services
                 ChangedBy = "System",
                 ChangedAt = DateTime.UtcNow
             };
+
             _context.EmployeeAuditLogs.Add(auditLog);
+
             await _context.SaveChangesAsync();
+
             await transaction.CommitAsync();
-            _logger.LogInformation($"Employee {employee.EmployeeId} is updated SuccesFully");
+
             _logger.LogInformation(
                 "Employee {EmployeeId} updated and audit logged.",
                 id);
 
             return true;
-
         }
 
         public async Task<bool> DeleteAsync(int id)

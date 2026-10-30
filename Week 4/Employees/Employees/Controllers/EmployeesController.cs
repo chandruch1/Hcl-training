@@ -1,7 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
+using Employees.DTO;
 using Employees.Interfaces;
 using Employees.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 
 
 namespace Employees.Controllers
@@ -17,20 +18,19 @@ namespace Employees.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Employee>>> GetAll()
+        public async Task<ActionResult<List<EmployeeResponseDto>>> GetAll()
         {
             var employee= await _services.GetAllAsync();
             return Ok(employee);
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Employee>> GetById([FromRoute] int id)
+        public async Task<ActionResult<EmployeeResponseDto>> GetById([FromRoute] int id)
         {
-
             var employee = await _services.GetByIdAsync(id);
-            if(employee == null)
-            {
+
+            if (employee == null)
                 return NotFound($"Employee with ID {id} not found.");
-            }
+
             return Ok(employee);
         }
         [HttpPost] 
@@ -43,12 +43,9 @@ namespace Employees.Controllers
                 createdEmployee);
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromRoute] int id, [FromBody]Employee employee)
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateEmployeeDto employee)
         {
-            if (id != employee.EmployeeId)
-            {
-                return BadRequest("Employee ID mismatch.");
-            }
+            
             var UpdateEmployee = await _services.UpdateAsync(id, employee);
             if (!UpdateEmployee)
             {

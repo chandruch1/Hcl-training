@@ -36,6 +36,10 @@ namespace Employees.Data
                 entity.Property(e => e.IsActive).HasDefaultValue(true);
                 entity.HasIndex(e => e.Email).IsUnique();
 
+                entity.Property(e => e.Role)
+                .HasConversion<string>()
+                .HasMaxLength(20);
+
                 entity.HasOne(e => e.Department)
                .WithMany()
                .HasForeignKey(e => e.DepartmentId)
