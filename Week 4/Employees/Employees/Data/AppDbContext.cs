@@ -1,4 +1,4 @@
-﻿using Employees.Models;
+using Employees.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Employees.Data
@@ -11,6 +11,7 @@ namespace Employees.Data
         }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<EmployeeAuditLog> EmployeeAuditLogs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,6 +39,17 @@ namespace Employees.Data
                .HasForeignKey(e => e.DepartmentId)
                .IsRequired()
                .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            modelBuilder.Entity<EmployeeAuditLog>(entity =>
+            {
+                entity.HasKey(a => a.AuditId);
+
+                entity.Property(a => a.Action)
+                      .IsRequired();
+
+                entity.Property(a => a.ChangedAt)
+                      .IsRequired();
             });
         }
 

@@ -1,5 +1,6 @@
 using Employees.Data;
 using Employees.Interfaces;
+using Employees.Models;
 using Employees.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +19,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddProblemDetails();
 
 var app = builder.Build();
+
+
 
 app.UseExceptionHandler();
 

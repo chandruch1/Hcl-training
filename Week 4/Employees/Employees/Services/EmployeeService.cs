@@ -1,4 +1,4 @@
-﻿using Employees.Data;
+using Employees.Data;
 using Employees.Interfaces;
 using Employees.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -18,7 +18,7 @@ namespace Employees.Services
         public async Task<List<Employee>> GetAllAsync()
         {
             _logger.LogInformation("Get ALL Employee Details............");
-            var employee = await _context.Employees.AsNoTracking().ToListAsync();
+            var employee = await _context.Employees.AsNoTracking().Include(e => e.Department).ToListAsync();
             _logger.LogInformation($"Total {employee.Count} Is Available ");
             return employee;
         }
