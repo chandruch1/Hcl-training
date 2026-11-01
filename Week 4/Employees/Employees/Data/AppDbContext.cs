@@ -15,6 +15,8 @@ namespace Employees.Data
         public DbSet<EmployeeAuditLog> EmployeeAuditLogs { get; set; }
         public DbSet<User> Users { get; set; }
 
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -82,8 +84,27 @@ namespace Employees.Data
 
                 entity.Property(u => u.CreatedAt)
                 .IsRequired();
-            }
-            );
+            });
+
+            modelBuilder.Entity<RefreshToken>(entity =>
+            {
+                entity.HasKey(r => r.RefreshTokenId);
+
+                entity.Property(r => r.TokenHash)
+                .IsRequired()
+                .HasMaxLength(500);
+
+                entity.Property(r => r.CreatedAt)
+                .IsRequired();
+
+                entity.Property(r=>r.ExpiresAt)
+                .IsRequired();
+
+                entity.HasOne(u => u.User)
+                .WithMany()
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+            });
         }
 
 

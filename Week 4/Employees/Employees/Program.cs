@@ -1,44 +1,78 @@
+
 using Employees.Data;
 using Employees.Interfaces;
-using Employees.Models;
 using Employees.Services;
 using Employees.Middleware;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Scalar.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Controllers
 builder.Services.AddControllers();
+
+// Dependency Injection
 builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
-//Db configuration
+// Database configuration
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
 
-//cors configuration
-builder.Services.AddCors(option =>
+// CORS configuration
+builder.Services.AddCors(options =>
 {
-    option.AddPolicy("Angular", policy =>
+    options.AddPolicy("AllowAngular", policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
-        .AllowAnyMethod()
-        .AllowAnyHeader();
-            });
+        policy
+            .WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
 });
+
+//JWT Authentication
+builder.Services.AddAuthentication(option =>
+{
+    option.DefaultAuthenticateScheme =
+    JwtBearerDefaults.AuthenticationScheme;
+
+    option.DefaultChallengeScheme =
+    JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(option =>
+{
+    option.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateIssuerSigningKey = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+});
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddProblemDetails();
 builder.Services.AddOpenApi();
+
 var app = builder.Build();
 
-
-
+// Exception handling
 app.UseExceptionHandler();
+app.UseMiddleware<ExceptionMiddleware>();
 
+// Swagger
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -46,8 +80,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseMiddleware<ExceptionMiddleware>();
-app.UseHttpsRedirection();
+
+// Middleware order
+app.UseCors("AllowAngular");
+//app.UseHttpsRedirection();
+
+
 
 app.MapControllers();
 
