@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using MovieTicketBooking.Models;
 
 namespace MovieTicketBooking.Data
@@ -65,7 +65,7 @@ namespace MovieTicketBooking.Data
                   {
                   entity.HasKey(u => u.UserId);
 
-                  entity.Property(u => u.Name)
+                  entity.Property(u => u.UserName)
                         .IsRequired()
                         .HasMaxLength(100);
 
@@ -76,10 +76,10 @@ namespace MovieTicketBooking.Data
                   entity.HasIndex(u => u.Email)
                         .IsUnique();
 
-                  entity.Property(u => u.PasswordHash)
+                  entity.Property(u => u.HashPassword)
                         .IsRequired();
 
-                  entity.Property(u => u.Role)
+                  entity.Property(u => u.role)
                         .HasConversion<string>()
                         .IsRequired();
                   });

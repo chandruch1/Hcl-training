@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using MovieTicketBooking.DTOs.Auth;
 using MovieTicketBooking.Services;
 using MovieTicketBooking.Models;
-using MovieTicketBooking.Services.Interfaces;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MovieTicketBooking.Controllers
 {
@@ -41,7 +41,7 @@ namespace MovieTicketBooking.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterRequestDto dto)
         {
-            var register = authservice.RegisterAsync(dto);
+            var register =await  authservice.RegisterAsync(dto);
             if(register == null)
             {
                 return Unauthorized(new { message=" you ALready registerd please Login" });
@@ -51,6 +51,9 @@ namespace MovieTicketBooking.Controllers
             return StatusCode(200, new
             {
                 message = "Registration successful",
+                Email = register.Email,
+                Role = register.Email,
+                username = register.UserName
             });
 
         }
