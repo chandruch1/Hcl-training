@@ -12,3 +12,4 @@ namespace MovieTicketBooking.Services.Interfaces
         Task DeleteMovieAsync(int movieId);
     }
 }
+

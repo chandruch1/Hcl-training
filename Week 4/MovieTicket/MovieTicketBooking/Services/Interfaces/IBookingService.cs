@@ -9,3 +9,4 @@ namespace MovieTicketBooking.Services.Interfaces
         Task<CancelBookingResponseDto> CancelBookingAsync(int bookingId);
     }
 }
+
