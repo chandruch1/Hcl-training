@@ -23,6 +23,7 @@ namespace MovieTicketBooking.Data
         public DbSet<ShowSeat> ShowSeats { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<BookingSeat> BookingSeats { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -59,6 +60,29 @@ namespace MovieTicketBooking.Data
                 entity.Property(t => t.IsActive).HasDefaultValue(true);
                 entity.Property(t => t.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
             });
+
+            modelBuilder.Entity<User>(entity =>
+                  {
+                  entity.HasKey(u => u.UserId);
+
+                  entity.Property(u => u.Name)
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                  entity.Property(u => u.Email)
+                        .IsRequired()
+                        .HasMaxLength(150);
+
+                  entity.HasIndex(u => u.Email)
+                        .IsUnique();
+
+                  entity.Property(u => u.PasswordHash)
+                        .IsRequired();
+
+                  entity.Property(u => u.Role)
+                        .HasConversion<string>()
+                        .IsRequired();
+                  });
 
             // ── SCREEN ─────────────────────────────────────────────────────────
             modelBuilder.Entity<Screen>(entity =>
