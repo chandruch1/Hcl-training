@@ -30,6 +30,8 @@ builder.Services.AddScoped<ISeatRepository, SeatRepository>();
 builder.Services.AddScoped<IShowRepository, ShowRepository>();
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 
+builder.Services.Configure<JwtSettings>(
+    builder.Configuration.GetSection("JwtSettings"));
 // ─────────────────────────────────────────────────────────────────
 // 4. SERVICES (Scoped lifetime — business logic layer)
 // ─────────────────────────────────────────────────────────────────
