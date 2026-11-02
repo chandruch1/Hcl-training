@@ -1,33 +1,46 @@
 using Microsoft.EntityFrameworkCore;
 using MovieTicketBooking.Data;
+using MovieTicketBooking.Middleware;
+using MovieTicketBooking.Repositories;
+using MovieTicketBooking.Repositories.Interfaces;
+using MovieTicketBooking.Services;
+using MovieTicketBooking.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // ─────────────────────────────────────────────────────────────────
 // 1. CONTROLLERS
-//    AddControllers() registers all classes decorated with [ApiController]
-//    into the DI container and sets up the MVC pipeline.
 // ─────────────────────────────────────────────────────────────────
 builder.Services.AddControllers();
 
 // ─────────────────────────────────────────────────────────────────
 // 2. DATABASE — Entity Framework Core + SQL Server
-//
-//    GetConnectionString("DefaultConnection") reads from appsettings.json.
-//    We never hardcode the connection string here.
-//
-//    UseSqlServer() registers the SQL Server database provider.
-//    ApplicationDbContext is registered as a Scoped service automatically
-//    by AddDbContext — one DbContext instance per HTTP request.
 // ─────────────────────────────────────────────────────────────────
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // ─────────────────────────────────────────────────────────────────
-// 3. SWAGGER / OPENAPI
-//
-//    AddEndpointsApiExplorer() — required for minimal-API endpoint discovery
-//    AddSwaggerGen()            — generates the OpenAPI JSON spec
+// 3. REPOSITORIES (Scoped lifetime — one instance per HTTP request)
+// ─────────────────────────────────────────────────────────────────
+builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+builder.Services.AddScoped<ITheatreRepository, TheatreRepository>();
+builder.Services.AddScoped<IScreenRepository, ScreenRepository>();
+builder.Services.AddScoped<ISeatRepository, SeatRepository>();
+builder.Services.AddScoped<IShowRepository, ShowRepository>();
+builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+
+// ─────────────────────────────────────────────────────────────────
+// 4. SERVICES (Scoped lifetime — business logic layer)
+// ─────────────────────────────────────────────────────────────────
+builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<ITheatreService, TheatreService>();
+builder.Services.AddScoped<IScreenService, ScreenService>();
+builder.Services.AddScoped<ISeatService, SeatService>();
+builder.Services.AddScoped<IShowService, ShowService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
+
+// ─────────────────────────────────────────────────────────────────
+// 5. SWAGGER / OPENAPI
 // ─────────────────────────────────────────────────────────────────
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -42,8 +55,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 // ─────────────────────────────────────────────────────────────────
-// 4. CORS (pre-configured for future Angular frontend integration)
-//    Policy name "AllowAngular" will be referenced in Phase 11.
+// 6. CORS (Configured for future Angular frontend integration)
 // ─────────────────────────────────────────────────────────────────
 builder.Services.AddCors(options =>
 {
@@ -51,35 +63,27 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins("http://localhost:4200")
               .AllowAnyHeader()
-              .AllowAnyMethod();
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
-
-// ─────────────────────────────────────────────────────────────────
-// Services and Repositories will be registered here in later phases.
-// Example (Phase 5 onwards):
-//   builder.Services.AddScoped<IMovieRepository, MovieRepository>();
-//   builder.Services.AddScoped<IMovieService, MovieService>();
-// ─────────────────────────────────────────────────────────────────
 
 var app = builder.Build();
 
 // ─────────────────────────────────────────────────────────────────
 // MIDDLEWARE PIPELINE
-// Order matters: exception handling → HTTPS → routing → CORS →
-//                auth/authz → controllers
 // ─────────────────────────────────────────────────────────────────
 
-// Global exception handling middleware will be added in Phase 9.
+// Global Exception Handling Middleware (Phase 9)
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
-    // Expose Swagger UI only in Development for security.
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "Movie Ticket Booking API v1");
-        options.RoutePrefix = string.Empty; // Swagger UI available at root: https://localhost:{port}/
+        options.RoutePrefix = string.Empty;
     });
 }
 
@@ -87,9 +91,6 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowAngular");
 
-// MapControllers() activates attribute-based routing.
-// Every [Route] and [HttpGet/Post/Put/Delete] attribute on controllers
-// is registered here.
 app.MapControllers();
 
 app.Run();
