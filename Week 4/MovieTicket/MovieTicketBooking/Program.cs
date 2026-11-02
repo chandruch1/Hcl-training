@@ -6,6 +6,7 @@ using MovieTicketBooking.Repositories.Interfaces;
 using MovieTicketBooking.Services;
 using MovieTicketBooking.Services.Interfaces;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // ─────────────────────────────────────────────────────────────────
@@ -38,6 +39,7 @@ builder.Services.AddScoped<IScreenService, ScreenService>();
 builder.Services.AddScoped<ISeatService, SeatService>();
 builder.Services.AddScoped<IShowService, ShowService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // ─────────────────────────────────────────────────────────────────
 // 5. SWAGGER / OPENAPI
