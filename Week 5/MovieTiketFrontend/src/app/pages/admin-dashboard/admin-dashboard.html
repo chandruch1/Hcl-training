@@ -1,0 +1,43 @@
+<div class="container-fluid py-4">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2>Admin Dashboard</h2>
+      <p class="text-muted mb-0">
+        Welcome, {{ adminName }}
+      </p>
+    </div>
+
+    <button class="btn btn-outline-danger" (click)="logout()">
+      Logout
+    </button>
+  </div>
+
+  <hr>
+
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card shadow-sm p-4">
+        <h5>Movies</h5>
+        <p class="text-muted">Manage movie information</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm p-4">
+        <h5>Theatres</h5>
+        <p class="text-muted">Manage theatre details</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm p-4">
+        <h5>Bookings</h5>
+        <p class="text-muted">View booking information</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>

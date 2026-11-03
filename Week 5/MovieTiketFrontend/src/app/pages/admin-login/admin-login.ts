@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { AdminAuth } from '../../services/admin-auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-login',
@@ -13,6 +14,7 @@ export class AdminLogin {
 
   private fb = inject(FormBuilder).nonNullable;
   private adminAuth = inject(AdminAuth);
+  private router = inject(Router);
 
   loading = signal(false);
   errorMessage = signal('');
@@ -40,8 +42,8 @@ export class AdminLogin {
         sessionStorage.setItem('adminName', response.name);
         sessionStorage.setItem('adminRole', response.role);
 
-        this.successMessage.set(response.message);
         this.loading.set(false);
+        this.router.navigate(['/admin/dashboard']);
       },
       error: (error) => {
         this.errorMessage.set(
