@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MovieTicketBooking.DTOs.Screens;
 using MovieTicketBooking.Services.Interfaces;
 
 namespace MovieTicketBooking.Controllers
 {
+    [Authorize(Roles = "Owner")]
     [ApiController]
     [Route("api/[controller]")]
     public class ScreensController : ControllerBase
