@@ -1,9 +1,13 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MovieTicketBooking.DTOs.Bookings;
 using MovieTicketBooking.Services.Interfaces;
+using MovieTicketBooking.Models;
+using Stripe;
 
 namespace MovieTicketBooking.Controllers
 {
+    [Authorize(Roles = Customer)]
     [ApiController]
     [Route("api/[controller]")]
     public class BookingsController : ControllerBase
