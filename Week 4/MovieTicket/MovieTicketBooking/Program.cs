@@ -71,6 +71,7 @@ builder.Services.AddScoped<IShowService, ShowService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<Authservice>();
+builder.Services.AddScoped<AdminService>();
 
 // 6. SWAGGER
 builder.Services.AddEndpointsApiExplorer();

@@ -8,7 +8,7 @@ namespace MovieTicketBooking.Controllers
     
     [ApiController]
     [Route("api/[controller]")]
-    public class AdminController
+    public class AdminController : ControllerBase
     {
         private readonly AdminService _adminService;
         private readonly JwtService _JwtService;

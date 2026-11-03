@@ -16,7 +16,7 @@ namespace MovieTicketBooking.Services
         public async Task<User?> RegisterAsync(AdminRegisterDto dto)
         {
             var user = await _context.Users.AnyAsync(u => u.Email == dto.Email);
-            if (!user)
+            if (user)
             {
                 return null;
             }
