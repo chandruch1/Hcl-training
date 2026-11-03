@@ -1,0 +1,220 @@
+<div class="container py-4">
+  <!-- Breadcrumb & Back -->
+  <div class="mb-3">
+    <a routerLink="/movies" class="text-decoration-none text-muted small">
+      <i class="bi bi-arrow-left me-1"></i> Back to Movies
+    </a>
+  </div>
+
+  @if (loading()) {
+    <div class="text-center py-5 my-5">
+      <div class="spinner-border text-danger" role="status"></div>
+      <p class="text-muted mt-3">Loading cinema hall layout and seats...</p>
+    </div>
+  }
+
+  @if (errorMessage()) {
+    <div class="alert alert-danger shadow-sm rounded-4 p-4 text-center">
+      <i class="bi bi-exclamation-triangle-fill fs-1 text-danger d-block mb-2"></i>
+      <h5 class="fw-bold">{{ errorMessage() }}</h5>
+      <a routerLink="/movies" class="btn btn-outline-danger mt-3">Return to Movies</a>
+    </div>
+  }
+
+  @if (!loading() && show(); as s) {
+    <!-- Show info strip -->
+    <div class="card shadow-sm border-0 rounded-4 mb-4 bg-white p-3 p-md-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+        <div>
+          <span class="badge bg-danger mb-2">LIVE SEAT BOOKING</span>
+          <h2 class="fw-bold mb-1 text-dark">{{ s.movieTitle }}</h2>
+          <div class="d-flex flex-wrap align-items-center gap-3 text-muted small">
+            <span><i class="bi bi-geo-alt-fill text-danger me-1"></i>{{ s.theatreName }}</span>
+            <span>•</span>
+            <span><i class="bi bi-display text-primary me-1"></i>{{ s.screenName }}</span>
+            <span>•</span>
+            <span><i class="bi bi-calendar3 me-1"></i>{{ s.showDate | date:'fullDate' }}</span>
+            <span>•</span>
+            <span class="fw-bold text-dark"><i class="bi bi-clock me-1"></i>{{ formatTime(s.startTime) }}</span>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <div class="text-end">
+            <span class="small text-muted d-block">Base Price</span>
+            <span class="fs-4 fw-bold text-success">₹{{ s.basePrice }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Seat Map Canvas -->
+      <div class="col-lg-8">
+        <div class="card shadow-sm border-0 rounded-4 bg-white p-4">
+          <!-- Screen representation -->
+          <div class="text-center mb-5">
+            <div class="cinema-screen mx-auto" style="max-width: 520px;"></div>
+            <span class="text-uppercase small tracking-widest text-muted fw-bold">All eyes this way — Cinema Screen</span>
+          </div>
+
+          <!-- Seat Grid -->
+          @if (seatRows().length > 0) {
+            <div class="seat-container d-flex flex-column align-items-center gap-2 mb-4 overflow-auto py-2">
+              @for (row of seatRows(); track row.rowLetter) {
+                <div class="d-flex align-items-center gap-2">
+                  <span class="row-label text-muted fw-bold">{{ row.rowLetter }}</span>
+
+                  <div class="d-flex gap-2">
+                    @for (seat of row.seats; track seat.seatId) {
+                      <button
+                        type="button"
+                        class="seat-btn"
+                        [class.seat-available]="seat.status !== 'Booked'"
+                        [class.seat-booked]="seat.status === 'Booked'"
+                        [class.seat-selected]="isSeatSelected(seat.seatId)"
+                        [class.seat-vip]="seat.seatType === 'VIP'"
+                        [disabled]="seat.status === 'Booked'"
+                        (click)="toggleSeat(seat)"
+                        title="Seat {{ row.rowLetter }}{{ seat.columnNumber }} ({{ seat.seatType }}) - ₹{{ seat.price || s.basePrice }}">
+                        {{ seat.columnNumber }}
+                      </button>
+                    }
+                  </div>
+
+                  <span class="row-label text-muted fw-bold">{{ row.rowLetter }}</span>
+                </div>
+              }
+            </div>
+
+            <!-- Seat Legend -->
+            <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 pt-3 border-top small text-muted">
+              <div class="d-flex align-items-center gap-2">
+                <span class="seat-btn seat-available" style="width: 22px; height: 22px;"></span>
+                <span>Available</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="seat-btn seat-selected" style="width: 22px; height: 22px;"></span>
+                <span>Selected</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="seat-btn seat-booked" style="width: 22px; height: 22px;"></span>
+                <span>Booked / Taken</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="seat-btn seat-vip seat-available" style="width: 22px; height: 22px;"></span>
+                <span>VIP Premium</span>
+              </div>
+            </div>
+          } @else {
+            <div class="text-center py-5">
+              <i class="bi bi-grid-3x3 text-muted display-4 mb-3 d-block"></i>
+              <p class="text-muted">No seat arrangement found for this screen.</p>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Booking Summary & Checkout Sidebar -->
+      <div class="col-lg-4">
+        <div class="card shadow-sm border-0 rounded-4 bg-white p-4 sticky-top" style="top: 85px;">
+          <h4 class="fw-bold mb-3 pb-2 border-bottom">Booking Summary</h4>
+
+          <!-- Selected seats chips -->
+          <div class="mb-3">
+            <span class="small text-muted d-block mb-2">Selected Seats ({{ selectedSeatIds().length }}):</span>
+            @if (selectedSeatsList().length > 0) {
+              <div class="d-flex flex-wrap gap-2">
+                @for (seat of selectedSeatsList(); track seat.seatId) {
+                  <span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25 px-2 py-1 fs-6">
+                    {{ seat.rowLetter }}{{ seat.columnNumber }}
+                    <span class="small opacity-75 ms-1">(₹{{ seat.price || s.basePrice }})</span>
+                  </span>
+                }
+              </div>
+            } @else {
+              <div class="p-3 bg-light rounded-3 text-center text-muted small">
+                <i class="bi bi-cursor-fill me-1"></i> Click on any available seat in the map
+              </div>
+            }
+          </div>
+
+          <hr class="my-3 text-muted">
+
+          <!-- Price breakdown -->
+          <div class="d-flex flex-column gap-2 small text-muted mb-3">
+            <div class="d-flex justify-content-between">
+              <span>Ticket(s) Subtotal</span>
+              <span class="fw-semibold text-dark">₹{{ subtotal() }}</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Convenience Fee & GST</span>
+              <span class="fw-semibold text-dark">₹{{ convenienceFee() }}</span>
+            </div>
+            <div class="d-flex justify-content-between pt-2 border-top fs-5 fw-bold text-dark">
+              <span>Grand Total</span>
+              <span class="text-success">₹{{ grandTotal() }}</span>
+            </div>
+          </div>
+
+          <!-- Customer details form -->
+          <div class="mb-4 pt-2">
+            <h6 class="fw-bold text-dark mb-2">Contact Details</h6>
+
+            <div class="mb-2">
+              <label class="form-label small text-muted mb-1">Your Full Name *</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="John Doe"
+                [ngModel]="customerName()"
+                (ngModelChange)="customerName.set($event)">
+            </div>
+
+            <div class="mb-2">
+              <label class="form-label small text-muted mb-1">Email Address *</label>
+              <input
+                type="email"
+                class="form-control form-control-sm"
+                placeholder="john@example.com"
+                [ngModel]="customerEmail()"
+                (ngModelChange)="customerEmail.set($event)">
+              <span class="text-muted" style="font-size: 0.7rem;">Your e-ticket confirmation will be sent here</span>
+            </div>
+
+            <div class="mb-2">
+              <label class="form-label small text-muted mb-1">Phone Number (Optional)</label>
+              <input
+                type="tel"
+                class="form-control form-control-sm"
+                placeholder="+91-9876543210"
+                [ngModel]="customerPhone()"
+                (ngModelChange)="customerPhone.set($event)">
+            </div>
+          </div>
+
+          <!-- Booking Error Alert -->
+          @if (bookingError()) {
+            <div class="alert alert-danger small p-2 mb-3 rounded-3">
+              <i class="bi bi-exclamation-circle-fill me-1"></i> {{ bookingError() }}
+            </div>
+          }
+
+          <!-- Checkout Button -->
+          <button
+            class="btn btn-danger w-100 py-2 fw-bold shadow-sm rounded-3"
+            [disabled]="selectedSeatIds().length === 0 || bookingInProgress()"
+            (click)="confirmBooking()">
+            @if (bookingInProgress()) {
+              <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+              Reserving Your Seats...
+            } @else {
+              <i class="bi bi-check2-circle me-1"></i> Confirm & Book Tickets (₹{{ grandTotal() }})
+            }
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</div>
+

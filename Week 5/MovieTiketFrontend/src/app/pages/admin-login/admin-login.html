@@ -1,70 +1,156 @@
-<div class="container d-flex justify-content-center align-items-center min-vh-100">
-  <div class="card shadow p-4" style="width: 100%; max-width: 420px;">
-
-    <h3 class="text-center mb-2">Admin Login</h3>
-    <p class="text-center text-muted mb-4">
-      Movie Ticket Booking System
-    </p>
-
-    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-
-      <div class="mb-3">
-        <label class="form-label">Email</label>
-
-        <input
-          type="email"
-          class="form-control"
-          formControlName="email"
-          placeholder="Enter admin email"
-        />
-
-        @if (loginForm.controls.email.touched &&
-             loginForm.controls.email.invalid) {
-          <small class="text-danger">
-            Enter a valid email address.
-          </small>
-        }
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Password</label>
-
-        <input
-          type="password"
-          class="form-control"
-          formControlName="passWord"
-          placeholder="Enter password"
-        />
-
-        @if (loginForm.controls.passWord.touched &&
-             loginForm.controls.passWord.invalid) {
-          <small class="text-danger">
-            Password is required.
-          </small>
-        }
-      </div>
-
-      @if (errorMessage()) {
-        <div class="alert alert-danger">
-          {{ errorMessage() }}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5 col-xl-4">
+      <div class="card shadow-lg border-0 rounded-4 overflow-hidden bg-white">
+        <!-- Admin header -->
+        <div class="p-4 text-center bg-dark text-white border-bottom border-warning">
+          <div class="d-inline-flex p-3 bg-warning bg-opacity-10 text-warning rounded-circle mb-2">
+            <i class="bi bi-shield-lock-fill fs-2"></i>
+          </div>
+          <h3 class="fw-bold mb-1">CinePass Admin</h3>
+          <p class="small text-muted mb-0">Staff & Management Operations Portal</p>
         </div>
-      }
 
-      @if (successMessage()) {
-        <div class="alert alert-success">
-          {{ successMessage() }}
+        <!-- Tabs -->
+        <ul class="nav nav-pills nav-fill bg-light p-2 border-bottom">
+          <li class="nav-item">
+            <button
+              class="nav-link rounded-3 fw-semibold small"
+              [class.active]="activeTab() === 'login'"
+              (click)="switchTab('login')">
+              Sign In
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link rounded-3 fw-semibold small"
+              [class.active]="activeTab() === 'register'"
+              (click)="switchTab('register')">
+              Register Admin
+            </button>
+          </li>
+        </ul>
+
+        <div class="card-body p-4">
+          @if (errorMessage()) {
+            <div class="alert alert-danger small p-2 mb-3 rounded-3 d-flex align-items-center gap-2">
+              <i class="bi bi-exclamation-circle-fill"></i>
+              <div>{{ errorMessage() }}</div>
+            </div>
+          }
+
+          @if (successMessage()) {
+            <div class="alert alert-success small p-2 mb-3 rounded-3 d-flex align-items-center gap-2">
+              <i class="bi bi-check-circle-fill"></i>
+              <div>{{ successMessage() }}</div>
+            </div>
+          }
+
+          <!-- Admin Login Form -->
+          @if (activeTab() === 'login') {
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+              <div class="mb-3">
+                <label class="form-label small fw-semibold">Admin Email</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light"><i class="bi bi-envelope text-muted"></i></span>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="admin@cinepass.com"
+                    formControlName="email">
+                </div>
+                @if (loginForm.get('email')?.touched && loginForm.get('email')?.invalid) {
+                  <span class="text-danger small mt-1 d-block">Valid admin email is required.</span>
+                }
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label small fw-semibold">Password</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light"><i class="bi bi-lock text-muted"></i></span>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="••••••••"
+                    formControlName="passWord">
+                </div>
+                @if (loginForm.get('passWord')?.touched && loginForm.get('passWord')?.invalid) {
+                  <span class="text-danger small mt-1 d-block">Password is required.</span>
+                }
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-warning w-100 py-2 fw-bold shadow-sm rounded-3 text-dark"
+                [disabled]="loading()">
+                @if (loading()) {
+                  <span class="spinner-border spinner-border-sm me-2"></span> Authenticating...
+                } @else {
+                  <i class="bi bi-box-arrow-in-right me-1"></i> Admin Sign In
+                }
+              </button>
+            </form>
+          }
+
+          <!-- Admin Register Form -->
+          @if (activeTab() === 'register') {
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+              <div class="mb-3">
+                <label class="form-label small fw-semibold">Admin Name</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light"><i class="bi bi-person text-muted"></i></span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Admin Officer"
+                    formControlName="userName">
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label small fw-semibold">Admin Email</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light"><i class="bi bi-envelope text-muted"></i></span>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="admin@cinepass.com"
+                    formControlName="email">
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label small fw-semibold">Secure Password</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light"><i class="bi bi-lock text-muted"></i></span>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="At least 6 characters"
+                    formControlName="passWord">
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-warning w-100 py-2 fw-bold shadow-sm rounded-3 text-dark"
+                [disabled]="loading()">
+                @if (loading()) {
+                  <span class="spinner-border spinner-border-sm me-2"></span> Registering Admin...
+                } @else {
+                  <i class="bi bi-shield-plus me-1"></i> Create Admin Account
+                }
+              </button>
+            </form>
+          }
+
+          <div class="text-center mt-4 pt-3 border-top small">
+            <a routerLink="/" class="text-muted text-decoration-none">
+              <i class="bi bi-arrow-left me-1"></i> Return to Main Website
+            </a>
+          </div>
         </div>
-      }
-
-      <button
-        type="submit"
-        class="btn btn-primary w-100"
-        [disabled]="loading()">
-
-        {{ loading() ? 'Logging in...' : 'Login' }}
-
-      </button>
-
-    </form>
+      </div>
+    </div>
   </div>
 </div>

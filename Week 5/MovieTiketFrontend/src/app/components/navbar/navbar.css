@@ -1,0 +1,13 @@
+.nav-link {
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.nav-link.active {
+  color: #e50914 !important;
+  font-weight: 600;
+}
+.navbar {
+  background-color: #0f172a !important;
+  border-bottom: 1px solid #1e293b;
+}
+

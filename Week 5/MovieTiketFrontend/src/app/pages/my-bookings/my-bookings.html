@@ -1,0 +1,108 @@
+<div class="container py-5">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+    <div>
+      <h2 class="fw-bold mb-1"><i class="bi bi-ticket-perforated text-danger me-2"></i>My Bookings</h2>
+      <p class="text-muted small mb-0">View your movie reservations, download e-tickets, or cancel bookings.</p>
+    </div>
+
+    <!-- Quick lookup by ID -->
+    <div style="max-width: 360px;" class="w-100">
+      <form (ngSubmit)="onLookupSubmit()" class="input-group">
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Lookup Booking # (e.g. 1)"
+          [(ngModel)]="searchBookingId"
+          name="searchBookingId">
+        <button class="btn btn-danger" type="submit">
+          <i class="bi bi-search me-1"></i> Find
+        </button>
+      </form>
+      @if (lookupMessage()) {
+        <span class="small text-danger d-block mt-1">{{ lookupMessage() }}</span>
+      }
+    </div>
+  </div>
+
+  @if (loading()) {
+    <div class="text-center py-5">
+      <div class="spinner-border text-danger" role="status"></div>
+      <p class="text-muted mt-2">Loading your bookings...</p>
+    </div>
+  }
+
+  @if (!loading() && bookings().length > 0) {
+    <div class="row g-4">
+      @for (b of bookings(); track b.bookingId) {
+        <div class="col-md-6 col-lg-4">
+          <div class="card shadow-sm border-0 rounded-4 h-100 bg-white overflow-hidden">
+            <div class="card-header bg-light py-3 border-bottom d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-dark">Ref #{{ b.bookingId }}</span>
+              <span
+                class="badge px-3 py-2 text-uppercase"
+                [class.bg-success]="b.bookingStatus === 'Confirmed'"
+                [class.bg-secondary]="b.bookingStatus !== 'Confirmed'">
+                {{ b.bookingStatus }}
+              </span>
+            </div>
+
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold text-dark mb-1">{{ b.movieTitle }}</h5>
+              <div class="text-muted small mb-3">
+                <i class="bi bi-geo-alt me-1"></i>{{ b.theatreName }} • {{ b.screenName }}
+              </div>
+
+              <div class="p-3 bg-light rounded-3 mb-3 small">
+                <div class="d-flex justify-content-between mb-1">
+                  <span class="text-muted">Show Date:</span>
+                  <span class="fw-semibold text-dark">{{ b.showDate | date:'mediumDate' }}</span>
+                </div>
+                <div class="d-flex justify-content-between mb-1">
+                  <span class="text-muted">Showtime:</span>
+                  <span class="fw-semibold text-dark">{{ formatTime(b.startTime) }}</span>
+                </div>
+                <div class="d-flex justify-content-between mb-1">
+                  <span class="text-muted">Seats:</span>
+                  <div class="d-flex flex-wrap gap-1">
+                    @for (s of b.bookedSeats; track s.seatId) {
+                      <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25">
+                        {{ s.seatNumber }}
+                      </span>
+                    }
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between pt-2 border-top">
+                  <span class="text-muted">Total Paid:</span>
+                  <span class="fw-bold text-success fs-6">₹{{ b.totalAmount }}</span>
+                </div>
+              </div>
+
+              <div class="mt-auto pt-2 d-flex gap-2">
+                <a [routerLink]="['/booking-confirmation', b.bookingId]" class="btn btn-outline-danger btn-sm flex-grow-1 rounded-3">
+                  <i class="bi bi-ticket-detailed me-1"></i> View Ticket
+                </a>
+                @if (b.bookingStatus === 'Confirmed') {
+                  <button class="btn btn-outline-secondary btn-sm rounded-3" (click)="cancelBooking(b.bookingId)">
+                    Cancel
+                  </button>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  } @else if (!loading() && bookings().length === 0) {
+    <div class="card border-0 shadow-sm rounded-4 p-5 text-center bg-white">
+      <i class="bi bi-ticket-perforated text-muted display-2 mb-3"></i>
+      <h4 class="fw-bold">No Bookings Yet</h4>
+      <p class="text-muted max-w-md mx-auto mb-4">
+        You haven't made any ticket reservations recently, or you can enter a Booking Reference ID in the search bar above to look up an existing order.
+      </p>
+      <a routerLink="/movies" class="btn btn-danger px-4 mx-auto rounded-pill">
+        <i class="bi bi-film me-2"></i> Explore Now Showing Movies
+      </a>
+    </div>
+  }
+</div>
+

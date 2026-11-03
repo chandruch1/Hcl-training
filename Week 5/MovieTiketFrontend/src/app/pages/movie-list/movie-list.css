@@ -1,0 +1,46 @@
+.hero-banner {
+  background-color: #0b0f19;
+  min-height: 440px;
+}
+.hero-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(25px) brightness(0.35);
+  transform: scale(1.1);
+  z-index: 1;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #0b0f19 0%, rgba(11, 15, 25, 0.85) 60%, rgba(11, 15, 25, 0.4) 100%);
+  z-index: 2;
+}
+.hero-banner .container {
+  z-index: 3;
+}
+.hero-poster {
+  max-height: 380px;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+

@@ -1,0 +1,93 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5 col-xl-4">
+      <div class="card shadow-lg border-0 rounded-4 overflow-hidden bg-white">
+        <div class="p-4 text-center bg-danger text-white">
+          <i class="bi bi-person-plus-fill fs-1 mb-2 d-inline-block"></i>
+          <h3 class="fw-bold mb-1">Create Account</h3>
+          <p class="small opacity-75 mb-0">Join CinePass to reserve tickets in seconds</p>
+        </div>
+
+        <div class="card-body p-4">
+          @if (errorMessage()) {
+            <div class="alert alert-danger small p-2 mb-3 rounded-3 d-flex align-items-center gap-2">
+              <i class="bi bi-exclamation-circle-fill"></i>
+              <div>{{ errorMessage() }}</div>
+            </div>
+          }
+
+          @if (successMessage()) {
+            <div class="alert alert-success small p-2 mb-3 rounded-3 d-flex align-items-center gap-2">
+              <i class="bi bi-check-circle-fill"></i>
+              <div>{{ successMessage() }}</div>
+            </div>
+          }
+
+          <form [formGroup] = "registerForm" (ngSubmit)="onRegister()">
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">User Name</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="bi bi-person text-muted"></i></span>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="chandru"
+                  formControlName="userName">
+              </div>
+              @if (registerForm.get('userName')?.touched && registerForm.get('userName')?.invalid) {
+                <span class="text-danger small mt-1 d-block">User name must be at least 3 characters.</span>
+              }
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Email Address</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="bi bi-envelope text-muted"></i></span>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="name@example.com"
+                  formControlName="email">
+              </div>
+              @if (registerForm.get('email')?.touched && registerForm.get('email')?.invalid) {
+                <span class="text-danger small mt-1 d-block">Valid email is required.</span>
+              }
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label small fw-semibold">Password</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="bi bi-lock text-muted"></i></span>
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="At least 6 characters"
+                  formControlName="passWord">
+              </div>
+              @if (registerForm.get('passWord')?.touched && registerForm.get('passWord')?.invalid) {
+                <span class="text-danger small mt-1 d-block">Password must be at least 6 characters.</span>
+              }
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-danger w-100 py-2 fw-bold shadow-sm rounded-3"
+              [disabled]="loading()">
+              @if (loading()) {
+                <span class="spinner-border spinner-border-sm me-2"></span> Creating Account...
+              } @else {
+                <i class="bi bi-person-check me-1"></i> Register
+              }
+            </button>
+          </form>
+
+          <div class="text-center mt-4 pt-3 border-top small text-muted">
+            Already have an account?
+            <a routerLink="/login" class="text-danger fw-semibold text-decoration-none">Sign In</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

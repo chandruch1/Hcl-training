@@ -1,0 +1,67 @@
+<footer class="bg-dark text-white-50 py-5 mt-auto border-top border-secondary border-opacity-25">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <span class="badge bg-danger rounded-3 p-2">
+            <i class="bi bi-film fs-5 text-white"></i>
+          </span>
+          <span class="fs-4 fw-bold text-white">Cine<span class="text-danger">Pass</span></span>
+        </div>
+        <p class="small text-muted mb-3">
+          Experience cinema like never before. Instant seat selection, live schedule updates, and secure ticket booking.
+        </p>
+        <div class="d-flex gap-2">
+          <span class="badge bg-secondary bg-opacity-25 text-white px-2 py-1"><i class="bi bi-shield-check me-1"></i> SSL Secure</span>
+          <span class="badge bg-secondary bg-opacity-25 text-white px-2 py-1"><i class="bi bi-lightning-charge me-1"></i> Instant Booking</span>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6 col-6">
+        <h6 class="text-white fw-semibold mb-3">Quick Links</h6>
+        <ul class="list-unstyled small d-flex flex-column gap-2 mb-0">
+          <li><a routerLink="/movies" class="text-decoration-none text-white-50 hover-white">Now Showing</a></li>
+          <li><a routerLink="/theatres" class="text-decoration-none text-white-50 hover-white">Theatres</a></li>
+          <li><a routerLink="/shows" class="text-decoration-none text-white-50 hover-white">Showtimes</a></li>
+          <li><a routerLink="/my-bookings" class="text-decoration-none text-white-50 hover-white">My Bookings</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-6">
+        <h6 class="text-white fw-semibold mb-3">Account & Help</h6>
+        <ul class="list-unstyled small d-flex flex-column gap-2 mb-0">
+          <li><a routerLink="/login" class="text-decoration-none text-white-50 hover-white">Customer Login</a></li>
+          <li><a routerLink="/register" class="text-decoration-none text-white-50 hover-white">Register Account</a></li>
+          <li><a routerLink="/admin/login" class="text-decoration-none text-white-50 hover-white">Admin Management</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <h6 class="text-white fw-semibold mb-3">Backend Status</h6>
+        <div class="p-3 bg-secondary bg-opacity-10 rounded-3 border border-secondary border-opacity-25">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="spinner-grow spinner-grow-sm text-success" role="status"></span>
+            <span class="small fw-semibold text-white">ASP.NET Core API</span>
+          </div>
+          <p class="small text-muted mb-0">
+            Connected to <code>http://localhost:5173</code>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-secondary border-opacity-25 my-4">
+
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small text-muted">
+      <p class="mb-2 mb-md-0">&copy; {{ currentYear }} CinePass Booking System. All rights reserved.</p>
+      <div class="d-flex gap-3">
+        <span>Angular 21</span>
+        <span>•</span>
+        <span>Bootstrap 5</span>
+        <span>•</span>
+        <span>.NET 10 API</span>
+      </div>
+    </div>
+  </div>
+</footer>
+

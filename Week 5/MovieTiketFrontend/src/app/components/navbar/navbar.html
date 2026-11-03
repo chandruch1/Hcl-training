@@ -1,0 +1,98 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm py-2">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" routerLink="/">
+      <span class="badge bg-danger rounded-3 p-2 d-inline-flex align-items-center justify-content-center">
+        <i class="bi bi-film fs-5"></i>
+      </span>
+      <span class="fs-4 text-white tracking-wide">Cine<span class="text-danger">Pass</span></span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarContent"
+      aria-controls="navbarContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
+        <li class="nav-item">
+          <a class="nav-link px-3" routerLink="/movies" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <i class="bi bi-collection-play me-1"></i> Movies
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3" routerLink="/theatres" routerLinkActive="active">
+            <i class="bi bi-building me-1"></i> Theatres
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3" routerLink="/shows" routerLinkActive="active">
+            <i class="bi bi-calendar-event me-1"></i> Schedules
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3" routerLink="/my-bookings" routerLinkActive="active">
+            <i class="bi bi-ticket-perforated me-1"></i> My Bookings
+          </a>
+        </li>
+      </ul>
+
+      <!-- Search bar -->
+      <form class="d-flex me-3 mb-2 mb-lg-0" (ngSubmit)="onSearchSubmit()">
+        <div class="input-group input-group-sm">
+          <input
+            type="search"
+            class="form-control bg-secondary bg-opacity-25 text-white border-secondary"
+            placeholder="Search movies..."
+            [(ngModel)]="searchQuery"
+            name="search">
+          <button class="btn btn-outline-danger" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </form>
+
+      <!-- Auth menu -->
+      <div class="d-flex align-items-center gap-2">
+        @if (authService.isLoggedIn()) {
+          <div class="d-flex align-items-center gap-2">
+            <div class="text-end d-none d-md-block">
+              <span class="text-light small d-block">{{ authService.currentUser()?.name }}</span>
+              <span class="badge bg-danger text-uppercase" style="font-size: 0.65rem;">
+                {{ authService.currentUser()?.role }}
+              </span>
+            </div>
+
+            @if (authService.isAdmin()) {
+              <a routerLink="/admin/dashboard" class="btn btn-sm btn-outline-warning">
+                <i class="bi bi-speedometer2 me-1"></i> Admin Panel
+              </a>
+            }
+
+            <button class="btn btn-sm btn-outline-light" (click)="logout()" title="Logout">
+              <i class="bi bi-box-arrow-right me-1"></i> Logout
+            </button>
+          </div>
+        } @else {
+          <div class="d-flex align-items-center gap-2">
+            <a routerLink="/login" class="btn btn-sm btn-outline-light">
+              <i class="bi bi-box-arrow-in-right me-1"></i> Login
+            </a>
+            <a routerLink="/register" class="btn btn-sm btn-danger">
+              Register
+            </a>
+            <a routerLink="/admin/login" class="btn btn-sm btn-outline-warning ms-1" title="Admin Portal">
+              <i class="bi bi-shield-lock"></i>
+            </a>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</nav>
+

@@ -1,0 +1,158 @@
+<div class="container py-5">
+  @if (loading()) {
+    <div class="text-center py-5">
+      <div class="spinner-border text-danger" role="status"></div>
+      <p class="text-muted mt-3">Retrieving your booking confirmation...</p>
+    </div>
+  }
+
+  @if (errorMessage()) {
+    <div class="alert alert-danger shadow-sm rounded-4 p-4 text-center max-w-lg mx-auto">
+      <i class="bi bi-x-circle-fill text-danger display-4 mb-3 d-block"></i>
+      <h4 class="fw-bold">{{ errorMessage() }}</h4>
+      <p class="text-muted">The requested booking could not be retrieved from the server.</p>
+      <a routerLink="/movies" class="btn btn-danger mt-2">Explore Movies</a>
+    </div>
+  }
+
+  @if (booking(); as b) {
+    <div class="max-w-2xl mx-auto">
+      <!-- Success Header -->
+      @if (b.bookingStatus === 'Confirmed') {
+        <div class="text-center mb-4">
+          <div class="d-inline-flex p-3 bg-success bg-opacity-10 text-success rounded-circle mb-3">
+            <i class="bi bi-check-circle-fill display-5"></i>
+          </div>
+          <h2 class="fw-bold text-dark mb-1">Booking Confirmed!</h2>
+          <p class="text-muted">Your seats are successfully reserved. Show this ticket at the cinema entry.</p>
+        </div>
+      } @else {
+        <div class="text-center mb-4">
+          <div class="d-inline-flex p-3 bg-secondary bg-opacity-10 text-secondary rounded-circle mb-3">
+            <i class="bi bi-slash-circle-fill display-5"></i>
+          </div>
+          <h2 class="fw-bold text-dark mb-1">Booking Cancelled</h2>
+          <p class="text-muted">This booking has been cancelled and seats released.</p>
+        </div>
+      }
+
+      @if (cancelSuccessMessage()) {
+        <div class="alert alert-info shadow-sm rounded-3 mb-4 d-flex align-items-center gap-2">
+          <i class="bi bi-info-circle-fill fs-5"></i>
+          <div>{{ cancelSuccessMessage() }}</div>
+        </div>
+      }
+
+      <!-- Digital E-Ticket Card -->
+      <div class="card ticket-card border-0 shadow-lg mb-4 printable-ticket">
+        <div class="bg-danger text-white p-4 d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-film fs-3"></i>
+            <div>
+              <h5 class="fw-bold mb-0">CinePass E-Ticket</h5>
+              <span class="small opacity-75">Booking Ref #{{ b.bookingId }}</span>
+            </div>
+          </div>
+          <div>
+            <span
+              class="badge px-3 py-2 text-uppercase fs-6"
+              [class.bg-success]="b.bookingStatus === 'Confirmed'"
+              [class.bg-dark]="b.bookingStatus !== 'Confirmed'">
+              {{ b.bookingStatus }}
+            </span>
+          </div>
+        </div>
+
+        <div class="card-body p-4 p-md-5">
+          <div class="mb-4">
+            <span class="small text-muted text-uppercase fw-bold">Movie Title</span>
+            <h2 class="fw-extrabold text-dark mb-2">{{ b.movieTitle }}</h2>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-light text-dark border px-2 py-1"><i class="bi bi-geo-alt me-1"></i>{{ b.theatreName }}</span>
+              <span class="badge bg-light text-dark border px-2 py-1"><i class="bi bi-display me-1"></i>{{ b.screenName }}</span>
+            </div>
+          </div>
+
+          <div class="row g-3 py-3 border-top border-bottom mb-4 bg-light bg-opacity-50 rounded-3">
+            <div class="col-6 col-sm-3">
+              <span class="small text-muted d-block">Date</span>
+              <span class="fw-bold text-dark">{{ b.showDate | date:'mediumDate' }}</span>
+            </div>
+            <div class="col-6 col-sm-3">
+              <span class="small text-muted d-block">Time</span>
+              <span class="fw-bold text-dark">{{ formatTime(b.startTime) }}</span>
+            </div>
+            <div class="col-6 col-sm-3">
+              <span class="small text-muted d-block">Seats</span>
+              <div class="d-flex flex-wrap gap-1 mt-1">
+                @for (seat of b.bookedSeats; track seat.seatId) {
+                  <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 px-2">
+                    {{ seat.seatNumber }}
+                  </span>
+                }
+              </div>
+            </div>
+            <div class="col-6 col-sm-3">
+              <span class="small text-muted d-block">Amount Paid</span>
+              <span class="fs-5 fw-bold text-success">₹{{ b.totalAmount }}</span>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <span class="small text-muted d-block">Customer Name</span>
+              <span class="fw-semibold text-dark">{{ b.customerName }}</span>
+            </div>
+            <div class="col-md-6">
+              <span class="small text-muted d-block">Email</span>
+              <span class="fw-semibold text-dark">{{ b.customerEmail }}</span>
+            </div>
+            @if (b.customerPhone) {
+              <div class="col-md-6">
+                <span class="small text-muted d-block">Phone</span>
+                <span class="fw-semibold text-dark">{{ b.customerPhone }}</span>
+              </div>
+            }
+            <div class="col-md-6">
+              <span class="small text-muted d-block">Booked At</span>
+              <span class="small text-muted">{{ b.bookingDate | date:'medium' }}</span>
+            </div>
+          </div>
+
+          <!-- Barcode simulation -->
+          <div class="text-center pt-3 border-top">
+            <div class="barcode-box mx-auto my-2">
+              <div class="barcode-lines"></div>
+            </div>
+            <span class="small text-muted tracking-widest font-monospace">CNP-{{ b.bookingId }}-{{ b.showId }}-SECURE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="d-flex flex-wrap justify-content-center gap-3 no-print">
+        <button class="btn btn-outline-dark px-4 py-2 rounded-pill fw-semibold" (click)="printTicket()">
+          <i class="bi bi-printer me-2"></i> Print / Download Ticket
+        </button>
+
+        @if (b.bookingStatus === 'Confirmed') {
+          <button
+            class="btn btn-outline-danger px-4 py-2 rounded-pill fw-semibold"
+            [disabled]="cancelling()"
+            (click)="cancelBooking()">
+            @if (cancelling()) {
+              <span class="spinner-border spinner-border-sm me-2"></span> Cancelling...
+            } @else {
+              <i class="bi bi-x-octagon me-2"></i> Cancel Booking
+            }
+          </button>
+        }
+
+        <a routerLink="/movies" class="btn btn-danger px-4 py-2 rounded-pill fw-semibold">
+          <i class="bi bi-film me-2"></i> Book Another Movie
+        </a>
+      </div>
+    </div>
+  }
+</div>
+

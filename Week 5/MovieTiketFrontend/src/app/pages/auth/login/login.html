@@ -1,0 +1,79 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5 col-xl-4">
+      <div class="card shadow-lg border-0 rounded-4 overflow-hidden bg-white">
+        <div class="p-4 text-center bg-danger text-white">
+          <i class="bi bi-film fs-1 mb-2 d-inline-block"></i>
+          <h3 class="fw-bold mb-1">Welcome Back</h3>
+          <p class="small opacity-75 mb-0">Sign in to your CinePass customer account</p>
+        </div>
+
+        <div class="card-body p-4">
+          @if (errorMessage()) {
+            <div class="alert alert-danger small p-2 mb-3 rounded-3 d-flex align-items-center gap-2">
+              <i class="bi bi-exclamation-circle-fill"></i>
+              <div>{{ errorMessage() }}</div>
+            </div>
+          }
+
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Email Address</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="bi bi-envelope text-muted"></i></span>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="name@example.com"
+                  formControlName="email">
+              </div>
+              @if (loginForm.get('email')?.touched && loginForm.get('email')?.invalid) {
+                <span class="text-danger small mt-1 d-block">Valid email is required.</span>
+              }
+            </div>
+
+            <div class="mb-4">
+              <div class="d-flex justify-content-between">
+                <label class="form-label small fw-semibold">Password</label>
+              </div>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="bi bi-lock text-muted"></i></span>
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="••••••••"
+                  formControlName="passWord">
+              </div>
+              @if (loginForm.get('passWord')?.touched && loginForm.get('passWord')?.invalid) {
+                <span class="text-danger small mt-1 d-block">Password is required.</span>
+              }
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-danger w-100 py-2 fw-bold shadow-sm rounded-3"
+              [disabled]="loading()">
+              @if (loading()) {
+                <span class="spinner-border spinner-border-sm me-2"></span> Signing In...
+              } @else {
+                <i class="bi bi-box-arrow-in-right me-1"></i> Sign In
+              }
+            </button>
+          </form>
+
+          <div class="text-center mt-4 pt-3 border-top small text-muted">
+            Don't have an account?
+            <a routerLink="/register" class="text-danger fw-semibold text-decoration-none">Create one</a>
+          </div>
+
+          <div class="text-center mt-2 small">
+            <a routerLink="/admin/login" class="text-muted text-decoration-none">
+              <i class="bi bi-shield-lock me-1"></i> Admin Sign In
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

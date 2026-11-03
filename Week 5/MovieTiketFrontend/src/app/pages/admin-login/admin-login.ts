@@ -1,21 +1,22 @@
 import { Component, inject, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
-import { AdminAuth } from '../../services/admin-auth';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-admin-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './admin-login.html',
   styleUrl: './admin-login.css'
 })
 export class AdminLogin {
-
   private fb = inject(FormBuilder).nonNullable;
-  private adminAuth = inject(AdminAuth);
+  private authService = inject(AuthService);
   private router = inject(Router);
 
+  activeTab = signal<'login' | 'register'>('login');
   loading = signal(false);
   errorMessage = signal('');
   successMessage = signal('');
@@ -25,8 +26,19 @@ export class AdminLogin {
     passWord: ['', Validators.required]
   });
 
-  onLogin() {
+  registerForm = this.fb.group({
+    userName: ['', [Validators.required, Validators.minLength(3)]],
+    email: ['', [Validators.required, Validators.email]],
+    passWord: ['', [Validators.required, Validators.minLength(6)]]
+  });
 
+  switchTab(tab: 'login' | 'register'): void {
+    this.activeTab.set(tab);
+    this.errorMessage.set('');
+    this.successMessage.set('');
+  }
+
+  onLogin(): void {
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
       return;
@@ -36,18 +48,39 @@ export class AdminLogin {
     this.errorMessage.set('');
     this.successMessage.set('');
 
-    this.adminAuth.login(this.loginForm.getRawValue()).subscribe({
-      next: (response) => {
-        sessionStorage.setItem('accessToken', response.accessToken);
-        sessionStorage.setItem('adminName', response.name);
-        sessionStorage.setItem('adminRole', response.role);
-
+    this.authService.loginAdmin(this.loginForm.getRawValue()).subscribe({
+      next: () => {
         this.loading.set(false);
         this.router.navigate(['/admin/dashboard']);
       },
       error: (error) => {
         this.errorMessage.set(
-          error.error?.message || 'Login failed. Please try again.'
+          error.error?.message || 'Admin authentication failed. Please check your credentials.'
+        );
+        this.loading.set(false);
+      }
+    });
+  }
+
+  onRegister(): void {
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
+      return;
+    }
+
+    this.loading.set(true);
+    this.errorMessage.set('');
+    this.successMessage.set('');
+
+    this.authService.registerAdmin(this.registerForm.getRawValue()).subscribe({
+      next: () => {
+        this.loading.set(false);
+        this.successMessage.set('Admin account created! Please sign in.');
+        this.switchTab('login');
+      },
+      error: (error) => {
+        this.errorMessage.set(
+          error.error?.message || 'Admin registration failed.'
         );
         this.loading.set(false);
       }
