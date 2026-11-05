@@ -1,178 +1,199 @@
 # Campus Placement Management Platform
-## Project Development Progress
+## Project Progress Tracker
 
 **Technology Stack**
 - Backend: ASP.NET Core Web API (.NET 10)
 - Language: C#
-- Database: Microsoft SQL Server
 - ORM: Entity Framework Core 10
-- Authentication: ASP.NET Core Identity + JWT
-- Frontend: Angular (Future)
-
-**Architecture:** Controller → Service → Repository → DbContext → SQL Server
+- Database: Microsoft SQL Server
+- Authentication: ASP.NET Core Identity + JWT Bearer
+- Frontend: Angular (planned)
+- Architecture: Layered Architecture
 
 ---
 
-## Phase 1: Project Foundation
+## Phase 1 – Project Foundation
 
-### Step 1: Project Creation
+### Step 1: Solution and project creation — COMPLETED
 
-**Status:** Completed
-
-**Implemented:**
-- Created solution: `CampusPlacementManagement`
+- Created solution: `CampusPlacementManagement.sln`
 - Created Web API project: `CampusPlacement.Api`
-- Configured Controller-based Web API.
-- Added API project to the solution.
-- Executed the application successfully.
+- Framework: .NET 10
+- Controller-based Web API structure.
+- Verified the application runs successfully.
 
-**Project Structure:**
-```text
-CampusPlacementManagement/
-├── CampusPlacementManagement.sln
-└── CampusPlacement.Api/
-    ├── Controllers/
-    ├── Program.cs
-    ├── appsettings.json
-    └── CampusPlacement.Api.csproj
-```
+### Step 2: NuGet package installation — COMPLETED
 
-**Testing:**
-- Command: `dotnet run`
-- Result: Successful
-- Local URL: http://localhost:5169
-- Environment: Development
+Installed packages:
 
-**Concepts Learned:**
-- What is a .NET solution?
-- What is a Web API project?
-- Difference between Minimal API and Controller-based API.
-- How to run an ASP.NET Core application.
+- Microsoft.AspNetCore.Authentication.JwtBearer – 10.0.14
+- Microsoft.AspNetCore.Identity.EntityFrameworkCore – 10.0.14
+- Microsoft.AspNetCore.OpenApi – 10.0.14
+- Microsoft.EntityFrameworkCore.Design – 10.0.14
+- Microsoft.EntityFrameworkCore.SqlServer – 10.0.14
+- Swashbuckle.AspNetCore – 10.3.1
 
-**Next Step:** Install required NuGet packages.
+EF Core CLI:
+- dotnet-ef – 10.0.14
 
-### Step 2: NuGet Package Installation
+**Pending:** Investigate and resolve the reported `System.Security.Cryptography.Pkcs` dependency vulnerability warnings before production.
 
-**Status:** In Progress – JWT and CLI verification pending.
+### Step 3: Folder structure — COMPLETED
 
-**Successfully Installed Packages:**
+Created folders:
 
-| Package | Version |
-|---|---|
-| Microsoft.EntityFrameworkCore.SqlServer | 10.0.14 |
-| Microsoft.EntityFrameworkCore.Design | 10.0.14 |
-| Microsoft.AspNetCore.Identity.EntityFrameworkCore | 10.0.14 |
-| Swashbuckle.AspNetCore | 10.3.1 |
-| Microsoft.AspNetCore.OpenApi | 10.0.14 |
+- Controllers
+- Data
+- Models
+- DTOs
+- Repositories
+- Services
+- Interfaces
+  - Repositories
+  - Services
+- Enums
+- Middleware
+- Configurations
+- Helpers
 
-**Build Verification:**
-- Command: `dotnet list package`
-- Result: Build succeeded.
-- Warnings: NU1902 and NU1903 for System.Security.Cryptography.Pkcs 9.0.11.
+### Step 4: Database configuration — PARTIALLY COMPLETED
 
-**Pending Tasks:**
-- Install Microsoft.AspNetCore.Authentication.JwtBearer.
-- Install and verify dotnet-ef 10.0.14.
-- Investigate the reported dependency vulnerability.
+Configured SQL Server connection in `appsettings.json`.
 
-**Next Step:** Complete package verification, then create the layered architecture folder structure.
-
-
-### Step 2: NuGet Package Installation
-
-**Status: COMPLETED**
-
-**Installed Packages:**
-
-| Package | Version |
-|---|---|
-| Microsoft.EntityFrameworkCore.SqlServer | 10.0.14 |
-| Microsoft.EntityFrameworkCore.Design | 10.0.14 |
-| Microsoft.AspNetCore.Identity.EntityFrameworkCore | 10.0.14 |
-| Microsoft.AspNetCore.Authentication.JwtBearer | 10.0.14 |
-| Microsoft.AspNetCore.OpenApi | 10.0.14 |
-| Swashbuckle.AspNetCore | 10.3.1 |
-
-**EF Core CLI:**
-- Installed version: 10.0.14
-- Verification: `dotnet ef --version`
-- Result: Successful.
-
-**Build Verification:**
-- Command: `dotnet list package`
-- Result: Build succeeded.
-- Remaining warnings: NU1902 and NU1903 related to System.Security.Cryptography.Pkcs 9.0.11.
-- Security investigation pending before production deployment.
-
-**Concepts Learned:**
-- NuGet package management.
-- EF Core SQL Server provider.
-- Entity Framework migrations.
-- ASP.NET Core Identity.
-- JWT Bearer authentication.
-- EF Core CLI.
-
-**Next Step:** Create layered architecture folder structure.
-
-
-### Step 4: SQL Server Connection Configuration
-
-**Status: CONFIGURATION COMPLETED – CONNECTION TEST PENDING**
-
-**Database:** CampusPlacementDB
-
-**Configuration File:** appsettings.json
-
-**Connection Details:**
-- Server: localhost
-- Database: CampusPlacementDB
+Database:
+- Name: `CampusPlacementDB`
+- Server: `localhost`
 - Authentication: Windows Authentication
-- TrustServerCertificate: True
 
-**Concepts Learned:**
-- Connection strings
-- Configuration in appsettings.json
-- Windows Authentication
-- SQL Server connection properties
+Created `Enums/AccountStatus.cs` with:
+
+- Pending
+- Approved
+- Rejected
+- Suspended
+- Inactive
+
+Created `Models/ApplicationUser.cs`:
+- Inherits from `IdentityUser`.
+- Added FullName.
+- Added AccountStatus.
+- Added CreatedAt.
+- Added UpdatedAt.
+
+Created `Data/ApplicationDbContext.cs`:
+- Inherits from `IdentityDbContext<ApplicationUser>`.
+- Configured constructor with `DbContextOptions<ApplicationDbContext>`.
+
+Registered `ApplicationDbContext` in `Program.cs` using `AddDbContext` and `UseSqlServer`.
+
+### Step 5: ASP.NET Core Identity configuration — CODE CONFIGURED
+
+Registered:
+
+`AddIdentity<ApplicationUser, IdentityRole>()`
+
+Configured:
+- Minimum password length: 8.
+- Requires digit.
+- Requires uppercase letter.
+- Requires lowercase letter.
+- Requires special character.
+- Unique email validation.
+- Maximum failed login attempts: 5.
+- Lockout duration: 15 minutes.
+
+Configured Entity Framework Identity stores using:
+
+`AddEntityFrameworkStores<ApplicationDbContext>()`
+
+Registered default Identity token providers.
+
+### Step 6: JWT configuration — CODE CONFIGURED
+
+Added JWT settings in `appsettings.json`:
+
+- Issuer
+- Audience
+- SecretKey placeholder
+
+Configured JWT Bearer token validation in `Program.cs`:
+
+- ValidateIssuer
+- ValidateAudience
+- ValidateLifetime
+- ValidateIssuerSigningKey
+
+Added authentication middleware before authorization middleware.
 
 **Pending:**
-- Verify SQL Server instance.
-- Create ApplicationDbContext.
-- Register DbContext in Program.cs.
-- Test database connectivity.
+- Replace the placeholder JWT secret with a securely generated secret.
+- Move the secret to .NET User Secrets.
+- Implement JWT generation during login.
+- Test JWT authentication with protected endpoints.
 
-**Next Step:** Create ApplicationDbContext.
+### Step 7: SQL Server database creation — COMPLETED
 
-### Step 4: ApplicationDbContext and Identity Base Setup
+Executed:
 
-**Status: IMPLEMENTATION COMPLETED – BUILD VERIFICATION PENDING**
+`dotnet ef database update`
 
-**Files Created:**
-1. Models/ApplicationUser.cs
-2. Enums/AccountStatus.cs
-3. Data/ApplicationDbContext.cs
+Result:
+- Build succeeded.
+- SQL Server connection succeeded.
+- Database `CampusPlacementDB` was created successfully.
+- EF Core created `__EFMigrationsHistory`.
 
-**Implementation Details:**
+**Important:** The command reported that no migrations were found. Therefore, Identity tables such as `AspNetUsers` and `AspNetRoles` have not yet been created through migrations.
 
-- ApplicationUser inherits from IdentityUser.
-- Added FullName, AccountStatus, CreatedAt and UpdatedAt.
-- Created AccountStatus enum with Pending, Approved, Rejected, Suspended and Inactive.
-- ApplicationDbContext inherits from IdentityDbContext<ApplicationUser>.
-- Configured SQL Server using UseSqlServer.
-- Registered ApplicationDbContext through AddDbContext in Program.cs.
+### Step 8: Initial Identity migration — PENDING
 
-**Concepts Learned:**
-- Inheritance in C#.
-- ASP.NET Core Identity.
-- IdentityUser versus ApplicationUser.
-- IdentityDbContext versus DbContext.
-- Entity Framework Core DbContext.
-- Dependency Injection and scoped DbContext lifetime.
-- Connection string configuration.
+Next command:
 
-**Testing:**
-- Pending: dotnet build.
-- Pending: Verify SQL Server connection during migration.
+`dotnet ef migrations add InitialIdentity`
 
-**Next Step:** Configure Identity services and prepare the initial database migration.
+After successfully creating the migration, execute:
 
+`dotnet ef database update`
+
+Expected Identity tables:
+
+- AspNetUsers
+- AspNetRoles
+- AspNetUserRoles
+- AspNetUserClaims
+- AspNetRoleClaims
+- AspNetUserLogins
+- AspNetUserTokens
+
+---
+
+## Current Project Status
+
+**Phase 1 – Project Foundation:** In progress.
+
+| Task | Status |
+|---|---|
+| Solution and project creation | Completed |
+| NuGet packages | Completed |
+| Folder structure | Completed |
+| ApplicationUser | Completed |
+| AccountStatus enum | Completed |
+| ApplicationDbContext | Completed |
+| SQL Server connection | Verified |
+| Identity configuration | Code configured |
+| JWT validation configuration | Code configured |
+| Database creation | Completed |
+| Initial migration | Pending |
+| Identity tables creation | Pending |
+| JWT login implementation | Pending |
+
+## Development Approach
+
+- Complete one module at a time.
+- Implement entities, DTOs, repositories, services and controllers.
+- Test API operations using Postman.
+- Verify authorization and business rules.
+- Update this document after every completed step.
+- Do not move to the next module until the current module is tested.
+
+**Next milestone:** Create and apply the InitialIdentity migration to generate Identity tables in SQL Server.
