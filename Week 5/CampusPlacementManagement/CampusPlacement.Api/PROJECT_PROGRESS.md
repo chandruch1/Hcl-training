@@ -142,3 +142,37 @@ CampusPlacementManagement/
 - Test database connectivity.
 
 **Next Step:** Create ApplicationDbContext.
+
+### Step 4: ApplicationDbContext and Identity Base Setup
+
+**Status: IMPLEMENTATION COMPLETED – BUILD VERIFICATION PENDING**
+
+**Files Created:**
+1. Models/ApplicationUser.cs
+2. Enums/AccountStatus.cs
+3. Data/ApplicationDbContext.cs
+
+**Implementation Details:**
+
+- ApplicationUser inherits from IdentityUser.
+- Added FullName, AccountStatus, CreatedAt and UpdatedAt.
+- Created AccountStatus enum with Pending, Approved, Rejected, Suspended and Inactive.
+- ApplicationDbContext inherits from IdentityDbContext<ApplicationUser>.
+- Configured SQL Server using UseSqlServer.
+- Registered ApplicationDbContext through AddDbContext in Program.cs.
+
+**Concepts Learned:**
+- Inheritance in C#.
+- ASP.NET Core Identity.
+- IdentityUser versus ApplicationUser.
+- IdentityDbContext versus DbContext.
+- Entity Framework Core DbContext.
+- Dependency Injection and scoped DbContext lifetime.
+- Connection string configuration.
+
+**Testing:**
+- Pending: dotnet build.
+- Pending: Verify SQL Server connection during migration.
+
+**Next Step:** Configure Identity services and prepare the initial database migration.
+
