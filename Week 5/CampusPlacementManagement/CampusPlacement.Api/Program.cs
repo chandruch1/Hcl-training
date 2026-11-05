@@ -72,8 +72,18 @@ builder.Services.AddControllers();
 
 builder.Services.AddOpenApi();
 
+
+
 var app = builder.Build();
 await IdentitySeeder.SeedRolesAsync(app.Services);
+// Create application roles first
+await IdentitySeeder.SeedRolesAsync(app.Services);
+
+// Create initial SuperAdmin account
+await IdentitySeeder.SeedSuperAdminAsync(
+    app.Services,
+    app.Configuration
+);
 
 // 4. Middleware configuration
 if (app.Environment.IsDevelopment())
