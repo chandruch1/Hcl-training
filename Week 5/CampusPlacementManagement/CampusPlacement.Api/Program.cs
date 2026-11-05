@@ -4,6 +4,9 @@ using CampusPlacement.Api.Data;
 using CampusPlacement.Api.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using CampusPlacement.Api.Interfaces.Services;
+using CampusPlacement.Api.Services;
+using Scalar.AspNetCore;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +17,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection")
     )
 );
+
+// jwt authorization
+
+builder.Services.AddScoped<JwtService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 // 2. ASP.NET Core Identity configuration
 builder.Services
@@ -89,6 +97,7 @@ await IdentitySeeder.SeedSuperAdminAsync(
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
