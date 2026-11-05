@@ -73,6 +73,7 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+await IdentitySeeder.SeedRolesAsync(app.Services);
 
 // 4. Middleware configuration
 if (app.Environment.IsDevelopment())
