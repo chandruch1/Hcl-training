@@ -13,15 +13,18 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// ==========================================
 // 1. CONTROLLERS
+// ==========================================
 builder.Services.AddControllers();
 
+// ==========================================
 // 2. JWT SETTINGS
+// ==========================================
 builder.Services.Configure<JwtSettings>(
     builder.Configuration.GetSection("Jwt")
 );
 
-// Read JWT settings
 var jwtSettings = builder.Configuration
     .GetSection("Jwt")
     .Get<JwtSettings>()
@@ -29,7 +32,6 @@ var jwtSettings = builder.Configuration
         "JWT settings are missing from appsettings.json."
     );
 
-// Validate key
 if (string.IsNullOrWhiteSpace(jwtSettings.Key))
 {
     throw new InvalidOperationException("JWT Key is missing.");
@@ -44,16 +46,18 @@ if (keyBytes.Length < 32)
     );
 }
 
-
-
+// ==========================================
 // 3. DATABASE
+// ==========================================
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")
     )
 );
 
+// ==========================================
 // 4. REPOSITORIES
+// ==========================================
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 builder.Services.AddScoped<ITheatreRepository, TheatreRepository>();
 builder.Services.AddScoped<IScreenRepository, ScreenRepository>();
@@ -62,18 +66,23 @@ builder.Services.AddScoped<IShowRepository, ShowRepository>();
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+// ==========================================
 // 5. SERVICES
+// ==========================================
 builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<ITheatreService, TheatreService>();
 builder.Services.AddScoped<IScreenService, ScreenService>();
 builder.Services.AddScoped<ISeatService, SeatService>();
 builder.Services.AddScoped<IShowService, ShowService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
+
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<Authservice>();
 builder.Services.AddScoped<AdminService>();
 
+// ==========================================
 // 6. SWAGGER
+// ==========================================
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(options =>
@@ -85,9 +94,13 @@ builder.Services.AddSwaggerGen(options =>
         Description = "ASP.NET Core Web API for managing movie ticket bookings. " +
                       "Built with .NET 10, EF Core 10, and SQL Server."
     });
+
+    options.CustomSchemaIds(type => type.FullName);
 });
 
+// ==========================================
 // 7. CORS
+// ==========================================
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
@@ -99,38 +112,49 @@ builder.Services.AddCors(options =>
     });
 });
 
+// ==========================================
 // 8. JWT AUTHENTICATION
+// ==========================================
 builder.Services.AddAuthentication(
     JwtBearerDefaults.AuthenticationScheme
 )
 .AddJwtBearer(options =>
 {
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
+    options.TokenValidationParameters =
+        new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
 
-        ValidateIssuer = true,
-        ValidIssuer = jwtSettings.Issuer,
+            ValidateIssuer = true,
+            ValidIssuer = jwtSettings.Issuer,
 
-        ValidateAudience = true,
-        ValidAudience = jwtSettings.Audience,
+            ValidateAudience = true,
+            ValidAudience = jwtSettings.Audience,
 
-        ValidateLifetime = true,
-        ClockSkew = TimeSpan.Zero
-    };
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        };
 });
 
+// ==========================================
 // 9. AUTHORIZATION
+// ==========================================
 builder.Services.AddAuthorization();
 
-// BUILD APPLICATION
+// ==========================================
+// 10. BUILD APPLICATION
+// ==========================================
 var app = builder.Build();
 
-// 10. MIDDLEWARE PIPELINE
-
+// ==========================================
+// 11. EXCEPTION HANDLING
+// ==========================================
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
+// ==========================================
+// 12. SWAGGER
+// ==========================================
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -146,14 +170,48 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+// ==========================================
+// 13. MIDDLEWARE PIPELINE
+// ==========================================
+
+// HTTPS Redirection
 app.UseHttpsRedirection();
 
+// Routing
+app.UseRouting();
+
+// CORS
 app.UseCors("AllowAngular");
 
+// Endpoint Metadata Diagnostics
+if (app.Environment.IsDevelopment())
+{
+    app.UseMiddleware<EndpointMetadataMiddleware>();
+}
+
+// Authentication
 app.UseAuthentication();
 
+// Authentication Diagnostics
+if (app.Environment.IsDevelopment())
+{
+    app.UseMiddleware<AuthenticationDiagnosticsMiddleware>();
+
+    app.UseMiddleware<AuthorizationDiagnosticsMiddleware>();
+}
+
+// Your existing custom authorization middleware
+app.UseMiddleware<CustomAuthorizationMiddleware>();
+
+// Authorization
 app.UseAuthorization();
 
+// ==========================================
+// 14. MAP CONTROLLERS
+// ==========================================
 app.MapControllers();
 
+// ==========================================
+// 15. RUN APPLICATION
+// ==========================================
 app.Run();

@@ -5,7 +5,6 @@ using MovieTicketBooking.Services.Interfaces;
 
 namespace MovieTicketBooking.Controllers
 {
-    [Authorize(Roles = "Owner")]
     [ApiController]
     [Route("api/[controller]")]
     public class ShowsController : ControllerBase
@@ -20,6 +19,7 @@ namespace MovieTicketBooking.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ShowResponseDto>>> GetAll()
         {
             var shows = await _showService.GetAllShowsAsync();
@@ -27,6 +27,7 @@ namespace MovieTicketBooking.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [AllowAnonymous]
         public async Task<ActionResult<ShowResponseDto>> GetById(int id)
         {
             var show = await _showService.GetShowByIdAsync(id);
@@ -37,6 +38,7 @@ namespace MovieTicketBooking.Controllers
         }
 
         [HttpGet("movie/{movieId:int}")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ShowResponseDto>>> GetByMovie(int movieId)
         {
             var shows = await _showService.GetShowsByMovieAsync(movieId);
@@ -44,6 +46,7 @@ namespace MovieTicketBooking.Controllers
         }
 
         [HttpGet("theatre/{theatreId:int}")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ShowResponseDto>>> GetByTheatre(int theatreId)
         {
             var shows = await _showService.GetShowsByTheatreAsync(theatreId);
@@ -51,12 +54,14 @@ namespace MovieTicketBooking.Controllers
         }
 
         [HttpGet("date/{date:datetime}")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ShowResponseDto>>> GetByDate(DateTime date)
         {
             var shows = await _showService.GetShowsByDateAsync(date);
             return Ok(shows);
         }
 
+        [Authorize(Roles = "Admin,Owner")]
         [HttpPost]
         public async Task<ActionResult<ShowResponseDto>> Create([FromBody] CreateShowDto dto)
         {
@@ -64,6 +69,7 @@ namespace MovieTicketBooking.Controllers
             return CreatedAtAction(nameof(GetById), new { id = created.ShowId }, created);
         }
 
+        [Authorize(Roles = "Admin,Owner")]
         [HttpPut("{id:int}")]
         public async Task<ActionResult<ShowResponseDto>> Update(int id, [FromBody] UpdateShowDto dto)
         {
@@ -71,6 +77,7 @@ namespace MovieTicketBooking.Controllers
             return Ok(updated);
         }
 
+        [Authorize(Roles = "Admin,Owner")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {

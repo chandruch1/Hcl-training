@@ -5,7 +5,7 @@ using MovieTicketBooking.Services.Interfaces;
 
 namespace MovieTicketBooking.Controllers
 {
-    [Authorize(Roles = "Owner")]
+   
     [ApiController]
     [Route("api/[controller]")]
     public class MoviesController : ControllerBase
@@ -20,6 +20,7 @@ namespace MovieTicketBooking.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<PagedMovieResponseDto>> GetAll([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
             var result = await _movieService.GetAllMoviesAsync(page, pageSize);
@@ -27,6 +28,7 @@ namespace MovieTicketBooking.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [AllowAnonymous]
         public async Task<ActionResult<MovieResponseDto>> GetById(int id)
         {
             var movie = await _movieService.GetMovieByIdAsync(id);
@@ -37,12 +39,14 @@ namespace MovieTicketBooking.Controllers
         }
 
         [HttpGet("search")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<MovieSummaryDto>>> Search([FromQuery] string title)
         {
             var movies = await _movieService.SearchMoviesByTitleAsync(title);
             return Ok(movies);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<MovieResponseDto>> Create([FromBody] CreateMovieDto dto)
         {
@@ -50,6 +54,7 @@ namespace MovieTicketBooking.Controllers
             return CreatedAtAction(nameof(GetById), new { id = created.MovieId }, created);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id:int}")]
         public async Task<ActionResult<MovieResponseDto>> Update(int id, [FromBody] UpdateMovieDto dto)
         {
@@ -57,6 +62,7 @@ namespace MovieTicketBooking.Controllers
             return Ok(updated);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {

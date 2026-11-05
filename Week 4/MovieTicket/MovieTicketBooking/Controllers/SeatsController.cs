@@ -5,7 +5,7 @@ using MovieTicketBooking.Services.Interfaces;
 
 namespace MovieTicketBooking.Controllers
 {
-    [Authorize(Roles = "Owner")]
+
     [ApiController]
     [Route("api/[controller]")]
     public class SeatsController : ControllerBase
@@ -20,6 +20,7 @@ namespace MovieTicketBooking.Controllers
         }
 
         [HttpGet("screen/{screenId:int}")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<SeatResponseDto>>> GetByScreen(int screenId)
         {
             var seats = await _seatService.GetSeatsByScreenAsync(screenId);
@@ -27,6 +28,7 @@ namespace MovieTicketBooking.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [AllowAnonymous]
         public async Task<ActionResult<SeatResponseDto>> GetById(int id)
         {
             var seat = await _seatService.GetSeatByIdAsync(id);
@@ -35,7 +37,7 @@ namespace MovieTicketBooking.Controllers
 
             return Ok(seat);
         }
-
+        [Authorize(Roles = "Admin,Owner")]
         [HttpPost]
         public async Task<ActionResult<SeatResponseDto>> Create([FromBody] CreateSeatDto dto)
         {
@@ -43,6 +45,7 @@ namespace MovieTicketBooking.Controllers
             return CreatedAtAction(nameof(GetById), new { id = created.SeatId }, created);
         }
 
+        [Authorize(Roles = "Admin,Owner")]
         [HttpPost("bulk")]
         public async Task<ActionResult<IEnumerable<SeatResponseDto>>> CreateBulk([FromBody] BulkCreateSeatDto dto)
         {
@@ -50,6 +53,7 @@ namespace MovieTicketBooking.Controllers
             return Ok(created);
         }
 
+        [Authorize(Roles = "Admin,Owner")]
         [HttpPut("{id:int}")]
         public async Task<ActionResult<SeatResponseDto>> Update(int id, [FromBody] UpdateSeatDto dto)
         {
@@ -57,6 +61,7 @@ namespace MovieTicketBooking.Controllers
             return Ok(updated);
         }
 
+        [Authorize(Roles = "Admin,Owner")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {

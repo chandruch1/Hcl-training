@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MovieTicketBooking.DTOs.Bookings;
 using MovieTicketBooking.Services.Interfaces;
 using MovieTicketBooking.Models;
+using System.Security.Claims;
 
 
 namespace MovieTicketBooking.Controllers
@@ -22,6 +23,7 @@ namespace MovieTicketBooking.Controllers
         }
 
         [HttpGet("{id:int}")]
+  
         public async Task<ActionResult<BookingResponseDto>> GetById(int id)
         {
             var booking = await _bookingService.GetBookingByIdAsync(id);
@@ -30,6 +32,7 @@ namespace MovieTicketBooking.Controllers
 
             return Ok(booking);
         }
+
 
         [HttpPost]
         public async Task<ActionResult<BookingResponseDto>> Create([FromBody] CreateBookingDto dto)
