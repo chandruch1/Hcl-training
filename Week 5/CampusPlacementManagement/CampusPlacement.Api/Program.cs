@@ -7,6 +7,8 @@ using Microsoft.IdentityModel.Tokens;
 using CampusPlacement.Api.Interfaces.Services;
 using CampusPlacement.Api.Services;
 using Scalar.AspNetCore;
+using CampusPlacement.Api.Interfaces.Repositories;
+using CampusPlacement.Api.Repositories;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +24,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ICollegeRepository, CollegeRepository>();
+builder.Services.AddScoped<ICollegeService, CollegeService>();
 
 // 2. ASP.NET Core Identity configuration
 builder.Services
