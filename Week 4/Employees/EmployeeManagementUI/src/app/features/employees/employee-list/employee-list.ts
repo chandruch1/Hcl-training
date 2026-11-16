@@ -19,6 +19,23 @@ export class EmployeeList implements OnInit {
 
   employees: Employee[] = [];
 
+  deleteEmployee(id:number):void{
+    const confirmDelete = confirm(`Are you Sure to Delete`);
+    if(!confirmDelete){
+      return;
+    }
+    this.employeeService.deleteEmployee(id).subscribe({
+      next : ()=>{
+        console.log(`This is delete Successfully`)
+        alert(`Employee delete Successfully`);
+      },
+      error : (error)=>{
+        console.error(error);
+        alert('Failed to delete employee');
+      }
+    });
+  }
+
   selectedEmployee : Employee | null= null;
   showEditEmployee = false;
 
@@ -37,7 +54,6 @@ export class EmployeeList implements OnInit {
   userRole : string | null = this.TokenService.getUserRole();
 
   isAdmin(): boolean{
-    console.log(`user role : ${this.userRole}`);
     return this.userRole==='Admin';
   }
 

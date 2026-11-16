@@ -64,6 +64,7 @@
               <td>
                 @if(isAdmin()){
                 <button class="btn btn-sm btn-outline-primary" (click)="openEditEmployee(employee)">Edit</button>
+                <button class="btn btn-sm btn-outline-danger" (click)="deleteEmployee(employee.employeeId)">Delete</button>
                 }
               </td>
             </tr>
