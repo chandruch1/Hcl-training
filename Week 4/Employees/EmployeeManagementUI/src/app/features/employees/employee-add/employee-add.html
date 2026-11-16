@@ -1,0 +1,125 @@
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h4>Add New Employee</h4>
+        </div>
+
+
+        <div class="card-body">
+
+            <form [formGroup]="employeeForm" (ngSubmit)="saveEmployee()">
+
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+
+                    <input type="text" class="form-control" formControlName="fullName" placeholder="Enter full name"
+                        [class.is-invalid]="
+            employeeForm.get('fullName')?.invalid &&
+            employeeForm.get('fullName')?.touched
+            ">
+
+                    @if (
+                    employeeForm.get('fullName')?.invalid &&
+                    employeeForm.get('fullName')?.touched
+                    ) {
+                    <div class="invalid-feedback">
+                        Full Name is required.
+                    </div>
+                    }
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Enter email"
+                        [class.is-invalid]="
+            employeeForm.get('email')?.invalid &&
+            employeeForm.get('email')?.touched
+            ">
+
+
+                    @if (
+                    employeeForm.get('email')?.hasError('required') &&
+                    employeeForm.get('email')?.touched
+                    ) {
+                    <div class="invalid-feedback">
+                        Email is required.
+                    </div>
+                    }
+
+                    @if (
+                    employeeForm.get('email')?.hasError('email') &&
+                    employeeForm.get('email')?.touched
+                    ) {
+                    <div class="invalid-feedback">
+
+                    </div>
+                    }
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Date of Joining</label>
+
+                    <input type="date" class="form-control" formControlName="dateOfJoining">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Salary</label>
+
+                    <input type="number" class="form-control" formControlName="salary" placeholder="Enter salary">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Department</label>
+
+                    <select class="form-select" formControlName="departmentId">
+                        <option [ngValue]="0">Select Department</option>
+                        <option [ngValue]="1">IT</option>
+                        <option [ngValue]="2">HR</option>
+                        <option [ngValue]="3">Finance</option>
+                    </select>
+                </div>
+
+
+
+                <div class="mb-3">
+                    <label class="form-label">Phone</label>
+
+                    <input type="text" class="form-control" formControlName="phone"
+                        placeholder="Enter 10-digit phone number" maxlength="10" [class.is-invalid]="
+            employeeForm.get('phone')?.invalid &&
+            employeeForm.get('phone')?.touched
+            ">
+
+                    @if (
+                    employeeForm.get('phone')?.hasError('required') &&
+                    employeeForm.get('phone')?.touched
+                    ) {
+                    <div class="invalid-feedback">
+                        Phone number is required.
+                    </div>
+                    }
+
+                    @if (
+                    employeeForm.get('phone')?.hasError('pattern') &&
+                    employeeForm.get('phone')?.touched
+                    ) {
+                    <div class="invalid-feedback">
+                        Enter a valid 10-digit phone number.
+                    </div>
+                    }
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Save Employee
+                </button>
+
+                <button type="button" class="btn btn-secondary" (click)="cancelForm()">
+                    Cancel
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,98 @@
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <div class="card shadow">
+
+                <div class="card-header text-center">
+                    <h3>Create Employee Account</h3>
+                </div>
+
+                <div class="card-body">
+
+                    <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+                        <!--username-->
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+
+                            <input type="text" class="form-control" formControlName="userName"
+                                placeholder="Enter username" [class.is-invalid]="
+      registerForm.get('userName')?.invalid &&
+      registerForm.get('userName')?.touched
+    ">
+
+                            @if (
+                            registerForm.get('userName')?.invalid &&
+                            registerForm.get('userName')?.touched
+                            ) {
+                            <div class="invalid-feedback">
+                                Username is required.
+                            </div>
+                            }
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+
+                            <input type="email" class="form-control" formControlName="email" placeholder="Enter email"
+                                [class.is-invalid]="
+      registerForm.get('email')?.invalid &&
+      registerForm.get('email')?.touched
+    ">
+
+                            @if (registerForm.get('email')?.hasError('required') &&
+                            registerForm.get('email')?.touched) {
+
+                            <div class="invalid-feedback">
+                                Email is required.
+                            </div>
+
+                            }
+                            @else if (registerForm.get('email')?.hasError('email') &&
+                            registerForm.get('email')?.touched) {
+
+                            <div class="invalid-feedback">
+                                Please enter a valid email address.
+                            </div>
+
+                            }
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+
+                            <input type="password" class="form-control" formControlName="password"
+                                placeholder="Enter password" [class.is-invalid]="
+      registerForm.get('password')?.invalid &&
+      registerForm.get('password')?.touched
+    ">
+
+                            @if (
+                            registerForm.get('password')?.hasError('required') &&
+                            registerForm.get('password')?.touched
+                            ) {
+                            <div class="invalid-feedback">
+                                Password is required.
+                            </div>
+                            }
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            Register
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

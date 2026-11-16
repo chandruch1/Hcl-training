@@ -1,0 +1,21 @@
+<div class="card shadow-sm mb-3">
+  <div class="card-body">
+
+    <h5>{{ employee().fullName }}</h5>
+
+    <p>Email: {{ employee().email }}</p>
+
+    <p>Phone: {{ employee().phone }}</p>
+
+    <p>Department: {{ employee().departmentName }}</p>
+
+    <p>Salary: {{ employee().salary }}</p>
+
+    @if (employee().isActive) {
+      <span class="badge bg-success">Active</span>
+    } @else {
+      <span class="badge bg-danger">Inactive</span>
+    }
+
+  </div>
+</div>

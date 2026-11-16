@@ -1,0 +1,102 @@
+<div class="container-fluid">
+
+  <!-- Page Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h3>Employees</h3>
+      <p class="text-secondary">Manage your employees</p>
+    </div>
+
+    @if (isAdmin()) {
+    <button class="btn btn-primary" (click)="openAddEmployee()">
+      Add Employee
+    </button>
+    }
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Search employee by name..." #searchBox
+          (input)="searchEmployees(searchBox.value)" />
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Employee Table -->
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+
+          <thead class="table-light">
+            <tr>
+              <th>ID</th>
+              <th>Full Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Department</th>
+              <th>Salary</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            @for (employee of employees; track employee.employeeId) {
+            <tr>
+              <td>{{ employee.employeeId }}</td>
+              <td>{{ employee.fullName }}</td>
+              <td>{{ employee.email }}</td>
+              <td>{{ employee.phone }}</td>
+              <td>{{ employee.departmentName }}</td>
+              <td>{{ employee.salary }}</td>
+              <td>{{ employee.role }}</td>
+              <td>
+                @if (employee.isActive) {
+                <span class="badge bg-success">Active</span>
+                } @else {
+                <span class="badge bg-danger">Inactive</span>
+                }
+              </td>
+              <td>
+                @if(isAdmin()){
+                <button class="btn btn-sm btn-outline-primary" (click)="openEditEmployee(employee)">Edit</button>
+                }
+              </td>
+            </tr>
+            } @empty {
+            <tr>
+              <td colspan="9" class="text-center text-secondary py-4">
+                No employees found
+              </td>
+            </tr>
+            }
+
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </div>
+
+  @if(showAddEmployee){
+  <app-employee-add (closeForm)="closeAddEmployee()"></app-employee-add>
+  }
+
+  @if(selectedEmployee && showEditEmployee){
+    <app-employee-edit [employee]="selectedEmployee" (closeForm)="closeEditEmployee()"></app-employee-edit>
+  }
+  <h3 class="mt-4">Employee Cards</h3>
+
+  <div class="row">
+    @for (employee of employees; track employee.employeeId) {
+    <div class="col-md-4">
+      <app-employee-card [employee]="employee">
+      </app-employee-card>
+    </div>
+    }
+  </div>
+</div>
