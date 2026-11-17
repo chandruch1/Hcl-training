@@ -64,7 +64,8 @@
               <td>
                 @if(isAdmin()){
                 <button class="btn btn-sm btn-outline-primary" (click)="openEditEmployee(employee)">Edit</button>
-                <button class="btn btn-sm btn-outline-danger" (click)="deleteEmployee(employee.employeeId)">Delete</button>
+                <button class="btn btn-sm btn-outline-danger"
+                  (click)="deleteEmployee(employee.employeeId)">Delete</button>
                 }
               </td>
             </tr>
@@ -83,12 +84,22 @@
     </div>
   </div>
 
-  @if(showAddEmployee){
-  <app-employee-add (closeForm)="closeAddEmployee()"></app-employee-add>
+  @if(showAddEmployee) {
+  <div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <app-employee-add (closeForm)="closeAddEmployee()">
+        </app-employee-add>
+
+      </div>
+    </div>
+  </div>
   }
 
   @if(selectedEmployee && showEditEmployee){
-    <app-employee-edit [employee]="selectedEmployee" (closeForm)="closeEditEmployee()"></app-employee-edit>
+  <app-employee-edit [employee]="selectedEmployee" (closeForm)="closeEditEmployee()"></app-employee-edit>
   }
   <h3 class="mt-4">Employee Cards</h3>
 

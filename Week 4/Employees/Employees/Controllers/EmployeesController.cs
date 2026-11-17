@@ -1,12 +1,15 @@
 using Employees.DTO;
 using Employees.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace Employees.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
+
     public class EmployeesController : ControllerBase
     {
         private readonly IEmployeeService _services;
@@ -14,13 +17,15 @@ namespace Employees.Controllers
         {
             _services = service;
         }
-
+        
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<List<EmployeeResponseDto>>> GetAll()
         {
             var employee= await _services.GetAllAsync();
             return Ok(employee);
         }
+        [Authorize(Roles ="Employee,Admin")]
         [HttpGet("{id}")]
         public async Task<ActionResult<EmployeeResponseDto>> GetById([FromRoute] int id)
         {
@@ -31,7 +36,9 @@ namespace Employees.Controllers
 
             return Ok(employee);
         }
+        [Authorize(Roles ="Employee,Admin")]
         [HttpPost] 
+        
         public async Task<ActionResult<EmployeeResponseDto>> Create([FromBody] InsertEmployeeDto employee)
         {
             var createdEmployee = await _services.CreateAsync(employee);
@@ -40,7 +47,9 @@ namespace Employees.Controllers
                 new { id = createdEmployee.EmployeeId },
                 createdEmployee);
         }
+        [Authorize(Roles ="Admin")]
         [HttpPut("{id}")]
+        
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateEmployeeDto employee)
         {
             
@@ -51,7 +60,9 @@ namespace Employees.Controllers
             }
             return NoContent();
         }
+         [Authorize(Roles ="Admin")]
         [HttpDelete("{id}")]
+       
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
             var res = await _services.DeleteAsync(id);

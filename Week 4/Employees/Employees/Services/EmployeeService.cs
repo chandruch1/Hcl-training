@@ -4,6 +4,8 @@ using Employees.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using Employees.DTO;
+using Employees.Enums;
+using Microsoft.AspNetCore.Identity;
 
 namespace Employees.Services
 {
@@ -85,8 +87,7 @@ namespace Employees.Services
                 DateOfJoining = dto.DateOfJoining,
                 Salary = dto.Salary,
                 DepartmentId = dto.DepartmentId,
-                Role = dto.Role,
-                IsActive = dto.IsActive
+                Role = UserRole.Employee,
             };
 
             // Step 2: Save Employee

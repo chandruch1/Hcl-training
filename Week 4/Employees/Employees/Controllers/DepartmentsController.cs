@@ -4,9 +4,11 @@ using Employees.Services;
 using Employees.Interfaces;
 using Employees.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Employees.Controllers
 {
+    [Authorize(Roles="Admin")]
     [ApiController]
     [Route("api/[controller]")]
     public class DepartmentsController : ControllerBase

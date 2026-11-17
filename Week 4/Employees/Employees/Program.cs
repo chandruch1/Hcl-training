@@ -18,6 +18,10 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
+builder.Services.AddScoped<RefreshTokenService>();
+builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<JwtService>();
+
 // Database configuration
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
@@ -56,7 +60,7 @@ builder.Services.AddAuthentication(option =>
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? throw new InvalidOperationException("JWT Key is missing")))
     };
 });
 
@@ -83,10 +87,8 @@ if (app.Environment.IsDevelopment())
 
 // Middleware order
 app.UseCors("AllowAngular");
-//app.UseHttpsRedirection();
-
-
-
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
 
 app.Run();

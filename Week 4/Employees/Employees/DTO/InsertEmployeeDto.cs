@@ -10,7 +10,6 @@ namespace Employees.DTO
         public DateTime DateOfJoining { get; set; }
         public decimal Salary { get; set; }
         public int DepartmentId { get; set; }
-        public UserRole Role { get; set; }
         public bool IsActive { get; set; } = true;
     }
 }
