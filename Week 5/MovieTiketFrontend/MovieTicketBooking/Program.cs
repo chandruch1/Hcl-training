@@ -153,6 +153,8 @@ app.UseCors("AllowAngular");
 
 app.UseAuthentication();
 
+app.UseMiddleware<CustomAuthorizationMiddleware>();
+
 app.UseAuthorization();
 
 app.MapControllers();

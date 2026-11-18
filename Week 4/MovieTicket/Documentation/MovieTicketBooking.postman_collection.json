@@ -1,0 +1,402 @@
+{
+  "info": {
+    "_postman_id": "a98e27c1-23d9-4821-bc76-9218d613aef1",
+    "name": "Movie Ticket Booking System API",
+    "description": "Complete Postman collection for the Movie Ticket Booking System (.NET 10 & EF Core 10).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5173",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Theatres",
+      "item": [
+        {
+          "name": "1.1 Create Theatre",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"PVR Cinemas IMAX\",\n  \"address\": \"Phoenix Marketcity, Velachery\",\n  \"city\": \"Chennai\",\n  \"state\": \"Tamil Nadu\",\n  \"phone\": \"+91-9876543210\",\n  \"email\": \"chennai@pvrcinemas.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/theatres",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "theatres"]
+            }
+          }
+        },
+        {
+          "name": "1.2 Get All Theatres",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/theatres",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "theatres"]
+            }
+          }
+        },
+        {
+          "name": "1.3 Get Theatre By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/theatres/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "theatres", "1"]
+            }
+          }
+        },
+        {
+          "name": "1.4 Update Theatre",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"PVR INOX Grand\",\n  \"address\": \"Phoenix Marketcity, Velachery\",\n  \"city\": \"Chennai\",\n  \"state\": \"Tamil Nadu\",\n  \"phone\": \"+91-9876543210\",\n  \"email\": \"grand@pvrcinemas.com\",\n  \"isActive\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/theatres/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "theatres", "1"]
+            }
+          }
+        },
+        {
+          "name": "1.5 Delete Theatre",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/theatres/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "theatres", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Screens",
+      "item": [
+        {
+          "name": "2.1 Create Screen",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"theatreId\": 1,\n  \"screenName\": \"Screen 1 - IMAX Laser\",\n  \"totalSeats\": 60,\n  \"screenType\": \"IMAX\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/screens",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "screens"]
+            }
+          }
+        },
+        {
+          "name": "2.2 Get All Screens",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/screens",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "screens"]
+            }
+          }
+        },
+        {
+          "name": "2.3 Get Screens By Theatre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/screens/theatre/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "screens", "theatre", "1"]
+            }
+          }
+        },
+        {
+          "name": "2.4 Get Screen By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/screens/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "screens", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Seats",
+      "item": [
+        {
+          "name": "3.1 Bulk Create Seats",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"screenId\": 1,\n  \"seats\": [\n    { \"rowLetter\": \"A\", \"columnNumber\": 1, \"seatType\": \"Regular\", \"price\": 180.00 },\n    { \"rowLetter\": \"A\", \"columnNumber\": 2, \"seatType\": \"Regular\", \"price\": 180.00 },\n    { \"rowLetter\": \"A\", \"columnNumber\": 3, \"seatType\": \"Regular\", \"price\": 180.00 },\n    { \"rowLetter\": \"B\", \"columnNumber\": 1, \"seatType\": \"VIP\", \"price\": 250.00 },\n    { \"rowLetter\": \"B\", \"columnNumber\": 2, \"seatType\": \"VIP\", \"price\": 250.00 }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/seats/bulk",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "seats", "bulk"]
+            }
+          }
+        },
+        {
+          "name": "3.2 Create Single Seat",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"screenId\": 1,\n  \"rowLetter\": \"C\",\n  \"columnNumber\": 1,\n  \"seatType\": \"Premium\",\n  \"price\": 300.00\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/seats",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "seats"]
+            }
+          }
+        },
+        {
+          "name": "3.3 Get Seats By Screen",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/seats/screen/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "seats", "screen", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Movies",
+      "item": [
+        {
+          "name": "4.1 Create Movie",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Interstellar\",\n  \"description\": \"A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.\",\n  \"genre\": \"Sci-Fi / Adventure\",\n  \"language\": \"English\",\n  \"durationMinutes\": 169,\n  \"releaseDate\": \"2014-11-07T00:00:00Z\",\n  \"rating\": 8.7,\n  \"posterUrl\": \"https://example.com/interstellar.jpg\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/movies",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "movies"]
+            }
+          }
+        },
+        {
+          "name": "4.2 Get All Movies (Paged)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/movies?page=1&pageSize=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "movies"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "pageSize", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "4.3 Search Movies By Title",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/movies/search?title=Interstellar",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "movies", "search"],
+              "query": [
+                { "key": "title", "value": "Interstellar" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "4.4 Get Movie By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/movies/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "movies", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Shows",
+      "item": [
+        {
+          "name": "5.1 Create Show",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"movieId\": 1,\n  \"screenId\": 1,\n  \"showDate\": \"2026-12-25T00:00:00Z\",\n  \"startTime\": \"18:00:00\",\n  \"basePrice\": 200.00\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/shows",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "shows"]
+            }
+          }
+        },
+        {
+          "name": "5.2 Get All Shows",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/shows",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "shows"]
+            }
+          }
+        },
+        {
+          "name": "5.3 Get Show By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/shows/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "shows", "1"]
+            }
+          }
+        },
+        {
+          "name": "5.4 Overlap Detection Test (Fails 400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"movieId\": 1,\n  \"screenId\": 1,\n  \"showDate\": \"2026-12-25T00:00:00Z\",\n  \"startTime\": \"19:00:00\",\n  \"basePrice\": 200.00\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/shows",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "shows"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Bookings",
+      "item": [
+        {
+          "name": "6.1 Create Booking",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"showId\": 1,\n  \"seatIds\": [1, 2],\n  \"customerName\": \"Alice Johnson\",\n  \"customerEmail\": \"alice@example.com\",\n  \"customerPhone\": \"+91-9123456780\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/bookings",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "bookings"]
+            }
+          }
+        },
+        {
+          "name": "6.2 Prevent Double Booking Test (Fails 400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"showId\": 1,\n  \"seatIds\": [1, 2],\n  \"customerName\": \"Bob Smith\",\n  \"customerEmail\": \"bob@example.com\",\n  \"customerPhone\": \"+91-9988776655\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/bookings",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "bookings"]
+            }
+          }
+        },
+        {
+          "name": "6.3 Get Booking By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bookings/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "bookings", "1"]
+            }
+          }
+        },
+        {
+          "name": "6.4 Cancel Booking",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bookings/1/cancel",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "bookings", "1", "cancel"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

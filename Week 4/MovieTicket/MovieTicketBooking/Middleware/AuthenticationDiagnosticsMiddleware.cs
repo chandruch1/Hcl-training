@@ -30,7 +30,8 @@ public class AuthenticationDiagnosticsMiddleware
             context.User.Identity?.AuthenticationType);
 
         // Display JWT claims
-        foreach (var claim in context.User.Claims)
+        var v1 = context.User.Claims;
+        foreach (var claim in v1)
         {
             _logger.LogInformation(
                 "Claim Type: {ClaimType}, Claim Value: {ClaimValue}",
